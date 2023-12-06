@@ -1,18 +1,16 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
 import HeroSection from '../components/HomeSections/HeroSection'
 import CardsSection from '../components/HomeSections/CardsSection'
 import PortfolioSection from '../components/HomeSections/PortfolioSection'
 import Footer from '../components/Footer'
-import { AnimatePresence, motion as m } from 'framer-motion'
+import { motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
-import { useRouterContext } from '@/store/router-ctx'
+import Lenis from '@studio-freight/lenis'
 
 const page = () => {
   const [variants, setVariants] = useState(null)
-  const [firstRender, setFirstRender] = useState(false)
 
   const {
     animationPosition,
@@ -21,6 +19,18 @@ const page = () => {
     updateAnimationStarted,
     updateBackgroundColor,
   } = useAnimationContext()
+
+  // Smooth scroll
+  useEffect(() => {
+    const lenis = new Lenis()
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+  }, [animationFinished])
 
   useEffect(() => {
     const screenWidth = window.innerWidth
@@ -62,8 +72,6 @@ const page = () => {
         },
       }
     }
-
-    console.log(variantsObj)
 
     setVariants(variantsObj)
   }, [animationPosition])

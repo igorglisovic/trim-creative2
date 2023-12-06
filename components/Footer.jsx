@@ -7,7 +7,7 @@ import Logo from '../public/trim-logo.png'
 import { navItemsSr } from '../data/nav'
 import Image from 'next/image'
 import Link from 'next/link'
-// import { EmailOutlined, Instagram } from '@mui/icons-material'
+import { EmailOutlined, Instagram } from '@mui/icons-material'
 
 const Footer = () => {
   const { gabaritoFont, akiraFont } = useFontsContext()
@@ -74,13 +74,13 @@ const Footer = () => {
           </nav>
           <div className="flex gap-2 items-center">
             <Link href="/">
-              {/* <Instagram className="text-white" sx={{ fontSize: '1.9rem' }} /> */}
+              <Instagram className="text-white" sx={{ fontSize: '1.9rem' }} />
             </Link>
             <Link href="/">
-              {/* <EmailOutlined
+              <EmailOutlined
                 className="text-white"
                 sx={{ fontSize: '1.9rem' }}
-              /> */}
+              />
             </Link>
           </div>
         </div>

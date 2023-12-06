@@ -11,7 +11,7 @@ import Button from '../UI/Button'
 import Image from 'next/image'
 import { cards as cardsData } from '../../data/cards'
 import { useFontsContext } from '@/store/fonts-ctx'
-// import { KeyboardArrowDown } from '@mui/icons-material'
+import { KeyboardArrowDown } from '@mui/icons-material'
 import Link from 'next/link'
 import { useAnimationContext } from '@/store/animation-ctx'
 // import { useAnimationContext } from '@//store/animation-ctx'
@@ -149,12 +149,12 @@ const CardsSection = () => {
                         initial={cards[i].active ? 'open' : 'closed'}
                         animate={cards[i].active ? 'open' : 'closed'}
                       >
-                        {/* <KeyboardArrowDown
+                        <KeyboardArrowDown
                           sx={{
                             stroke: card.active && 'white',
                             strokeWidth: card.active && '1px',
                           }}
-                        /> */}
+                        />
                       </motion.div>
                     </button>
                     <motion.div

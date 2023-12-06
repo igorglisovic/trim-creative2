@@ -35,7 +35,11 @@ const Nav = ({ gabarito, akira }) => {
   }
 
   return (
-    <header className={`${gabaritoFont?.className}`}>
+    <header
+      className={`${gabaritoFont?.className} ${
+        animationFinished ? '' : 'move-header'
+      }`}
+    >
       <Container>
         <div className="relative min-h-[95px] whitespace-nowrap">
           <div className="md:w-[8rem] w-[6.3rem] absolute left-0 position-center z-[999999999999999999]">

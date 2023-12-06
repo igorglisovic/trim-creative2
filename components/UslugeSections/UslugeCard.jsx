@@ -1,4 +1,4 @@
-// import { East, West } from '@mui/icons-material'
+import { East, West } from '@mui/icons-material'
 import Trim from '../../public/aa.png'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -59,7 +59,7 @@ const UslugeCard = ({ card, cards, setCards, index }) => {
               className="px-[0.9em] border-0 float-right flex rounded-full bg-arrow"
               onClick={handleClick}
             >
-              {/* {!card.active ? (
+              {!card.active ? (
                 <East
                   sx={{
                     color: 'rgba(255, 255, 255, 0.48)',
@@ -73,7 +73,7 @@ const UslugeCard = ({ card, cards, setCards, index }) => {
                     fontSize: '1.9rem',
                   }}
                 />
-              )} */}
+              )}
             </button>
           </motion.div>
           <motion.div
@@ -109,7 +109,7 @@ const UslugeCard = ({ card, cards, setCards, index }) => {
               onClick={handleClick}
               className="px-[0.9em] border-0 self-start flex rounded-full bg-arrow"
             >
-              {/* {card.active ? (
+              {card.active ? (
                 <East
                   sx={{
                     color: 'rgba(255, 255, 255, 0.48)',
@@ -123,7 +123,7 @@ const UslugeCard = ({ card, cards, setCards, index }) => {
                     fontSize: '1.9rem',
                   }}
                 />
-              )} */}
+              )}
             </button>
           </motion.div>
           <motion.div

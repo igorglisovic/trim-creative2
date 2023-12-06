@@ -9,6 +9,7 @@ import Footer from '../components/Footer'
 import { AnimatePresence, motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
 import UslugeCards from '@/components/UslugeSections/UslugeCards'
+import Lenis from '@studio-freight/lenis'
 
 const page = () => {
   const [cards, setCards] = useState(uslugeCards)
@@ -21,6 +22,18 @@ const page = () => {
     updateAnimationStarted,
     updateBackgroundColor,
   } = useAnimationContext()
+
+  // Smooth scroll
+  useEffect(() => {
+    const lenis = new Lenis()
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+  }, [animationFinished])
 
   useEffect(() => {
     const screenWidth = window.innerWidth

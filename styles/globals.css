@@ -16,8 +16,16 @@
   }
 }
 
+html {
+  overflow-x: hidden;
+}
+
+.move-header {
+  padding-right: 16px;
+}
+
 .test {
-  position: absolute;
+  /* position: absolute; */
   will-change: clip-path;
   width: 100%;
   top: 0;
@@ -27,6 +35,10 @@
   z-index: 50000;
   padding-top: 95px;
   background: white;
+  position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* display: none; */
 }
 
 .nav {
