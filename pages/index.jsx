@@ -8,6 +8,7 @@ import Footer from '../components/Footer'
 import { motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
 import Lenis from '@studio-freight/lenis'
+import Nav from '@/components/Header'
 
 const page = ({ mainFont, secondaryFont }) => {
   const [variants, setVariants] = useState(null)
@@ -42,12 +43,12 @@ const page = ({ mainFont, secondaryFont }) => {
       console.log(screenHeight, screenWidth)
       variantsObj = {
         hidden: {
-          clipPath: `circle(0px at ${965}px ${screenHeight / 2}px)`,
+          clipPath: `circle(0px at ${screenWidth / 2}px ${screenHeight / 2}px)`,
         },
         show: {
           clipPath: `circle(${
             screenWidth > screenHeight ? screenWidth : screenHeight
-          }px at ${960}px ${screenHeight / 2}px)`,
+          }px at ${screenWidth / 2}px ${screenHeight / 2}px)`,
           transitionEnd: {
             clipPath: 'none',
           },
@@ -84,7 +85,7 @@ const page = ({ mainFont, secondaryFont }) => {
         animate={'show'}
         exit={{ opacity: 0.99 }}
         transition={{
-          duration: 3,
+          duration: 2,
           type: 'ease-out',
         }}
         onAnimationStart={() => {
@@ -96,10 +97,11 @@ const page = ({ mainFont, secondaryFont }) => {
           updateAnimationStarted(false)
           updateBackgroundColor(false)
         }}
-        className={`home ${animationFinished ? '' : 'test'} ${
+        className={`home ${animationFinished ? '' : 'page-transition'} ${
           mainFont.className
         }`}
       >
+        {/* <Nav secondaryFont={secondaryFont} /> */}
         <HeroSection secondaryFont={secondaryFont} />
         <CardsSection secondaryFont={secondaryFont} />
         <PortfolioSection />

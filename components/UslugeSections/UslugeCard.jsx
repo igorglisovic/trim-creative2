@@ -46,7 +46,9 @@ const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
   return (
     <>
       {card.type ? (
-        <section className={`flex gap-7 ${secondaryFont.className}`}>
+        <section
+          className={`flex gap-7 ${secondaryFont.className} min-h-[320px]`}
+        >
           <motion.div
             variants={cardVariants}
             initial={card.active ? 'open' : 'closed'}

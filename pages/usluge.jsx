@@ -10,6 +10,7 @@ import { AnimatePresence, motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
 import UslugeCards from '@/components/UslugeSections/UslugeCards'
 import Lenis from '@studio-freight/lenis'
+import Nav from '@/components/Header'
 
 const page = ({ mainFont, secondaryFont }) => {
   const [cards, setCards] = useState(uslugeCards)
@@ -85,7 +86,7 @@ const page = ({ mainFont, secondaryFont }) => {
         animate={'show'}
         exit={{ opacity: 0.99 }}
         transition={{
-          duration: 3,
+          duration: 2,
           type: 'ease-out',
         }}
         onAnimationStart={() => {
@@ -97,10 +98,11 @@ const page = ({ mainFont, secondaryFont }) => {
           updateAnimationStarted(false)
           updateBackgroundColor(false)
         }}
-        className={`usluge ${animationFinished ? '' : 'test'} ${
+        className={`usluge ${animationFinished ? '' : 'page-transition'} ${
           mainFont.className
         }`}
       >
+        {/* <Nav secondaryFont={secondaryFont} /> */}
         <UslugeCards secondaryFont={secondaryFont} />
         <Footer secondaryFont={secondaryFont} />
       </m.main>
