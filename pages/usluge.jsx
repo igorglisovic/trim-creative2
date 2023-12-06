@@ -6,7 +6,7 @@ import H1 from '../components/UI/H1'
 import UslugeCard from '../components/UslugeSections/UslugeCard'
 import { uslugeCards } from '../data/cards'
 import Footer from '../components/Footer'
-import { motion as m } from 'framer-motion'
+import { AnimatePresence, motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
 import UslugeCards from '@/components/UslugeSections/UslugeCards'
 

@@ -7,6 +7,8 @@ import { AnimatePresence } from 'framer-motion'
 import Nav from '../components/Header'
 
 export default function App({ Component, pageProps, router }) {
+  console.log(router)
+
   return (
     <div>
       <ContainerContextProvider>
@@ -14,8 +16,8 @@ export default function App({ Component, pageProps, router }) {
           <AnimationContextProvider>
             <RouterContextProvider>
               <Nav />
-              <AnimatePresence initial={false}>
-                <Component key={router.pathname} {...pageProps} />
+              <AnimatePresence>
+                <Component key={router._key} {...pageProps} />
               </AnimatePresence>
             </RouterContextProvider>
           </AnimationContextProvider>

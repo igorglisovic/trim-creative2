@@ -6,12 +6,13 @@ import HeroSection from '../components/HomeSections/HeroSection'
 import CardsSection from '../components/HomeSections/CardsSection'
 import PortfolioSection from '../components/HomeSections/PortfolioSection'
 import Footer from '../components/Footer'
-import { motion as m } from 'framer-motion'
+import { AnimatePresence, motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
 import { useRouterContext } from '@/store/router-ctx'
 
 const page = () => {
-  const [variants, setVariants] = useState()
+  const [variants, setVariants] = useState(null)
+  const [firstRender, setFirstRender] = useState(false)
 
   const {
     animationPosition,
@@ -28,14 +29,15 @@ const page = () => {
     let variantsObj
 
     if (!animationPosition?.x || !animationPosition?.y) {
+      console.log(screenHeight, screenWidth)
       variantsObj = {
         hidden: {
-          clipPath: `circle(0px at ${screenWidth / 2}px ${screenHeight / 2}px)`,
+          clipPath: `circle(0px at ${965}px ${screenHeight / 2}px)`,
         },
         show: {
           clipPath: `circle(${
             screenWidth > screenHeight ? screenWidth : screenHeight
-          }px at ${screenWidth / 2}px ${screenHeight / 2}px)`,
+          }px at ${960}px ${screenHeight / 2}px)`,
           transitionEnd: {
             clipPath: 'none',
           },
@@ -60,6 +62,9 @@ const page = () => {
         },
       }
     }
+
+    console.log(variantsObj)
+
     setVariants(variantsObj)
   }, [animationPosition])
 

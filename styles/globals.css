@@ -20,10 +20,8 @@
   position: absolute;
   will-change: clip-path;
   width: 100%;
-  left: 0px;
-  top: 0px;
-  /* position: fixed; */
-  /* overflow: hidden; */
+  top: 0;
+  left: 0;
   height: 100vh;
   visibility: visible;
   z-index: 50000;

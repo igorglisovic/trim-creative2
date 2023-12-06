@@ -7,8 +7,6 @@ import { motion } from 'framer-motion'
 const UslugeCard = ({ card, cards, setCards, index }) => {
   const [clickedCard, setClickedCard] = useState(card)
 
-  console.log(cards)
-
   const cardVariants = {
     closed: {
       flexGrow: 1,
