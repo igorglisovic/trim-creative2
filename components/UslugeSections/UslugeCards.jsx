@@ -4,7 +4,7 @@ import UslugeCard from './UslugeCard'
 import { uslugeCards } from '../../data/cards'
 import H1 from '../UI/H1'
 
-const UslugeCards = () => {
+const UslugeCards = ({ secondaryFont }) => {
   const [cards, setCards] = useState(uslugeCards)
 
   return (
@@ -19,6 +19,7 @@ const UslugeCards = () => {
               card={card}
               setCards={setCards}
               index={index}
+              secondaryFont={secondaryFont}
             />
           ))}
         </div>

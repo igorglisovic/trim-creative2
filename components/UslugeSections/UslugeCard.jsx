@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 
-const UslugeCard = ({ card, cards, setCards, index }) => {
+const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
   const [clickedCard, setClickedCard] = useState(card)
 
   const cardVariants = {
@@ -46,7 +46,7 @@ const UslugeCard = ({ card, cards, setCards, index }) => {
   return (
     <>
       {card.type ? (
-        <section className="flex gap-7">
+        <section className={`flex gap-7 ${secondaryFont.className}`}>
           <motion.div
             variants={cardVariants}
             initial={card.active ? 'open' : 'closed'}
@@ -90,7 +90,9 @@ const UslugeCard = ({ card, cards, setCards, index }) => {
           </motion.div>
         </section>
       ) : (
-        <section className="flex flex-row-reverse gap-7">
+        <section
+          className={`flex flex-row-reverse gap-7 ${secondaryFont.className}`}
+        >
           <motion.div
             variants={cardVariants}
             initial={card.active ? 'open' : 'closed'}

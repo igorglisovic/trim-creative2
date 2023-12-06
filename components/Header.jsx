@@ -6,24 +6,15 @@ import Logo from '../public/trim-logo.png'
 import { navItemsSr } from '../data/nav'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
-import { useFontsContext } from '../store/fonts-ctx'
+import { useState } from 'react'
 import { useAnimationContext } from '../store/animation-ctx'
 import { motion } from 'framer-motion'
 
-const Nav = ({ gabarito, akira }) => {
+const Nav = ({ secondaryFont }) => {
   const [expand, setExpand] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
 
-  const { updateGabaritoFont, updateAkiraFont, gabaritoFont } =
-    useFontsContext()
-
   const { updateAnimationPosition, animationFinished } = useAnimationContext()
-
-  useEffect(() => {
-    updateAkiraFont(akira)
-    updateGabaritoFont(gabarito)
-  }, [gabarito, akira])
 
   const handleClick = e => {
     if (!animationFinished) {
@@ -36,7 +27,7 @@ const Nav = ({ gabarito, akira }) => {
 
   return (
     <header
-      className={`${gabaritoFont?.className} ${
+      className={`${secondaryFont?.className} ${
         animationFinished ? '' : 'move-header'
       }`}
     >

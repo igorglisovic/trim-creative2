@@ -11,7 +11,7 @@ import { useAnimationContext } from '@/store/animation-ctx'
 import UslugeCards from '@/components/UslugeSections/UslugeCards'
 import Lenis from '@studio-freight/lenis'
 
-const page = () => {
+const page = ({ mainFont, secondaryFont }) => {
   const [cards, setCards] = useState(uslugeCards)
   const [variants, setVariants] = useState()
 
@@ -97,10 +97,12 @@ const page = () => {
           updateAnimationStarted(false)
           updateBackgroundColor(false)
         }}
-        className={`usluge ${animationFinished ? '' : 'test'}`}
+        className={`usluge ${animationFinished ? '' : 'test'} ${
+          mainFont.className
+        }`}
       >
-        <UslugeCards />
-        <Footer />
+        <UslugeCards secondaryFont={secondaryFont} />
+        <Footer secondaryFont={secondaryFont} />
       </m.main>
     )
   )

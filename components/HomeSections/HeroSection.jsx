@@ -10,16 +10,14 @@ import Trim2 from '../../public/bmwm4.jpg'
 import Button from '../UI/Button'
 import Image from 'next/image'
 import { useContainerContext } from '@/store/container-ctx'
-import { useFontsContext } from '@//store/fonts-ctx'
 import { useAnimationContext } from '@//store/animation-ctx'
 import Container from '../UI/Container'
 import H1 from '../UI/H1'
 
-const HeroSection = () => {
+const HeroSection = ({ secondaryFont }) => {
   const [hookedYPostion, setHookedYPosition] = useState(0)
 
   const { containerWidth } = useContainerContext()
-  const { gabaritoFont, akiraFont } = useFontsContext()
   const { animationFinished } = useAnimationContext()
 
   const { scrollYProgress } = useScroll()
@@ -47,7 +45,7 @@ const HeroSection = () => {
             </H1>
           </div>
           <div
-            className={`${gabaritoFont?.className} flex flex-col md:flex-row md:text-left text-center lg:gap-10 gap-8 mt-14 relative`}
+            className={`${secondaryFont?.className} flex flex-col md:flex-row md:text-left text-center lg:gap-10 gap-8 mt-14 relative`}
           >
             {/* Circles */}
             <motion.div

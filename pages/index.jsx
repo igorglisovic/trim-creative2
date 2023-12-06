@@ -9,7 +9,7 @@ import { motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
 import Lenis from '@studio-freight/lenis'
 
-const page = () => {
+const page = ({ mainFont, secondaryFont }) => {
   const [variants, setVariants] = useState(null)
 
   const {
@@ -96,12 +96,14 @@ const page = () => {
           updateAnimationStarted(false)
           updateBackgroundColor(false)
         }}
-        className={`home ${animationFinished ? '' : 'test'}`}
+        className={`home ${animationFinished ? '' : 'test'} ${
+          mainFont.className
+        }`}
       >
-        <HeroSection />
-        <CardsSection />
+        <HeroSection secondaryFont={secondaryFont} />
+        <CardsSection secondaryFont={secondaryFont} />
         <PortfolioSection />
-        <Footer />
+        <Footer secondaryFont={secondaryFont} />
       </m.main>
     )
   )

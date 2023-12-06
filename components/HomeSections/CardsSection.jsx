@@ -10,18 +10,16 @@ import Trim from '../../public/aa.png'
 import Button from '../UI/Button'
 import Image from 'next/image'
 import { cards as cardsData } from '../../data/cards'
-import { useFontsContext } from '@/store/fonts-ctx'
 import { KeyboardArrowDown } from '@mui/icons-material'
 import Link from 'next/link'
 import { useAnimationContext } from '@/store/animation-ctx'
 // import { useAnimationContext } from '@//store/animation-ctx'
 
-const CardsSection = () => {
+const CardsSection = ({ secondaryFont }) => {
   const [hookedYPostion, setHookedYPosition] = useState(0)
   const [cards, setCards] = useState(cardsData)
   const [clickedCard, setClickedCard] = useState(cardsData[0])
 
-  const { gabaritoFont, akiraFont } = useFontsContext()
   const { animationFinished } = useAnimationContext()
 
   const { scrollYProgress } = useScroll()
@@ -114,7 +112,7 @@ const CardsSection = () => {
           ></motion.div>
 
           <h2
-            className={`${akiraFont?.className} text-white sm:text-4xl text-3xl text-center sm:text-left`}
+            className={`text-white sm:text-4xl text-3xl text-center sm:text-left`}
           >
             Maximizing Your Online Impact
           </h2>
@@ -126,7 +124,7 @@ const CardsSection = () => {
                 alt=""
               />
             </div>
-            <div className={`${gabaritoFont?.className} flex-1`}>
+            <div className={`${secondaryFont?.className} flex-1`}>
               <ul className="flex flex-col gap-3">
                 {cards?.map((card, i) => (
                   <li

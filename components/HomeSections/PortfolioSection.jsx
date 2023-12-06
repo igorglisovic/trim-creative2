@@ -9,13 +9,11 @@ import {
 import { useState } from 'react'
 import Trim from '../../public/aa.png'
 import { useAnimationContext } from '@//store/animation-ctx'
-import { useFontsContext } from '@//store/fonts-ctx'
 
 const PortfolioSection = () => {
   const [hookedYPostion, setHookedYPosition] = useState(0)
 
   const { animationFinished } = useAnimationContext()
-  const { akiraFont } = useFontsContext()
 
   const { scrollYProgress } = useScroll()
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -hookedYPostion - 20])
@@ -51,9 +49,7 @@ const PortfolioSection = () => {
             className="bg-circle-gradient w-[80px] h-[80px] rounded-full absolute right-[287px] top-[102px] z-[1] rotate-[99.13deg]"
           ></motion.div>
 
-          <h2
-            className={`${akiraFont?.className} text-center sm:text-4xl text-3xl mb-12`}
-          >
+          <h2 className={`text-center sm:text-4xl text-3xl mb-12`}>
             Portfolio
           </h2>
           <div className="flex flex-col w-full md:flex-row gap-5 min-h-[600px]">
