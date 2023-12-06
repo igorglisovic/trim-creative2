@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+.test {
+  position: absolute;
+  will-change: clip-path;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  /* position: fixed; */
+  /* overflow: hidden; */
+  height: 100vh;
+  visibility: visible;
+  z-index: 50000;
+  padding-top: 95px;
+  background: white;
+}
+
+.nav {
+  transform: translateX(-50%) translateY(-50%);
+  left: 50%;
+  top: 50%;
+}
+
+.position-center {
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.input {
+  @apply bg-transparent border-b-[1px] py-4 px-3 text-white;
+}
+
+.input:focus {
+  @apply border-[1px] outline-none rounded-[10px];
+}
+
+.input::placeholder {
+  color: #e4e4e4;
+}
+
+.three-line-ellipsis {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  line-height: 1.7;
+}
+
+.button-two .line {
+  animation: to-open-icon 1s forwards;
+}
+
+.button-two-hover .line {
+  animation: to-close-icon 1s forwards;
+}
+
+.button-two .line.top {
+  --rotation: -45deg;
+  transform-origin: 57px 53px;
+  --dash-array: 80;
+}
+
+.button-two .line.bottom {
+  --rotation: 45deg;
+  --dash-array: 80;
+  transform-origin: 56px 49px;
+}
+
+@keyframes to-close-icon {
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  40% {
+    stroke-dashoffset: 79.9;
+  }
+
+  60% {
+    stroke-dashoffset: 79.9;
+    stroke-dasharray: var(--dash-array);
+    transform: rotate(var(--rotation));
+    scale: 0.5;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: var(--dash-array);
+    transform: rotate(var(--rotation));
+    scale: 0.5;
+  }
+}
+
+@keyframes to-open-icon {
+  0% {
+    stroke-dashoffset: 0;
+    transform: rotate(var(--rotation));
+    scale: 0.5;
+  }
+
+  40% {
+    stroke-dashoffset: 79.9;
+    transform: rotate(var(--rotation));
+    scale: 0.5;
+  }
+
+  60% {
+    stroke-dashoffset: 79.9;
+    scale: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    scale: 1;
+  }
+}
