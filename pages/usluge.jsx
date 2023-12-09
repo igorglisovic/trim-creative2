@@ -1,19 +1,13 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Container from '../components/UI/Container'
-import H1 from '../components/UI/H1'
-import UslugeCard from '../components/UslugeSections/UslugeCard'
-import { uslugeCards } from '../data/cards'
 import Footer from '../components/Footer'
-import { AnimatePresence, motion as m } from 'framer-motion'
+import { motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
 import UslugeCards from '@/components/UslugeSections/UslugeCards'
 import Lenis from '@studio-freight/lenis'
-import Nav from '@/components/Header'
 
 const page = ({ mainFont, secondaryFont }) => {
-  const [cards, setCards] = useState(uslugeCards)
   const [variants, setVariants] = useState()
 
   let {

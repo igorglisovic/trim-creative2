@@ -45,14 +45,14 @@ export const uslugeCards = [
     type: 0,
   },
   {
-    title: 'Graficki dizajn',
+    title: 'Grafički dizajn',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justo eleifend varius. Sed id est ut ligula suscipit finibus. In euismod risus vitae nisl tincidunt, sit amet facilisis libero tristique. Cras vitae tellus at ex luctus fringilla nec id dui. Cras vitae tellus at ex luctus fringilla nec id dui.',
     active: false,
     type: 1,
   },
   {
-    title: 'Drustvene mreze',
+    title: 'Društvene mreže',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justofdsf. Loremingo ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justo eleifend varius. Sed id est ut ligula suscipit finibus. In euismod risus vitae nisl tincidunt, sit amet facilisis libero tristique. Cras vitae tellus at ex luctus fringilla nec id dui. Cras vitae tellus at ex luctus fringilla nec id dui.',
     active: false,

@@ -1,5 +1,3 @@
-'use client'
-
 import { useAnimationContext } from '@//store/animation-ctx'
 import { useContainerContext } from '@//store/container-ctx'
 import { useEffect, useRef } from 'react'

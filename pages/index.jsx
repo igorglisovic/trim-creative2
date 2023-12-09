@@ -8,7 +8,6 @@ import Footer from '../components/Footer'
 import { motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
 import Lenis from '@studio-freight/lenis'
-import Nav from '@/components/Header'
 
 const page = ({ mainFont, secondaryFont }) => {
   const [variants, setVariants] = useState(null)
