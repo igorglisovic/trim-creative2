@@ -1,34 +1,19 @@
 import Container from '../UI/Container'
 import { useState } from 'react'
-import {
-  useScroll,
-  useTransform,
-  motion,
-  useMotionValueEvent,
-} from 'framer-motion'
+import { useScroll, useTransform, motion } from 'framer-motion'
 import Trim from '../../public/aa.png'
 import Button from '../UI/Button'
 import Image from 'next/image'
 import { cards as cardsData } from '../../data/cards'
 import { KeyboardArrowDown } from '@mui/icons-material'
 import Link from 'next/link'
-import { useAnimationContext } from '@/store/animation-ctx'
 
 const CardsSection = ({ secondaryFont }) => {
-  const [hookedYPostion, setHookedYPosition] = useState(0)
   const [cards, setCards] = useState(cardsData)
   const [clickedCard, setClickedCard] = useState(cardsData[0])
 
-  const { animationFinished } = useAnimationContext()
-
   const { scrollYProgress } = useScroll()
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -hookedYPostion - 20])
-
-  useMotionValueEvent(scrollYProgress, 'change', () => {
-    if (animationFinished) {
-      setHookedYPosition(80)
-    }
-  })
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -80 - 20])
 
   const cardVariants = {
     closed: {

@@ -1,35 +1,11 @@
 import Image from 'next/image'
 import Container from '../UI/Container'
-import {
-  useScroll,
-  useTransform,
-  motion,
-  useMotionValueEvent,
-} from 'framer-motion'
-import { useState } from 'react'
+import { useScroll, useTransform, motion } from 'framer-motion'
 import Trim from '../../public/aa.png'
-import { useAnimationContext } from '@//store/animation-ctx'
 
 const PortfolioSection = () => {
-  const [hookedYPostion, setHookedYPosition] = useState(0)
-
-  const { animationFinished } = useAnimationContext()
-
   const { scrollYProgress } = useScroll()
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -hookedYPostion - 20])
-
-  const whileHoverVariant = {
-    show: {
-      transition: { type: 'spring', stiffness: 300, damping: 50 },
-      flex: '5 1 0',
-    },
-  }
-
-  useMotionValueEvent(scrollYProgress, 'change', () => {
-    if (animationFinished) {
-      setHookedYPosition(80)
-    }
-  })
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -80 - 20])
 
   return (
     <section className="py-20">

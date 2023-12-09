@@ -53,14 +53,14 @@ const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
             variants={cardVariants}
             initial={card.active ? 'open' : 'closed'}
             animate={card.active ? 'open' : 'closed'}
-            className="flex-1 bg-main-gradient rounded-[37px] p-8 text-white"
+            className="flex-1 flex flex-col bg-main-gradient rounded-[37px] p-8 text-white"
           >
             <h2 className="text-4xl font-bold mb-4 w-[50%] uppercase">
               {card.title}
             </h2>
             <p className="mb-5 three-line-ellipsis">{card.description}</p>
             <button
-              className="px-[0.9em] border-0 float-right flex rounded-full bg-arrow"
+              className="px-[0.9em] border-0 float-right flex rounded-full bg-arrow self-end mt-auto"
               onClick={handleClick}
             >
               {!card.active ? (
@@ -95,7 +95,7 @@ const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
         </section>
       ) : (
         <section
-          className={`flex flex-row-reverse gap-7 ${secondaryFont.className}`}
+          className={`flex flex-row-reverse gap-7 min-h-[320px] ${secondaryFont.className}`}
         >
           <motion.div
             variants={cardVariants}
@@ -113,7 +113,7 @@ const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
             </p>
             <button
               onClick={handleClick}
-              className="px-[0.9em] border-0 self-start flex rounded-full bg-arrow"
+              className="px-[0.9em] border-0 self-start mt-auto flex rounded-full bg-arrow"
             >
               {card.active ? (
                 <East

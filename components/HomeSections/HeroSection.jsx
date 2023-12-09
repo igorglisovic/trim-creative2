@@ -9,7 +9,6 @@ import Trim from '../../public/aa.png'
 import Trim2 from '../../public/bmwm4.jpg'
 import Button from '../UI/Button'
 import Image from 'next/image'
-import { useContainerContext } from '@/store/container-ctx'
 import { useAnimationContext } from '@//store/animation-ctx'
 import Container from '../UI/Container'
 import H1 from '../UI/H1'
@@ -17,16 +16,16 @@ import H1 from '../UI/H1'
 const HeroSection = ({ secondaryFont }) => {
   const [hookedYPostion, setHookedYPosition] = useState(0)
 
-  const { containerWidth } = useContainerContext()
   const { animationFinished } = useAnimationContext()
 
   const { scrollYProgress } = useScroll()
   const y = useTransform(scrollYProgress, [0, 1], [0, -hookedYPostion])
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -hookedYPostion - 20])
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -hookedYPostion])
 
   useMotionValueEvent(scrollYProgress, 'change', () => {
-    if (animationFinished) {
+    if (animationFinished && hookedYPostion !== 80) {
       setHookedYPosition(80)
+      console.log(animationFinished)
     }
   })
 

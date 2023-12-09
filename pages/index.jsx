@@ -101,7 +101,6 @@ const page = ({ mainFont, secondaryFont }) => {
           mainFont.className
         }`}
       >
-        {/* <Nav secondaryFont={secondaryFont} /> */}
         <HeroSection secondaryFont={secondaryFont} />
         <CardsSection secondaryFont={secondaryFont} />
         <PortfolioSection />
