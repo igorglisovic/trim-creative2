@@ -54,8 +54,10 @@ const PortfolioSection = () => {
           </h2>
           <div className="flex flex-col w-full md:flex-row gap-5 min-h-[600px]">
             <motion.div
-              variants={whileHoverVariant}
-              whileHover={'show'}
+              whileHover={{
+                transition: { type: 'spring', stiffness: 300, damping: 50 },
+                flex: '5 1 0',
+              }}
               className="md:w-[300px] flex-1 rounded-[37px] overflow-hidden relative"
             >
               <Image
@@ -65,8 +67,10 @@ const PortfolioSection = () => {
               />
             </motion.div>
             <motion.div
-              variants={whileHoverVariant}
-              whileHover={'show'}
+              whileHover={{
+                transition: { type: 'spring', stiffness: 300, damping: 50 },
+                flex: '5 1 0',
+              }}
               className="md:w-[300px] flex-1 rounded-[37px] overflow-hidden relative"
             >
               <Image
@@ -76,8 +80,10 @@ const PortfolioSection = () => {
               />
             </motion.div>
             <motion.div
-              variants={whileHoverVariant}
-              whileHover={'show'}
+              whileHover={{
+                transition: { type: 'spring', stiffness: 300, damping: 50 },
+                flex: '5 1 0',
+              }}
               className="md:w-[300px] flex-1 rounded-[37px] overflow-hidden relative"
             >
               <Image
@@ -87,8 +93,10 @@ const PortfolioSection = () => {
               />
             </motion.div>
             <motion.div
-              variants={whileHoverVariant}
-              whileHover={'show'}
+              whileHover={{
+                transition: { type: 'spring', stiffness: 300, damping: 50 },
+                flex: '5 1 0',
+              }}
               className="md:w-[300px] flex-1 rounded-[37px] overflow-hidden relative"
             >
               <Image

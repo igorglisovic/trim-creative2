@@ -13,7 +13,6 @@ import { cards as cardsData } from '../../data/cards'
 import { KeyboardArrowDown } from '@mui/icons-material'
 import Link from 'next/link'
 import { useAnimationContext } from '@/store/animation-ctx'
-// import { useAnimationContext } from '@//store/animation-ctx'
 
 const CardsSection = ({ secondaryFont }) => {
   const [hookedYPostion, setHookedYPosition] = useState(0)

@@ -55,7 +55,9 @@ const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
             animate={card.active ? 'open' : 'closed'}
             className="flex-1 bg-main-gradient rounded-[37px] p-8 text-white"
           >
-            <h2 className="text-4xl font-bold mb-4 w-[50%]">{card.title}</h2>
+            <h2 className="text-4xl font-bold mb-4 w-[50%] uppercase">
+              {card.title}
+            </h2>
             <p className="mb-5 three-line-ellipsis">{card.description}</p>
             <button
               className="px-[0.9em] border-0 float-right flex rounded-full bg-arrow"
@@ -102,7 +104,7 @@ const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
             className="flex-1 flex flex-col items-end bg-main-gradient rounded-[37px] p-8 text-white"
           >
             <div className="text-right">
-              <h2 className="text-4xl font-bold mb-4 w-[90%] float-right">
+              <h2 className="text-4xl font-bold mb-4 w-[90%] float-right uppercase">
                 {card.title}
               </h2>
             </div>
