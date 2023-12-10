@@ -7,32 +7,9 @@ import { navItemsSr } from '../data/nav'
 import Image from 'next/image'
 import Link from 'next/link'
 import { EmailOutlined, Instagram } from '@mui/icons-material'
-import { useRef } from 'react'
-import emailjs from '@emailjs/browser'
+import Form from './Form'
 
 const Footer = ({ secondaryFont }) => {
-  const formRef = useRef()
-
-  const sendEmail = e => {
-    e.preventDefault()
-
-    emailjs
-      .sendForm(
-        'service_erysgzg',
-        'template_pmdwird',
-        formRef.current,
-        'I_JeOrI32X7cMuw0o'
-      )
-      .then(
-        result => {
-          console.log('Poruka je uspešno poslata!')
-        },
-        error => {
-          console.log(error.text)
-        }
-      )
-  }
-
   return (
     <footer className="bg-footer-gradient pt-20 pb-14">
       <Container>
@@ -48,26 +25,7 @@ const Footer = ({ secondaryFont }) => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
             libero a dolor feugiat iaculis.
           </p>
-          <form
-            className={`${secondaryFont.className} flex flex-col gap-6 w-full xl:px-20 md:px-10`}
-            onSubmit={sendEmail}
-            ref={formRef}
-          >
-            <input className="input" type="text" placeholder="E-mail" />
-            <input className="input" type="text" placeholder="Ime" />
-            <textarea
-              rows={1}
-              className="input"
-              type="text"
-              placeholder="Poruka"
-            />
-            <Button
-              style={{ backgroundImage: 'none', color: 'black' }}
-              className="bg-white self-end mt-5"
-            >
-              Posalji
-            </Button>
-          </form>
+          <Form secondaryFont={secondaryFont} />
         </div>
         <div
           className={`flex flex-col md:flex-row items-center justify-between gap-7 mt-4 md:mt-16`}
