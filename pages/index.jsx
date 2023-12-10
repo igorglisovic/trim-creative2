@@ -9,7 +9,7 @@ import { motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
 import Lenis from '@studio-freight/lenis'
 
-const page = ({ mainFont, secondaryFont }) => {
+const page = ({ mainFont, secondaryFont, isTabVisible }) => {
   const [variants, setVariants] = useState(null)
 
   const {

@@ -7,7 +7,7 @@ import { useAnimationContext } from '@/store/animation-ctx'
 import UslugeCards from '@/components/UslugeSections/UslugeCards'
 import Lenis from '@studio-freight/lenis'
 
-const page = ({ mainFont, secondaryFont }) => {
+const page = ({ mainFont, secondaryFont, onAnimationComplete }) => {
   const [variants, setVariants] = useState()
 
   let {
