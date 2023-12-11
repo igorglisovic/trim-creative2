@@ -1,6 +1,5 @@
 'use client'
 
-import Button from './UI/Button'
 import Container from './UI/Container'
 import Logo from '../public/trim-logo.png'
 import { navItemsSr } from '../data/nav'
@@ -8,8 +7,20 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { EmailOutlined, Instagram } from '@mui/icons-material'
 import Form from './Form'
+import { useAnimationContext } from '@/store/animation-ctx'
 
 const Footer = ({ secondaryFont }) => {
+  // const { updateAnimationPosition, animationFinished } = useAnimationContext()
+
+  // const handleClick = e => {
+  //   if (!animationFinished) {
+  //     e.preventDefault()
+  //     return
+  //   }
+
+  //   updateAnimationPosition({ x: e.clientX, y: e.clientY })
+  // }
+
   return (
     <footer className="bg-footer-gradient pt-20 pb-14">
       <Container>
