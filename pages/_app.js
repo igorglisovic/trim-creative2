@@ -2,7 +2,7 @@
 
 import { AnimationContextProvider } from '@/store/animation-ctx'
 import { ContainerContextProvider } from '@/store/container-ctx'
-import { RouterContextProvider } from '@/store/router-ctx'
+import { PortfolioContextProvider } from '@/store/portfolio-ctx'
 import '@/styles/globals.css'
 import { AnimatePresence } from 'framer-motion'
 import Nav from '../components/Header'
@@ -29,7 +29,7 @@ export default function App({ Component, pageProps, router }) {
     <>
       <ContainerContextProvider>
         <AnimationContextProvider>
-          <RouterContextProvider>
+          <PortfolioContextProvider>
             <Nav secondaryFont={gabarito} />
             <AnimatePresence>
               <Component
@@ -39,7 +39,7 @@ export default function App({ Component, pageProps, router }) {
                 {...pageProps}
               />
             </AnimatePresence>
-          </RouterContextProvider>
+          </PortfolioContextProvider>
         </AnimationContextProvider>
       </ContainerContextProvider>
     </>

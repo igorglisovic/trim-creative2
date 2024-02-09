@@ -3,6 +3,7 @@ import Container from '../UI/Container'
 import { portfolioFilters } from '@/data/portfolio'
 import slugify from 'slugify'
 import Button from '../UI/Button'
+import { usePortfolioContext } from '@/store/portfolio-ctx'
 
 const initialFilters = portfolioFilters.map(filter => {
   return { ...filter, slug: slugify(filter.title, { lower: true }) }
@@ -10,6 +11,8 @@ const initialFilters = portfolioFilters.map(filter => {
 
 const PortfolioFilters = ({ secondaryFont }) => {
   const [filters, setFilters] = useState(initialFilters)
+
+  const { updateCurrentFilter } = usePortfolioContext()
 
   const handleFilterChange = filter => {
     if (filter.active) return
@@ -23,6 +26,8 @@ const PortfolioFilters = ({ secondaryFont }) => {
         }
       })
     })
+
+    updateCurrentFilter(filter)
   }
 
   useEffect(() => {
@@ -32,7 +37,7 @@ const PortfolioFilters = ({ secondaryFont }) => {
   return (
     <Container>
       <div
-        className={`flex gap-6 pt-6 pb-20 w-full ${secondaryFont.className}`}
+        className={`flex gap-6 pt-6 pb-12 w-full ${secondaryFont.className}`}
       >
         {filters.map(filter => (
           <Button
