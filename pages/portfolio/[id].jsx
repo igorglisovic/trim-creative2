@@ -4,10 +4,21 @@ import { useEffect, useState } from 'react'
 import Lenis from '@studio-freight/lenis'
 import Footer from '@/components/Footer'
 import { useAnimationContext } from '@/store/animation-ctx'
+import Breadcrumb from '@/components/UI/Breadcrumb'
+import PortfolioTitleSection from '@/components/PortfolioSections/PortfolioTitleSection'
+import { portfolio } from '@/data/portfolio'
+import slugify from 'slugify'
+import PortfolioGallerySection from '@/components/PortfolioSections/PortfolioGallerySection'
+
+const initialCards = portfolio.map(card => {
+  return { ...card, slug: slugify(card.title, { lower: true }) }
+})
 
 const PortfolioProject = ({ mainFont, secondaryFont }) => {
   const router = useRouter()
   const [variants, setVariants] = useState(null)
+
+  const project = initialCards.find(el => el.slug === router.query.id)
 
   const {
     animationPosition,
@@ -99,6 +110,12 @@ const PortfolioProject = ({ mainFont, secondaryFont }) => {
           mainFont.className
         }`}
       >
+        <Breadcrumb font={secondaryFont} />
+        <PortfolioTitleSection
+          project={project}
+          secondaryFont={secondaryFont}
+        />
+        <PortfolioGallerySection project={project} />
         <Footer secondaryFont={secondaryFont} />
       </m.main>
     )

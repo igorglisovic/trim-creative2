@@ -26,7 +26,7 @@ const Container = ({ children }) => {
   }, [animationFinished])
 
   return (
-    <div ref={ref} className="max-w-[1700px] m-auto md:px-12  px-6">
+    <div ref={ref} className="max-w-[1700px] m-auto md:px-12 px-6">
       {children}
     </div>
   )
