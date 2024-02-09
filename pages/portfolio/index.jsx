@@ -5,9 +5,29 @@ import { motion as m } from 'framer-motion'
 import Footer from '@/components/Footer'
 import PortfolioFilters from '@/components/PortfolioSections/PortfolioFilters'
 import PortfolioCards from '@/components/PortfolioSections/PortfolioCards'
+import { useRouter } from 'next/router'
+import { usePortfolioContext } from '@/store/portfolio-ctx'
 
 const portfolio = ({ mainFont, secondaryFont }) => {
   const [variants, setVariants] = useState(null)
+
+  const router = useRouter()
+  const { updateCurrentFilter } = usePortfolioContext()
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      localStorage.removeItem('portfolio-filter')
+      updateCurrentFilter(null)
+    }
+
+    // Listen to route changes and execute the handleRouteChange function
+    router.events.on('routeChangeStart', handleRouteChange)
+
+    // Cleanup function to remove the event listener when component unmounts
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
+  }, [])
 
   const {
     animationPosition,
