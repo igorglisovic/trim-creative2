@@ -37,7 +37,9 @@ const PortfolioFilters = ({ secondaryFont }) => {
         {filters.map(filter => (
           <Button
             onClick={() => handleFilterChange(filter)}
-            className="flex-1 !text-base"
+            className={`flex-1 !text-base ${
+              filter.active ? '!font-bold' : '!font-medium'
+            }`}
             key={filter.id}
           >
             {filter.title}
