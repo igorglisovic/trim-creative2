@@ -5,7 +5,7 @@ import Container from '../UI/Container'
 const PortfolioTitleSection = ({ project, secondaryFont }) => {
   return (
     <Container>
-      <section className="flex flex-col gap-9 mt-3">
+      <section className="flex flex-col gap-11 mt-3">
         <div className="flex relative pb-[18.55%] min-h-[180px] overflow-hidden w-full shadow-md rounded-[38px]">
           <Image
             src={Trim2}

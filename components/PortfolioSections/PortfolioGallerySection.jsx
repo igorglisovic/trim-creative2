@@ -21,7 +21,7 @@ const PortfolioGallerySection = ({ project }) => {
 
   return (
     <Container>
-      <section className="flex flex-col pt-10 pb-20 gap-6">
+      <section className="flex flex-col pt-12 pb-20 gap-6">
         <div className="flex relative pb-[40.55%] min-h-[180px] overflow-hidden w-full shadow-md rounded-[38px]">
           <Image
             src={project?.images[0]}
@@ -29,11 +29,15 @@ const PortfolioGallerySection = ({ project }) => {
             className="absolute top-0 left-0 w-full h-full object-cover z-30"
           />
         </div>
-        {imagePairs.map((pair, i) => {
+        {imagePairs.map((imagePair, i) => {
           if (i % 2) {
-            return <PortfolioGalleryLeft images={[pair[0], pair[1]]} />
+            return (
+              <PortfolioGalleryLeft images={[imagePair[0], imagePair[1]]} />
+            )
           } else {
-            return <PortfolioGalleryRight images={[pair[0], pair[1]]} />
+            return (
+              <PortfolioGalleryRight images={[imagePair[0], imagePair[1]]} />
+            )
           }
         })}
       </section>
