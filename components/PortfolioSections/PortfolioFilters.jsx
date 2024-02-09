@@ -12,22 +12,12 @@ const initialFilters = portfolioFilters.map(filter => {
 const PortfolioFilters = ({ secondaryFont }) => {
   const [filters, setFilters] = useState(initialFilters)
 
-  const { updateCurrentFilter } = usePortfolioContext()
+  const { updateCurrentFilter, currentFilter } = usePortfolioContext()
 
   const handleFilterChange = filter => {
-    if (filter.active) return
+    if (filter.id === currentFilter?.id) return
 
-    setFilters(prev => {
-      return prev.map(el => {
-        if (el.id === filter.id) {
-          return { ...filter, active: true }
-        } else {
-          return { ...el, active: false }
-        }
-      })
-    })
-
-    updateCurrentFilter(filter)
+    updateCurrentFilter({ ...filter, active: true })
   }
 
   useEffect(() => {
@@ -43,7 +33,7 @@ const PortfolioFilters = ({ secondaryFont }) => {
           <Button
             onClick={() => handleFilterChange(filter)}
             className={`flex-1 !text-base ${
-              filter.active ? '!font-bold' : '!font-medium'
+              filter.id === currentFilter?.id ? '!font-bold' : '!font-medium'
             }`}
             key={filter.id}
           >
