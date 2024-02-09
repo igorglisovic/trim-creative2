@@ -33,7 +33,7 @@ const Nav = ({ secondaryFont }) => {
     >
       <Container>
         <div className="relative min-h-[95px] whitespace-nowrap">
-          <div className="md:w-[8rem] w-[6.3rem] absolute left-0 position-center z-[999999999999999999]">
+          <div className="md:w-[8rem] w-[6.3rem] absolute left-0 position-center z-50">
             <Image
               priority={true}
               alt="Trim Creative logo"
@@ -42,7 +42,7 @@ const Nav = ({ secondaryFont }) => {
             />
           </div>
           {/* Desktop Menu */}
-          <nav className="hidden invisible sm:visible sm:flex items-center absolute nav z-[999999999999999999] ">
+          <nav className="hidden invisible sm:visible sm:flex items-center absolute nav z-50 ">
             <ul className="flex md:gap-5 gap-3">
               {navItemsSr?.map(navItem => (
                 <li key={navItem.title} className="uppercase text-light-black">
@@ -112,7 +112,7 @@ const Nav = ({ secondaryFont }) => {
               ></line>
             </svg>
           </motion.button>
-          <Button className="hidden invisible sm:visible sm:flex absolute right-0 position-center z-[999999999999999999]">
+          <Button className="hidden invisible sm:visible sm:flex absolute right-0 position-center z-50">
             Pozovi
           </Button>
         </div>

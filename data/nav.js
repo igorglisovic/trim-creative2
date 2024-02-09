@@ -2,27 +2,22 @@ export const navItemsSr = [
   {
     title: 'Početna',
     path: '/',
-    color: 'white',
   },
   {
     title: 'Usluge',
     path: '/usluge',
-    color: 'white',
   },
   {
     title: 'Portfolio',
-    path: '/',
-    color: 'white',
+    path: '/portfolio',
   },
   {
     title: 'O nama',
-    path: '/',
-    color: 'white',
+    path: '/onama',
   },
   {
     title: 'Kontakt',
     path: '/test',
-    color: '#9B81BB',
   },
 ]
 

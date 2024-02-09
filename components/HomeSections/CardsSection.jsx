@@ -92,7 +92,7 @@ const CardsSection = ({ secondaryFont }) => {
           ></motion.div>
           <motion.div
             style={{ y: y1 }}
-            className="bg-circle-gradient w-[50px] h-[50px] rounded-full absolute left-[210px] bottom-[-180px] z-[-1] rotate-[99.13deg]"
+            className="bg-circle-gradient w-[50px] h-[50px] rounded-full absolute left-[210px] bottom-[-180px] -z-10 rotate-[99.13deg]"
           ></motion.div>
 
           <h2

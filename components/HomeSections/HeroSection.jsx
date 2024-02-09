@@ -69,7 +69,7 @@ const HeroSection = ({ secondaryFont }) => {
             ></motion.div>
             <motion.div
               style={{ y: y1 }}
-              className="bg-circle-gradient w-[55px] h-[55px] rounded-full absolute left-[200px] bottom-[-420px] z-[-10] rotate-[99.13deg]"
+              className="bg-circle-gradient w-[55px] h-[55px] rounded-full absolute left-[200px] bottom-[-420px] -z-10 rotate-[99.13deg]"
             ></motion.div>
 
             <div className="flex relative pb-[38.55%] overflow-hidden flex-1 shadow-md rounded-[38px]">

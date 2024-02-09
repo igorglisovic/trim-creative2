@@ -31,7 +31,7 @@ html {
   left: 0;
   height: 100vh;
   visibility: visible;
-  z-index: 50000;
+  z-index: 49;
   padding-top: 95px;
   background: white;
   position: fixed;

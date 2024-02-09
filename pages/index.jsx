@@ -9,7 +9,7 @@ import { motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
 import Lenis from '@studio-freight/lenis'
 
-const page = ({ mainFont, secondaryFont, isTabVisible }) => {
+const page = ({ mainFont, secondaryFont }) => {
   const [variants, setVariants] = useState(null)
 
   const {
@@ -96,7 +96,7 @@ const page = ({ mainFont, secondaryFont, isTabVisible }) => {
           updateAnimationStarted(false)
           updateBackgroundColor(false)
         }}
-        className={`home ${animationFinished ? '' : 'page-transition'} ${
+        className={`${animationFinished ? '' : 'page-transition'} ${
           mainFont.className
         }`}
       >

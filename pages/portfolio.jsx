@@ -1,16 +1,14 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-import Footer from '../components/Footer'
-import { motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
-import UslugeCards from '@/components/UslugeSections/UslugeCards'
 import Lenis from '@studio-freight/lenis'
+import { useEffect, useState } from 'react'
+import { motion as m } from 'framer-motion'
+import Footer from '@/components/Footer'
+import PortfolioFilters from '@/components/PortfolioSections/PortfolioFilters'
 
-const page = ({ mainFont, secondaryFont }) => {
-  const [variants, setVariants] = useState()
+const portfolio = ({ mainFont, secondaryFont }) => {
+  const [variants, setVariants] = useState(null)
 
-  let {
+  const {
     animationPosition,
     updateAnimationFinished,
     animationFinished,
@@ -37,6 +35,7 @@ const page = ({ mainFont, secondaryFont }) => {
     let variantsObj
 
     if (!animationPosition?.x || !animationPosition?.y) {
+      console.log(screenHeight, screenWidth)
       variantsObj = {
         hidden: {
           clipPath: `circle(0px at ${screenWidth / 2}px ${screenHeight / 2}px)`,
@@ -69,6 +68,7 @@ const page = ({ mainFont, secondaryFont }) => {
         },
       }
     }
+
     setVariants(variantsObj)
   }, [animationPosition])
 
@@ -96,11 +96,11 @@ const page = ({ mainFont, secondaryFont }) => {
           mainFont.className
         }`}
       >
-        <UslugeCards secondaryFont={secondaryFont} />
+        <PortfolioFilters secondaryFont={secondaryFont} />
         <Footer secondaryFont={secondaryFont} />
       </m.main>
     )
   )
 }
 
-export default page
+export default portfolio
