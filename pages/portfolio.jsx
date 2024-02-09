@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { motion as m } from 'framer-motion'
 import Footer from '@/components/Footer'
 import PortfolioFilters from '@/components/PortfolioSections/PortfolioFilters'
+import PortfolioCards from '@/components/PortfolioSections/PortfolioCards'
 
 const portfolio = ({ mainFont, secondaryFont }) => {
   const [variants, setVariants] = useState(null)
@@ -97,6 +98,7 @@ const portfolio = ({ mainFont, secondaryFont }) => {
         }`}
       >
         <PortfolioFilters secondaryFont={secondaryFont} />
+        <PortfolioCards secondaryFont={secondaryFont} />
         <Footer secondaryFont={secondaryFont} />
       </m.main>
     )
