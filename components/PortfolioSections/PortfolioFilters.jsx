@@ -33,7 +33,9 @@ const PortfolioFilters = ({ secondaryFont }) => {
           <Button
             onClick={() => handleFilterChange(filter)}
             className={`flex-1 !text-base ${
-              filter.id === currentFilter?.id ? '!font-bold' : '!font-medium'
+              filter.id === currentFilter?.id
+                ? '!font-extrabold'
+                : '!font-medium'
             }`}
             key={filter.id}
           >

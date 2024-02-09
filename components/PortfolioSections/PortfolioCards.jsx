@@ -34,7 +34,7 @@ const PortfolioCards = ({ secondaryFont }) => {
         className={`flex flex-wrap gap-x-5 gap-y-10 pb-12 ${secondaryFont.className}`}
       >
         {cards.map(card => (
-          <PortfolioCard card={card} />
+          <PortfolioCard key={card.title} card={card} />
         ))}
       </div>
     </Container>
