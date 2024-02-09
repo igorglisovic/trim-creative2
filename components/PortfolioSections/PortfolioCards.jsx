@@ -10,13 +10,12 @@ const initialCards = portfolio.map(card => {
 })
 
 const PortfolioCards = ({ secondaryFont }) => {
-  console.log(initialCards)
   const [cards, setCards] = useState(initialCards)
 
   const { currentFilter } = usePortfolioContext()
 
   useEffect(() => {
-    if (!currentFilter) return
+    if (!currentFilter) return setCards(initialCards)
 
     setCards(prev => {
       console.log(

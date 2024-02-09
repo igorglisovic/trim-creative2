@@ -21,12 +21,11 @@ export const PortfolioContextProvider = ({ children }) => {
   }, [])
 
   useEffect(() => {
-    // console.log('currentFilter ', currentFilter)
+    console.log('currentFilter ', currentFilter)
   }, [currentFilter])
 
   const updateCurrentFilter = filter => {
     setCurrentFilter(filter)
-    console.log('currentFilter ', filter)
 
     localStorage.setItem('portfolio-filter', JSON.stringify(filter))
   }

@@ -10,8 +10,6 @@ const initialFilters = portfolioFilters.map(filter => {
 })
 
 const PortfolioFilters = ({ secondaryFont }) => {
-  const [filters, setFilters] = useState(initialFilters)
-
   const { updateCurrentFilter, currentFilter } = usePortfolioContext()
 
   const handleFilterChange = filter => {
@@ -20,28 +18,33 @@ const PortfolioFilters = ({ secondaryFont }) => {
     updateCurrentFilter({ ...filter, active: true })
   }
 
-  useEffect(() => {
-    console.log(filters)
-  }, [filters])
-
   return (
     <Container>
-      <div
-        className={`flex gap-6 pt-6 pb-12 w-full ${secondaryFont.className}`}
-      >
-        {filters.map(filter => (
-          <Button
-            onClick={() => handleFilterChange(filter)}
-            className={`flex-1 !text-base ${
-              filter.id === currentFilter?.id
-                ? '!font-extrabold'
-                : '!font-medium'
-            }`}
-            key={filter.id}
+      <div className="pt-6 pb-12">
+        <div className={`flex gap-6 w-full ${secondaryFont.className}`}>
+          {initialFilters.map(filter => (
+            <Button
+              onClick={() => handleFilterChange(filter)}
+              className={`flex-1 !text-base ${
+                filter.id === currentFilter?.id
+                  ? '!font-extrabold'
+                  : '!font-medium'
+              }`}
+              key={filter.id}
+            >
+              {filter.title}
+            </Button>
+          ))}
+        </div>
+        <div className={`${secondaryFont.className}`}>
+          <button
+            onClick={() => {
+              updateCurrentFilter(null)
+            }}
           >
-            {filter.title}
-          </Button>
-        ))}
+            Clear filter
+          </button>
+        </div>
       </div>
     </Container>
   )

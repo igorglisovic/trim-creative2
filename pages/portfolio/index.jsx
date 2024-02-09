@@ -12,12 +12,22 @@ const portfolio = ({ mainFont, secondaryFont }) => {
   const [variants, setVariants] = useState(null)
 
   const router = useRouter()
+
   const { updateCurrentFilter } = usePortfolioContext()
+
+  const {
+    animationPosition,
+    updateAnimationFinished,
+    animationFinished,
+    updateAnimationStarted,
+    updateBackgroundColor,
+  } = useAnimationContext()
 
   useEffect(() => {
     const handleRouteChange = () => {
-      localStorage.removeItem('portfolio-filter')
-      updateCurrentFilter(null)
+      setTimeout(() => {
+        updateCurrentFilter(null)
+      }, 2000)
     }
 
     // Listen to route changes and execute the handleRouteChange function
@@ -27,15 +37,7 @@ const portfolio = ({ mainFont, secondaryFont }) => {
     return () => {
       router.events.off('routeChangeStart', handleRouteChange)
     }
-  }, [])
-
-  const {
-    animationPosition,
-    updateAnimationFinished,
-    animationFinished,
-    updateAnimationStarted,
-    updateBackgroundColor,
-  } = useAnimationContext()
+  }, [animationFinished])
 
   // Smooth scroll
   useEffect(() => {
