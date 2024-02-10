@@ -62,6 +62,7 @@ const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
             <button
               className="px-[0.9em] border-0 float-right flex rounded-full bg-arrow self-end mt-auto"
               onClick={handleClick}
+              aria-label="Open card"
             >
               {!card.active ? (
                 <East
@@ -114,6 +115,7 @@ const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
             <button
               onClick={handleClick}
               className="px-[0.9em] border-0 self-start mt-auto flex rounded-full bg-arrow"
+              aria-label="Open card"
             >
               {card.active ? (
                 <East

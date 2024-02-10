@@ -81,7 +81,7 @@ const page = ({ mainFont, secondaryFont }) => {
     if (router.pathname !== '/usluge') {
       setTimeout(() => {
         setRemoveComponent(true)
-      }, 1500)
+      }, 1800)
     }
   }, [router])
 

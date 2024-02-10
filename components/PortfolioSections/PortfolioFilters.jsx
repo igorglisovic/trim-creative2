@@ -31,6 +31,7 @@ const PortfolioFilters = ({ secondaryFont }) => {
                   : '!font-medium'
               }`}
               key={filter.id}
+              ariaLabel={filter.title}
             >
               {filter.title}
             </Button>
@@ -42,8 +43,9 @@ const PortfolioFilters = ({ secondaryFont }) => {
               onClick={() => {
                 updateCurrentFilter(null)
               }}
+              aria-label="Clear filters"
             >
-              Clear filter
+              Clear filters
             </button>
           </div>
         )}

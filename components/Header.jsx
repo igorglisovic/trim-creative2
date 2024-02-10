@@ -155,6 +155,7 @@ const Nav = ({ secondaryFont }) => {
                     } `}
                     href={navItem.path}
                     scroll={false}
+                    aria-label={navItem.title}
                   >
                     {navItem.title}
                   </Link>

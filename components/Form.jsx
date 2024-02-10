@@ -162,6 +162,7 @@ const Form = ({ secondaryFont }) => {
                 style={{ backgroundImage: 'none', color: 'black' }}
                 className="bg-white self-end mt-5"
                 disabled={submitting}
+                ariaLabel="Pošalji email"
               >
                 Posalji
               </Button>

@@ -118,6 +118,7 @@ const CardsSection = ({ secondaryFont }) => {
                     <button
                       onClick={() => handleClick(i)}
                       className="flex justify-between items-center w-full py-4"
+                      aria-label={card.title}
                     >
                       <h3
                         className={`text-2xl uppercase ${
@@ -146,8 +147,13 @@ const CardsSection = ({ secondaryFont }) => {
                       className="flex-col"
                     >
                       <p className="font-normal text-sm">{card.description}</p>
-                      <Button className="uppercase mt-2 mb-4 self-end float-right">
-                        <Link href={card.link}>Saznaj vise</Link>
+                      <Button
+                        ariaLabel="Saznaj više"
+                        className="uppercase mt-2 mb-4 self-end float-right"
+                      >
+                        <Link aria-label="Saznaj više" href={card.link}>
+                          Saznaj vise
+                        </Link>
                       </Button>
                     </motion.div>
                   </li>

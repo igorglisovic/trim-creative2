@@ -63,6 +63,7 @@ const Footer = ({ secondaryFont }) => {
                     onClick={e => handleClick(e, navItem)}
                     className={`font-medium sm:text-sm lg:text-base text-xs ${secondaryFont.className}`}
                     href={navItem.path}
+                    aria-label={navItem.title}
                   >
                     {navItem.title}
                   </Link>
@@ -71,10 +72,10 @@ const Footer = ({ secondaryFont }) => {
             </ul>
           </nav>
           <div className="flex gap-2 items-center">
-            <Link href="/">
+            <Link aria-label="TrimCreative Instagram" href="/">
               <Instagram className="text-white" sx={{ fontSize: '1.9rem' }} />
             </Link>
-            <Link href="/">
+            <Link aria-label="TrimCreative Email" href="/">
               <EmailOutlined
                 className="text-white"
                 sx={{ fontSize: '1.9rem' }}

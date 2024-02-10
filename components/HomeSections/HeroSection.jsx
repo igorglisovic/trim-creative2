@@ -94,7 +94,12 @@ const HeroSection = ({ secondaryFont }) => {
                   voluptatum iure ipsa quod tempora eaque molestias impedit
                   totam magni veniam doloribus sunt praesentium.
                 </p>
-                <Button className="md:self-end self-center">Saznaj više</Button>
+                <Button
+                  className="md:self-end self-center"
+                  ariaLabel="Saznaj više"
+                >
+                  Saznaj više
+                </Button>
               </div>
             </div>
           </div>

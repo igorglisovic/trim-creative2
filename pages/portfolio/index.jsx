@@ -101,7 +101,7 @@ const portfolio = ({ mainFont, secondaryFont }) => {
     if (router.pathname !== '/portfolio') {
       setTimeout(() => {
         setRemoveComponent(true)
-      }, 1500)
+      }, 1800)
     }
   }, [router])
 
