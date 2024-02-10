@@ -113,10 +113,8 @@ const page = ({ mainFont, secondaryFont }) => {
               updateBackgroundColor(false)
             }}
             className={`home ${
-              router.pathname === '/' ? 'absolute z-50' : 'relative'
-            } ${animationFinished ? 'relative' : 'page-transition absolute'} ${
-              mainFont.className
-            }  pt-[95px]  ${removeComponent && 'hidden'}`}
+              animationFinished ? 'relative' : 'page-transition absolute'
+            } ${mainFont.className}  pt-[95px]`}
           >
             <HeroSection secondaryFont={secondaryFont} />
             <CardsSection secondaryFont={secondaryFont} />

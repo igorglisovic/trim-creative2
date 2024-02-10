@@ -95,34 +95,48 @@ const portfolio = ({ mainFont, secondaryFont }) => {
     setVariants(variantsObj)
   }, [animationPosition])
 
+  const [removeComponent, setRemoveComponent] = useState(false)
+
+  useEffect(() => {
+    if (router.pathname !== '/portfolio') {
+      setTimeout(() => {
+        setRemoveComponent(true)
+      }, 1500)
+    }
+  }, [router])
+
   return (
     variants && (
-      <m.main
-        variants={variants}
-        initial={'hidden'}
-        animate={'show'}
-        exit={{ opacity: 0.99 }}
-        transition={{
-          duration: 2,
-          type: 'ease-out',
-        }}
-        onAnimationStart={() => {
-          updateAnimationStarted(true)
-          updateAnimationFinished(false)
-        }}
-        onAnimationComplete={() => {
-          updateAnimationFinished(true)
-          updateAnimationStarted(false)
-          updateBackgroundColor(false)
-        }}
-        className={`${animationFinished ? '' : 'page-transition'} ${
-          mainFont.className
-        } pt-[95px]`}
-      >
-        <PortfolioFilters secondaryFont={secondaryFont} />
-        <PortfolioCards secondaryFont={secondaryFont} />
-        <Footer secondaryFont={secondaryFont} />
-      </m.main>
+      <>
+        {!removeComponent && (
+          <m.main
+            variants={variants}
+            initial={'hidden'}
+            animate={'show'}
+            exit={{ opacity: 0.99 }}
+            transition={{
+              duration: 2,
+              type: 'ease-out',
+            }}
+            onAnimationStart={() => {
+              updateAnimationStarted(true)
+              updateAnimationFinished(false)
+            }}
+            onAnimationComplete={() => {
+              updateAnimationFinished(true)
+              updateAnimationStarted(false)
+              updateBackgroundColor(false)
+            }}
+            className={`${animationFinished ? '' : 'page-transition'} ${
+              mainFont.className
+            } pt-[95px]`}
+          >
+            <PortfolioFilters secondaryFont={secondaryFont} />
+            <PortfolioCards secondaryFont={secondaryFont} />
+            <Footer secondaryFont={secondaryFont} />
+          </m.main>
+        )}
+      </>
     )
   )
 }

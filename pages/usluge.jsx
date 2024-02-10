@@ -107,11 +107,9 @@ const page = ({ mainFont, secondaryFont }) => {
               updateAnimationStarted(false)
               updateBackgroundColor(false)
             }}
-            className={`usluge ${
-              router.pathname === '/usluge' ? 'absolute z-50' : 'relative'
-            } ${animationFinished ? '' : 'page-transition'} ${
+            className={`usluge ${animationFinished ? '' : 'page-transition'} ${
               mainFont.className
-            }  pt-[95px] ${removeComponent && 'hidden'}`}
+            }  pt-[95px] `}
           >
             <UslugeCards secondaryFont={secondaryFont} />
             <Footer secondaryFont={secondaryFont} />
