@@ -1,7 +1,6 @@
 'use client'
 
 import Container from './UI/Container'
-import Button from './UI/Button'
 import Logo from '../public/trim-logo.png'
 import { navItemsSr } from '../data/nav'
 import Image from 'next/image'
@@ -15,12 +14,11 @@ const Nav = ({ secondaryFont }) => {
   const [expand, setExpand] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
 
-  const { updateAnimationPosition, animationFinished } = useAnimationContext()
+  const { updateAnimationPosition, animationFinished, animationPosition } =
+    useAnimationContext()
   const { updateFixedHeader, fixedHeader } = useHeaderContext()
 
-  useEffect(() => {
-    console.log('fixedHeader ', fixedHeader)
-  }, [fixedHeader])
+  console.log('animationPosition ', animationPosition)
 
   const handleClick = e => {
     if (!animationFinished) {
@@ -57,20 +55,22 @@ const Nav = ({ secondaryFont }) => {
       position: 'absolute',
       top: 0,
       left: 0,
+      zIndex: 9999,
       backgroundColor: 'transparent',
       width: '100%',
       transition: {
         type: 'spring',
-        stiffness: 400,
+        stiffness: 200,
         damping: 25,
       },
     },
     open: {
       position: 'fixed',
       top: '20px',
+      zIndex: 9999,
       transition: {
         type: 'spring',
-        stiffness: 400,
+        stiffness: 200,
         damping: 25,
       },
     },
@@ -80,7 +80,7 @@ const Nav = ({ secondaryFont }) => {
     <m.header
       className={`${secondaryFont?.className} ${
         animationFinished ? '' : 'move-header'
-      } ${fixedHeader && 'pos-fixed z-[100] w-full'}`}
+      } ${fixedHeader ? 'pos-fixed z-[100] w-full' : ''}`}
       ref={ref}
       variants={headerVariants}
       initial={fixedHeader ? 'open' : 'closed'}
@@ -91,6 +91,7 @@ const Nav = ({ secondaryFont }) => {
           variants={{
             closed: {
               backgroundColor: 'transparent',
+              backdropFilter: 'blur(0px)',
               transition: {
                 type: 'spring',
                 stiffness: 300,
@@ -100,6 +101,7 @@ const Nav = ({ secondaryFont }) => {
             open: {
               borderRadius: '24px 24px 0 0',
               backgroundColor: 'rgba(255, 255, 255, 0.71)',
+              backdropFilter: 'blur(3px)',
               transition: {
                 type: 'spring',
                 stiffness: 300,

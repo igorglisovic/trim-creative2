@@ -21,6 +21,7 @@ const portfolio = ({ mainFont, secondaryFont }) => {
     animationFinished,
     updateAnimationStarted,
     updateBackgroundColor,
+    updateAnimationPosition,
   } = useAnimationContext()
 
   useEffect(() => {
