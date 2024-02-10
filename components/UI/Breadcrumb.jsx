@@ -1,14 +1,21 @@
 import Link from 'next/link'
 import Container from './Container'
+import { useEffect, useState } from 'react'
 
 const Breadcrumb = ({ font, items }) => {
-  const breadcrumbArr = items.reduce((acc, curr, i) => {
-    if (i !== 0) {
-      acc.push({ link: null, title: '/' })
-    }
+  const [breadcrumbArr, setBreadcrumbArr] = useState(items)
 
-    acc.push(curr)
-    return acc
+  useEffect(() => {
+    const breadcrumbArr = items.reduce((acc, curr, i) => {
+      if (i !== 0) {
+        acc.push({ link: null, title: '/' })
+      }
+
+      acc.push(curr)
+      return acc
+    }, [])
+
+    setBreadcrumbArr(breadcrumbArr)
   }, [])
 
   return (
