@@ -59,7 +59,6 @@ const portfolio = ({ mainFont, secondaryFont }) => {
     let variantsObj
 
     if (!animationPosition?.x || !animationPosition?.y) {
-      console.log(screenHeight, screenWidth)
       variantsObj = {
         hidden: {
           clipPath: `circle(0px at ${screenWidth / 2}px ${screenHeight / 2}px)`,

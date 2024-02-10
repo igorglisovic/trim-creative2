@@ -17,14 +17,21 @@ const initialCards = portfolio.map(card => {
 
 const PortfolioProject = ({ mainFont, secondaryFont }) => {
   const router = useRouter()
+
   const [variants, setVariants] = useState(null)
-  const [project, setProject] = useState(
-    initialCards.find(el => el.slug === router.query.id)
-  )
+  const [project, setProject] = useState(null)
 
   const projectFilter = portfolioFilters.find(
     el => el.id === project?.filters[0]
   )
+
+  useEffect(() => {
+    setProject(initialCards.find(el => el.slug === router.query.id))
+  }, [initialCards])
+
+  useEffect(() => {
+    console.log('project ', project)
+  }, [project])
 
   const {
     animationPosition,
@@ -53,7 +60,6 @@ const PortfolioProject = ({ mainFont, secondaryFont }) => {
     let variantsObj
 
     if (!animationPosition?.x || !animationPosition?.y) {
-      console.log(screenHeight, screenWidth)
       variantsObj = {
         hidden: {
           clipPath: `circle(0px at ${screenWidth / 2}px ${screenHeight / 2}px)`,
@@ -89,8 +95,6 @@ const PortfolioProject = ({ mainFont, secondaryFont }) => {
 
     setVariants(variantsObj)
   }, [animationPosition])
-
-  console.log(router.query.id)
 
   return (
     variants && (

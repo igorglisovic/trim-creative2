@@ -20,10 +20,6 @@ export const PortfolioContextProvider = ({ children }) => {
     }
   }, [])
 
-  useEffect(() => {
-    console.log('currentFilter ', currentFilter)
-  }, [currentFilter])
-
   const updateCurrentFilter = filter => {
     setCurrentFilter(filter)
 

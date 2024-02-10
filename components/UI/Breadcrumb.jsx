@@ -29,6 +29,9 @@ const Breadcrumb = ({ font, items }) => {
       e.preventDefault()
       return
     }
+    window.scrollTo(0, window.scrollY)
+
+    console.log(window, window.scrollY)
 
     updateAnimationPosition({ x: e.clientX, y: e.clientY })
     router.push(item.link)

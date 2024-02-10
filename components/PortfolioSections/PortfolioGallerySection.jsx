@@ -17,8 +17,6 @@ const PortfolioGallerySection = ({ project }) => {
     }
   }
 
-  console.log(imagePairs)
-
   return (
     <Container>
       <section className="flex flex-col pt-12 pb-20 gap-6">

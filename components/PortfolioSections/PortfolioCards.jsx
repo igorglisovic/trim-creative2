@@ -18,9 +18,6 @@ const PortfolioCards = ({ secondaryFont }) => {
     if (!currentFilter) return setCards(initialCards)
 
     setCards(prev => {
-      console.log(
-        initialCards.filter(card => card.filters.includes(currentFilter.id))
-      )
       return initialCards.filter(card =>
         card.filters.includes(currentFilter.id)
       )

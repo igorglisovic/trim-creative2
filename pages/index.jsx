@@ -10,9 +10,12 @@ import { useAnimationContext } from '@/store/animation-ctx'
 import Lenis from '@studio-freight/lenis'
 import { useHeaderContext } from '@/store/header-ctx'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 const page = ({ mainFont, secondaryFont }) => {
   const [variants, setVariants] = useState(null)
+
+  const router = useRouter()
 
   const {
     animationPosition,
@@ -21,8 +24,6 @@ const page = ({ mainFont, secondaryFont }) => {
     updateAnimationStarted,
     updateBackgroundColor,
   } = useAnimationContext()
-
-  const { fixedHeader } = useHeaderContext()
 
   // Smooth scroll
   useEffect(() => {
@@ -43,7 +44,6 @@ const page = ({ mainFont, secondaryFont }) => {
     let variantsObj
 
     if (!animationPosition?.x || !animationPosition?.y) {
-      console.log(screenHeight, screenWidth)
       variantsObj = {
         hidden: {
           clipPath: `circle(0px at ${screenWidth / 2}px ${screenHeight / 2}px)`,
@@ -80,36 +80,50 @@ const page = ({ mainFont, secondaryFont }) => {
     setVariants(variantsObj)
   }, [animationPosition])
 
+  const [removeComponent, setRemoveComponent] = useState(false)
+
+  useEffect(() => {
+    if (router.pathname !== '/') {
+      setTimeout(() => {
+        setRemoveComponent(true)
+      }, 1500)
+    }
+  }, [router])
+
   return (
     variants && (
       <>
-        <m.main
-          variants={variants}
-          initial={'hidden'}
-          animate={'show'}
-          exit={{ opacity: 0.99 }}
-          transition={{
-            duration: 2,
-            type: 'ease-out',
-          }}
-          onAnimationStart={() => {
-            updateAnimationStarted(true)
-            updateAnimationFinished(false)
-          }}
-          onAnimationComplete={() => {
-            updateAnimationFinished(true)
-            updateAnimationStarted(false)
-            updateBackgroundColor(false)
-          }}
-          className={`${animationFinished ? '' : 'page-transition'} ${
-            mainFont.className
-          } pt-[95px] `}
-        >
-          <HeroSection secondaryFont={secondaryFont} />
-          <CardsSection secondaryFont={secondaryFont} />
-          <PortfolioSection />
-          <Footer secondaryFont={secondaryFont} />
-        </m.main>
+        {!removeComponent && (
+          <m.main
+            variants={variants}
+            initial={'hidden'}
+            animate={'show'}
+            exit={{ transform: 'translateX(1px)' }}
+            transition={{
+              duration: 2,
+              type: 'ease-out',
+            }}
+            onAnimationStart={() => {
+              updateAnimationStarted(true)
+              updateAnimationFinished(false)
+            }}
+            onAnimationComplete={() => {
+              updateAnimationFinished(true)
+              updateAnimationStarted(false)
+              updateBackgroundColor(false)
+            }}
+            className={`home ${
+              router.pathname === '/' ? 'absolute z-50' : 'relative'
+            } ${animationFinished ? 'relative' : 'page-transition absolute'} ${
+              mainFont.className
+            }  pt-[95px]  ${removeComponent && 'hidden'}`}
+          >
+            <HeroSection secondaryFont={secondaryFont} />
+            <CardsSection secondaryFont={secondaryFont} />
+            <PortfolioSection />
+            <Footer secondaryFont={secondaryFont} />
+          </m.main>
+        )}
       </>
     )
   )

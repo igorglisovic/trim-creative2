@@ -6,9 +6,12 @@ import { motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
 import UslugeCards from '@/components/UslugeSections/UslugeCards'
 import Lenis from '@studio-freight/lenis'
+import { useRouter } from 'next/router'
 
 const page = ({ mainFont, secondaryFont }) => {
   const [variants, setVariants] = useState()
+
+  const router = useRouter()
 
   let {
     animationPosition,
@@ -72,33 +75,49 @@ const page = ({ mainFont, secondaryFont }) => {
     setVariants(variantsObj)
   }, [animationPosition])
 
+  const [removeComponent, setRemoveComponent] = useState(false)
+
+  useEffect(() => {
+    if (router.pathname !== '/usluge') {
+      setTimeout(() => {
+        setRemoveComponent(true)
+      }, 1500)
+    }
+  }, [router])
+
   return (
     variants && (
-      <m.main
-        variants={variants}
-        initial={'hidden'}
-        animate={'show'}
-        exit={{ opacity: 0.99 }}
-        transition={{
-          duration: 2,
-          type: 'ease-out',
-        }}
-        onAnimationStart={() => {
-          updateAnimationStarted(true)
-          updateAnimationFinished(false)
-        }}
-        onAnimationComplete={() => {
-          updateAnimationFinished(true)
-          updateAnimationStarted(false)
-          updateBackgroundColor(false)
-        }}
-        className={`${animationFinished ? '' : 'page-transition'} ${
-          mainFont.className
-        } pt-[95px]`}
-      >
-        <UslugeCards secondaryFont={secondaryFont} />
-        <Footer secondaryFont={secondaryFont} />
-      </m.main>
+      <>
+        {!removeComponent && (
+          <m.main
+            variants={variants}
+            initial={'hidden'}
+            animate={'show'}
+            exit={{ transform: 'translateX(1px)' }}
+            transition={{
+              duration: 2,
+              type: 'ease-out',
+            }}
+            onAnimationStart={() => {
+              updateAnimationStarted(true)
+              updateAnimationFinished(false)
+            }}
+            onAnimationComplete={() => {
+              updateAnimationFinished(true)
+              updateAnimationStarted(false)
+              updateBackgroundColor(false)
+            }}
+            className={`usluge ${
+              router.pathname === '/usluge' ? 'absolute z-50' : 'relative'
+            } ${animationFinished ? '' : 'page-transition'} ${
+              mainFont.className
+            }  pt-[95px] ${removeComponent && 'hidden'}`}
+          >
+            <UslugeCards secondaryFont={secondaryFont} />
+            <Footer secondaryFont={secondaryFont} />
+          </m.main>
+        )}
+      </>
     )
   )
 }

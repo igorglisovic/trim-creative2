@@ -18,8 +18,6 @@ const Nav = ({ secondaryFont }) => {
     useAnimationContext()
   const { updateFixedHeader, fixedHeader } = useHeaderContext()
 
-  console.log('animationPosition ', animationPosition)
-
   const handleClick = e => {
     if (!animationFinished) {
       e.preventDefault()
@@ -27,6 +25,8 @@ const Nav = ({ secondaryFont }) => {
     }
 
     updateAnimationPosition({ x: e.clientX, y: e.clientY })
+
+    console.log('window.scrollY ', window.scrollY)
   }
   const ref = useRef(null)
 
@@ -90,7 +90,6 @@ const Nav = ({ secondaryFont }) => {
         <m.div
           variants={{
             closed: {
-              backgroundColor: 'transparent',
               backdropFilter: 'blur(0px)',
               transition: {
                 type: 'spring',
@@ -100,7 +99,6 @@ const Nav = ({ secondaryFont }) => {
             },
             open: {
               borderRadius: '24px 24px 0 0',
-              backgroundColor: 'rgba(255, 255, 255, 0.71)',
               backdropFilter: 'blur(3px)',
               transition: {
                 type: 'spring',
@@ -111,7 +109,9 @@ const Nav = ({ secondaryFont }) => {
           }}
           initial={fixedHeader ? 'open' : 'closed'}
           animate={fixedHeader ? 'open' : 'closed'}
-          className="relative min-h-[95px] whitespace-nowrap"
+          className={`relative min-h-[95px] whitespace-nowrap ${
+            fixedHeader ? ' bg-[#ffffffb5]' : ''
+          }`}
         >
           <m.div
             variants={{
@@ -154,6 +154,7 @@ const Nav = ({ secondaryFont }) => {
                       !animationFinished ? 'cursor-default' : 'cursor-pointer'
                     } `}
                     href={navItem.path}
+                    scroll={false}
                   >
                     {navItem.title}
                   </Link>

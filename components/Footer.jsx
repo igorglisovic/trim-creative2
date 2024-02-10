@@ -8,18 +8,24 @@ import Link from 'next/link'
 import { EmailOutlined, Instagram } from '@mui/icons-material'
 import Form from './Form'
 import { useAnimationContext } from '@/store/animation-ctx'
+import { useEffect } from 'react'
 
 const Footer = ({ secondaryFont }) => {
-  // const { updateAnimationPosition, animationFinished } = useAnimationContext()
+  const { updateAnimationPosition, animationFinished, animationPosition } =
+    useAnimationContext()
 
-  // const handleClick = e => {
-  //   if (!animationFinished) {
-  //     e.preventDefault()
-  //     return
-  //   }
+  useEffect(() => {
+    console.log('animationPosition ', animationPosition)
+  }, [animationPosition])
 
-  //   updateAnimationPosition({ x: e.clientX, y: e.clientY })
-  // }
+  const handleClick = e => {
+    if (!animationFinished) {
+      e.preventDefault()
+      return
+    }
+
+    updateAnimationPosition({ x: e.clientX, y: e.clientY })
+  }
 
   return (
     <footer className="bg-footer-gradient pt-20 pb-14">
