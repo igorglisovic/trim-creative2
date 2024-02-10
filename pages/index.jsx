@@ -9,6 +9,7 @@ import { motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
 import Lenis from '@studio-freight/lenis'
 import { useHeaderContext } from '@/store/header-ctx'
+import Head from 'next/head'
 
 const page = ({ mainFont, secondaryFont }) => {
   const [variants, setVariants] = useState(null)
@@ -81,33 +82,35 @@ const page = ({ mainFont, secondaryFont }) => {
 
   return (
     variants && (
-      <m.main
-        variants={variants}
-        initial={'hidden'}
-        animate={'show'}
-        exit={{ opacity: 0.99 }}
-        transition={{
-          duration: 2,
-          type: 'ease-out',
-        }}
-        onAnimationStart={() => {
-          updateAnimationStarted(true)
-          updateAnimationFinished(false)
-        }}
-        onAnimationComplete={() => {
-          updateAnimationFinished(true)
-          updateAnimationStarted(false)
-          updateBackgroundColor(false)
-        }}
-        className={`${animationFinished ? '' : 'page-transition'} ${
-          mainFont.className
-        } pt-[95px] `}
-      >
-        <HeroSection secondaryFont={secondaryFont} />
-        <CardsSection secondaryFont={secondaryFont} />
-        <PortfolioSection />
-        <Footer secondaryFont={secondaryFont} />
-      </m.main>
+      <>
+        <m.main
+          variants={variants}
+          initial={'hidden'}
+          animate={'show'}
+          exit={{ opacity: 0.99 }}
+          transition={{
+            duration: 2,
+            type: 'ease-out',
+          }}
+          onAnimationStart={() => {
+            updateAnimationStarted(true)
+            updateAnimationFinished(false)
+          }}
+          onAnimationComplete={() => {
+            updateAnimationFinished(true)
+            updateAnimationStarted(false)
+            updateBackgroundColor(false)
+          }}
+          className={`${animationFinished ? '' : 'page-transition'} ${
+            mainFont.className
+          } pt-[95px] `}
+        >
+          <HeroSection secondaryFont={secondaryFont} />
+          <CardsSection secondaryFont={secondaryFont} />
+          <PortfolioSection />
+          <Footer secondaryFont={secondaryFont} />
+        </m.main>
+      </>
     )
   )
 }
