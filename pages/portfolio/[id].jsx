@@ -18,8 +18,10 @@ const initialCards = portfolio.map(card => {
 const PortfolioProject = ({ mainFont, secondaryFont }) => {
   const router = useRouter()
   const [variants, setVariants] = useState(null)
+  const [project, setProject] = useState(
+    initialCards.find(el => el.slug === router.query.id)
+  )
 
-  const project = initialCards.find(el => el.slug === router.query.id)
   const projectFilter = portfolioFilters.find(
     el => el.id === project?.filters[0]
   )
