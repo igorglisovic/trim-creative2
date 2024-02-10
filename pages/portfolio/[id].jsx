@@ -114,7 +114,7 @@ const PortfolioProject = ({ mainFont, secondaryFont }) => {
         }}
         className={`${animationFinished ? '' : 'page-transition'} ${
           mainFont.className
-        }`}
+        } pt-[95px]`}
       >
         <Breadcrumb
           items={[

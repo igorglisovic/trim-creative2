@@ -117,7 +117,7 @@ const portfolio = ({ mainFont, secondaryFont }) => {
         }}
         className={`${animationFinished ? '' : 'page-transition'} ${
           mainFont.className
-        }`}
+        } pt-[95px]`}
       >
         <PortfolioFilters secondaryFont={secondaryFont} />
         <PortfolioCards secondaryFont={secondaryFont} />

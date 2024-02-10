@@ -94,7 +94,7 @@ const page = ({ mainFont, secondaryFont }) => {
         }}
         className={`${animationFinished ? '' : 'page-transition'} ${
           mainFont.className
-        }`}
+        } pt-[95px]`}
       >
         <UslugeCards secondaryFont={secondaryFont} />
         <Footer secondaryFont={secondaryFont} />

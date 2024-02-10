@@ -8,6 +8,7 @@ import Footer from '../components/Footer'
 import { motion as m } from 'framer-motion'
 import { useAnimationContext } from '@/store/animation-ctx'
 import Lenis from '@studio-freight/lenis'
+import { useHeaderContext } from '@/store/header-ctx'
 
 const page = ({ mainFont, secondaryFont }) => {
   const [variants, setVariants] = useState(null)
@@ -19,6 +20,8 @@ const page = ({ mainFont, secondaryFont }) => {
     updateAnimationStarted,
     updateBackgroundColor,
   } = useAnimationContext()
+
+  const { fixedHeader } = useHeaderContext()
 
   // Smooth scroll
   useEffect(() => {
@@ -98,7 +101,7 @@ const page = ({ mainFont, secondaryFont }) => {
         }}
         className={`${animationFinished ? '' : 'page-transition'} ${
           mainFont.className
-        }`}
+        } pt-[95px]`}
       >
         <HeroSection secondaryFont={secondaryFont} />
         <CardsSection secondaryFont={secondaryFont} />

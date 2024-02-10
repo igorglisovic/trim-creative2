@@ -8,6 +8,7 @@ import { AnimatePresence } from 'framer-motion'
 import Nav from '../components/Header'
 import localFont from 'next/font/local'
 import { Gabarito } from 'next/font/google'
+import { HeaderContextProvider } from '@/store/header-ctx'
 
 const akira = localFont({
   src: [
@@ -30,15 +31,17 @@ export default function App({ Component, pageProps, router }) {
       <ContainerContextProvider>
         <AnimationContextProvider>
           <PortfolioContextProvider>
-            <Nav secondaryFont={gabarito} />
-            <AnimatePresence>
-              <Component
-                mainFont={akira}
-                secondaryFont={gabarito}
-                key={router._key}
-                {...pageProps}
-              />
-            </AnimatePresence>
+            <HeaderContextProvider>
+              <Nav secondaryFont={gabarito} />
+              <AnimatePresence>
+                <Component
+                  mainFont={akira}
+                  secondaryFont={gabarito}
+                  key={router._key}
+                  {...pageProps}
+                />
+              </AnimatePresence>
+            </HeaderContextProvider>
           </PortfolioContextProvider>
         </AnimationContextProvider>
       </ContainerContextProvider>

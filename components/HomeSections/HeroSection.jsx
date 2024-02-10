@@ -5,6 +5,7 @@ import {
   motion,
   useMotionValueEvent,
 } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 import Trim from '../../public/aa.png'
 import Trim2 from '../../public/bmwm4.jpg'
 import Button from '../UI/Button'
@@ -25,7 +26,6 @@ const HeroSection = ({ secondaryFont }) => {
   useMotionValueEvent(scrollYProgress, 'change', () => {
     if (animationFinished && hookedYPostion !== 80) {
       setHookedYPosition(80)
-      console.log(animationFinished)
     }
   })
 
