@@ -20,18 +20,27 @@ const PortfolioProject = ({ mainFont, secondaryFont }) => {
 
   const [variants, setVariants] = useState(null)
   const [project, setProject] = useState(null)
-
-  const projectFilter = portfolioFilters.find(
-    el => el.id === project?.filters[0]
-  )
+  const [projectFilter, setProjectFilter] = useState(null)
 
   useEffect(() => {
-    setProject(initialCards.find(el => el.slug === router.query.id))
-  }, [initialCards])
+    if (router.query.id) {
+      setProject(initialCards.find(el => el.slug === router.query.id))
+    }
+  }, [initialCards, router.query.id, portfolioFilters])
 
   useEffect(() => {
     console.log('project ', project)
-  }, [project])
+    if (project)
+      setProjectFilter(
+        portfolioFilters.find(el => el.id === project?.filters[0])
+      )
+
+    console.log(
+      'portfolioFilters ',
+      portfolioFilters,
+      portfolioFilters.find(el => el.id === project?.filters[0])
+    )
+  }, [project, portfolioFilters, router.query.id])
 
   const {
     animationPosition,
@@ -132,14 +141,16 @@ const PortfolioProject = ({ mainFont, secondaryFont }) => {
               mainFont.className
             } pt-[95px]`}
           >
-            <Breadcrumb
-              items={[
-                { link: '/portfolio', title: 'Portfolio' },
-                { link: null, title: projectFilter?.title },
-                { link: null, title: project?.title },
-              ]}
-              font={secondaryFont}
-            />
+            {project && projectFilter && (
+              <Breadcrumb
+                items={[
+                  { link: '/portfolio', title: 'Portfolio' },
+                  { link: null, title: projectFilter?.title },
+                  { link: null, title: project?.title },
+                ]}
+                font={secondaryFont}
+              />
+            )}
             <PortfolioTitleSection
               project={project}
               secondaryFont={secondaryFont}

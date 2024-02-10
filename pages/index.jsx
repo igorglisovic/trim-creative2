@@ -98,7 +98,7 @@ const page = ({ mainFont, secondaryFont }) => {
             variants={variants}
             initial={'hidden'}
             animate={'show'}
-            exit={{ transform: 'translateX(1px)' }}
+            exit={{ opacity: 0.99 }}
             transition={{
               duration: 2,
               type: 'ease-out',
