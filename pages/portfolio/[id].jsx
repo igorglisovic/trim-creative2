@@ -9,6 +9,7 @@ import PortfolioTitleSection from '@/components/PortfolioSections/PortfolioTitle
 import { portfolio } from '@/data/portfolio'
 import slugify from 'slugify'
 import PortfolioGallerySection from '@/components/PortfolioSections/PortfolioGallerySection'
+import { portfolioFilters } from '@/data/portfolio'
 
 const initialCards = portfolio.map(card => {
   return { ...card, slug: slugify(card.title, { lower: true }) }
@@ -19,6 +20,9 @@ const PortfolioProject = ({ mainFont, secondaryFont }) => {
   const [variants, setVariants] = useState(null)
 
   const project = initialCards.find(el => el.slug === router.query.id)
+  const projectFilter = portfolioFilters.find(
+    el => el.id === project?.filters[0]
+  )
 
   const {
     animationPosition,
@@ -110,7 +114,14 @@ const PortfolioProject = ({ mainFont, secondaryFont }) => {
           mainFont.className
         }`}
       >
-        <Breadcrumb font={secondaryFont} />
+        <Breadcrumb
+          items={[
+            { link: '/portfolio', title: 'Portfolio' },
+            { link: null, title: projectFilter?.title },
+            { link: null, title: project?.title },
+          ]}
+          font={secondaryFont}
+        />
         <PortfolioTitleSection
           project={project}
           secondaryFont={secondaryFont}

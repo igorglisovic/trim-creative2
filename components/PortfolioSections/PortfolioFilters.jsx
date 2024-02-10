@@ -36,15 +36,17 @@ const PortfolioFilters = ({ secondaryFont }) => {
             </Button>
           ))}
         </div>
-        <div className={`${secondaryFont.className}`}>
-          <button
-            onClick={() => {
-              updateCurrentFilter(null)
-            }}
-          >
-            Clear filter
-          </button>
-        </div>
+        {currentFilter && (
+          <div className={`${secondaryFont.className}`}>
+            <button
+              onClick={() => {
+                updateCurrentFilter(null)
+              }}
+            >
+              Clear filter
+            </button>
+          </div>
+        )}
       </div>
     </Container>
   )
