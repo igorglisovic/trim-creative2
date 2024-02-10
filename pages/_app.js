@@ -36,7 +36,7 @@ export default function App({ Component, pageProps, router }) {
           content="We specialize in developing tailored, data-driven campaigns and compelling content that drives brand growth. Our focus is on delivering measurable results and staying at the forefront of digital innovation. Let's collaborate to amplify your brand's presence."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/trim4.jpg" />
       </Head>
       <ContainerContextProvider>
         <AnimationContextProvider>
