@@ -4,10 +4,9 @@ import { useHeaderContext } from '@/store/header-ctx'
 import light from '../public/light.png'
 import Image from 'next/image'
 
-const Theme = () => {
+const Theme = ({ theme, setTheme }) => {
   const [userTheme, setUserTheme] = useState(null)
   const [systemTheme, setSystemTheme] = useState(null)
-  const [theme, setTheme] = useState(null)
 
   const { fixedHeader } = useHeaderContext()
 

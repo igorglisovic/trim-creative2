@@ -1,7 +1,8 @@
 'use client'
 
 import Container from './UI/Container'
-import Logo from '../public/trim-logo.png'
+import LogoDark from '../public/trim-logo.png'
+import LogoLight from '../public/trim-logo2.png'
 import { navItemsSr } from '../data/nav'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -15,6 +16,9 @@ import Theme from './Theme'
 const Nav = ({ secondaryFont }) => {
   const [expand, setExpand] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const [theme, setTheme] = useState(null)
+
+  const ref = useRef(null)
 
   const router = useRouter()
 
@@ -32,7 +36,6 @@ const Nav = ({ secondaryFont }) => {
 
     updateAnimationPosition({ x: e.clientX, y: e.clientY })
   }
-  const ref = useRef(null)
 
   useEffect(() => {
     const handleScroll = e => {
@@ -144,7 +147,7 @@ const Nav = ({ secondaryFont }) => {
               priority={true}
               alt="Trim Creative logo"
               className="max-w-full"
-              src={Logo}
+              src={theme === 'dark' && !fixedHeader ? LogoLight : LogoDark}
             />
           </m.div>
           {/* Desktop Menu */}
@@ -224,7 +227,7 @@ const Nav = ({ secondaryFont }) => {
               ></line>
             </svg>
           </m.button>
-          <Theme />
+          <Theme theme={theme} setTheme={setTheme} />
         </m.div>
       </Container>
     </m.header>
