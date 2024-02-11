@@ -28,7 +28,7 @@ const Nav = ({ secondaryFont }) => {
       return
     }
 
-    router.push(navItem.path, { scroll: false })
+    // router.push(navItem.path, { scroll: false })
 
     updateAnimationPosition({ x: e.clientX, y: e.clientY })
   }
@@ -153,18 +153,20 @@ const Nav = ({ secondaryFont }) => {
               {navItemsSr?.map(navItem => (
                 <li
                   key={navItem.title}
-                  className="uppercase text-light-black  dark:text-dark"
+                  className={`uppercase text-light-black ${
+                    fixedHeader ? 'text-light-black' : 'dark:text-dark'
+                  }`}
                 >
-                  <span
+                  <Link
                     onClick={e => handleClick(e, navItem)}
                     className={`font-medium text-sm lg:text-base ${
                       !animationFinished ? 'cursor-default' : 'cursor-pointer'
                     } `}
-                    // href={navItem.path}
+                    href={navItem.path}
                     aria-label={navItem.title}
                   >
                     {navItem.title}
-                  </span>
+                  </Link>
                 </li>
               ))}
             </ul>

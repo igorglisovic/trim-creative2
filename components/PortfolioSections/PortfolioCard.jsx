@@ -25,7 +25,7 @@ const PortfolioCard = ({ card }) => {
       className="flex flex-col gap-2 flex-1 min-w-[45%] cursor-pointer"
     >
       <Image className="rounded-[37px]" alt="" src={Trim2} />
-      <h2 className="text-xl">{card.title}</h2>
+      <h2 className="text-xl dark:text-dark">{card.title}</h2>
     </article>
   )
 }

@@ -139,7 +139,7 @@ const PortfolioProject = ({ mainFont, secondaryFont }) => {
             }}
             className={`${animationFinished ? '' : 'page-transition'} ${
               mainFont.className
-            } pt-[95px]`}
+            } pt-[95px] dark:bg-dark`}
           >
             {project && projectFilter && (
               <Breadcrumb

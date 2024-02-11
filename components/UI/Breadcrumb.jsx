@@ -38,7 +38,7 @@ const Breadcrumb = ({ font, items }) => {
   return (
     <Container>
       <div className="py-3">
-        <span className={`${font.className} text-sm`}>
+        <span className={`${font.className} text-sm dark:text-dark`}>
           {breadcrumbArr?.map((item, i) => {
             if (item.link) {
               return (
