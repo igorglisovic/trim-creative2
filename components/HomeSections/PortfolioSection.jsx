@@ -25,7 +25,9 @@ const PortfolioSection = () => {
             className="bg-circle-gradient w-[80px] h-[80px] rounded-full absolute right-[287px] top-[102px] z-[1] rotate-[99.13deg]"
           ></motion.div>
 
-          <h2 className={`text-center sm:text-4xl text-3xl mb-12`}>
+          <h2
+            className={`text-center sm:text-4xl text-3xl mb-12 dark:text-dark`}
+          >
             Portfolio
           </h2>
           <div className="flex flex-col w-full md:flex-row gap-5 min-h-[600px]">

@@ -13,7 +13,9 @@ const PortfolioTitleSection = ({ project, secondaryFont }) => {
             className="absolute top-0 left-0 w-full h-full object-cover z-30"
           />
         </div>
-        <h1 className="text-4xl text-center">{project?.title}</h1>
+        <h1 className="text-4xl text-center dark:text-dark">
+          {project?.title}
+        </h1>
         <p className={`${secondaryFont.className} text-xl`}>
           {project?.description}
         </p>

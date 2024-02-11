@@ -15,11 +15,13 @@ module.exports = {
       },
       backgroundColor: {
         arrow: 'rgba(35, 31, 32, 0.23)',
+        dark: '#0d1117',
       },
       colors: {
         'light-black': '#231F20',
         'dark-gray': '#231F20',
         'card-black': '#181415',
+        dark: '#ffffff',
       },
     },
   },

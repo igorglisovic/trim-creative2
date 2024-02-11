@@ -151,7 +151,10 @@ const Nav = ({ secondaryFont }) => {
           <nav className="hidden invisible sm:visible sm:flex items-center absolute nav z-50 ">
             <ul className="flex md:gap-5 gap-3">
               {navItemsSr?.map(navItem => (
-                <li key={navItem.title} className="uppercase text-light-black">
+                <li
+                  key={navItem.title}
+                  className="uppercase text-light-black  dark:text-dark"
+                >
                   <span
                     onClick={e => handleClick(e, navItem)}
                     className={`font-medium text-sm lg:text-base ${

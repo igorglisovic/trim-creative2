@@ -5,7 +5,7 @@ const H1 = ({ children }) => {
 
   return (
     <h1
-      className={`uppercase text-center whitespace-nowrap leading-none`}
+      className={`uppercase text-center whitespace-nowrap leading-none dark:text-dark`}
       style={{
         fontSize: containerWidth ? `${containerWidth / 11.6}px` : '235px',
       }}
