@@ -88,7 +88,7 @@ const HeroSection = ({ secondaryFont }) => {
                 />
               </div>
               <div className="flex flex-col gap-3">
-                <p className="md:text-lg">
+                <p className="md:text-lg dark:text-dark">
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                   Dolorum fuga modi, inventore cupiditate natus eius accusamus
                   voluptatum iure ipsa quod tempora eaque molestias impedit
