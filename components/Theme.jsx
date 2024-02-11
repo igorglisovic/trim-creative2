@@ -84,7 +84,7 @@ const Theme = ({ theme, setTheme }) => {
           initial={theme === 'dark' ? 'toLeft' : 'toRight'}
           animate={theme === 'dark' ? 'toLeft' : 'toRight'}
           transition={{
-            duration: 0.5,
+            duration: 0.3,
             type: 'ease-out',
           }}
           className="p-1 w-7 h-7 bg-white rounded-full absolute"
