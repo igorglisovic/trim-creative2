@@ -16,7 +16,7 @@ const PortfolioCard = ({ card }) => {
 
     updateAnimationPosition({ x: e.clientX, y: e.clientY })
 
-    router.push(`/portfolio/${card.slug}`)
+    router.push(`/portfolio/${card.slug}`, { scroll: false })
   }
 
   return (

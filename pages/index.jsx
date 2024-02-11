@@ -114,7 +114,7 @@ const page = ({ mainFont, secondaryFont }) => {
             }}
             className={`home ${
               animationFinished ? 'relative' : 'page-transition absolute'
-            } ${mainFont.className}  pt-[95px]`}
+            } ${mainFont.className}  pt-[95px] dark:bg-slate-900`}
           >
             <HeroSection secondaryFont={secondaryFont} />
             <CardsSection secondaryFont={secondaryFont} />

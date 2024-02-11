@@ -9,24 +9,28 @@ import { useEffect, useRef, useState } from 'react'
 import { useAnimationContext } from '../store/animation-ctx'
 import { motion as m } from 'framer-motion'
 import { useHeaderContext } from '@/store/header-ctx'
+import { useRouter } from 'next/navigation'
+import Theme from './Theme'
 
 const Nav = ({ secondaryFont }) => {
   const [expand, setExpand] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
 
+  const router = useRouter()
+
   const { updateAnimationPosition, animationFinished, animationPosition } =
     useAnimationContext()
   const { updateFixedHeader, fixedHeader } = useHeaderContext()
 
-  const handleClick = e => {
+  const handleClick = (e, navItem) => {
     if (!animationFinished) {
       e.preventDefault()
       return
     }
 
-    updateAnimationPosition({ x: e.clientX, y: e.clientY })
+    router.push(navItem.path, { scroll: false })
 
-    console.log('window.scrollY ', window.scrollY)
+    updateAnimationPosition({ x: e.clientX, y: e.clientY })
   }
   const ref = useRef(null)
 
@@ -148,17 +152,16 @@ const Nav = ({ secondaryFont }) => {
             <ul className="flex md:gap-5 gap-3">
               {navItemsSr?.map(navItem => (
                 <li key={navItem.title} className="uppercase text-light-black">
-                  <Link
+                  <span
                     onClick={e => handleClick(e, navItem)}
                     className={`font-medium text-sm lg:text-base ${
                       !animationFinished ? 'cursor-default' : 'cursor-pointer'
                     } `}
-                    href={navItem.path}
-                    scroll={false}
+                    // href={navItem.path}
                     aria-label={navItem.title}
                   >
                     {navItem.title}
-                  </Link>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -216,31 +219,7 @@ const Nav = ({ secondaryFont }) => {
               ></line>
             </svg>
           </m.button>
-          <m.button
-            variants={{
-              closed: {
-                transition: {
-                  type: 'spring',
-                  stiffness: 300,
-                  damping: 30,
-                },
-              },
-              open: {
-                right: '40px',
-                transition: {
-                  type: 'spring',
-                  stiffness: 300,
-                  damping: 30,
-                },
-              },
-            }}
-            initial={fixedHeader ? 'open' : 'closed'}
-            animate={fixedHeader ? 'open' : 'closed'}
-            className="hidden invisible sm:visible sm:flex absolute right-0 position-center z-50
-            disabled:cursor-default uppercase text-white bg-main-gradient px-[2.7em] py-3 rounded-full text-xs lg:text-sm font-semibold"
-          >
-            Pozovi
-          </m.button>
+          <Theme />
         </m.div>
       </Container>
     </m.header>
