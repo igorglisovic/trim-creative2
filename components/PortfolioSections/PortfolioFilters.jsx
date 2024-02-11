@@ -44,6 +44,7 @@ const PortfolioFilters = ({ secondaryFont }) => {
                 updateCurrentFilter(null)
               }}
               aria-label="Clear filters"
+              className="dark:text-dark"
             >
               Clear filters
             </button>
