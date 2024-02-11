@@ -77,6 +77,7 @@ const Theme = ({ theme, setTheme }) => {
       initial={fixedHeader ? 'open' : 'closed'}
       animate={fixedHeader ? 'open' : 'closed'}
       className="hidden invisible sm:visible sm:flex absolute right-0 position-center z-50 w-[72px] text-white bg-[#D9D9D9] p-1 rounded-full"
+      aria-label="Change Theme Button"
     >
       <div className="w-full h-7 relative">
         <m.figure
@@ -89,7 +90,7 @@ const Theme = ({ theme, setTheme }) => {
           }}
           className="p-1 w-7 h-7 bg-white rounded-full absolute"
         >
-          <Image src={light} />
+          <Image src={light} alt="Sun" />
         </m.figure>
       </div>
     </m.button>
