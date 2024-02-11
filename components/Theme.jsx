@@ -48,10 +48,10 @@ const Theme = () => {
 
   const themeVariants = {
     toLeft: {
-      alignSelf: 'start',
+      left: 'calc(100% - 1.75rem)',
     },
     toRight: {
-      alignSelf: 'end',
+      left: 0,
     },
   }
 
@@ -77,20 +77,22 @@ const Theme = () => {
       }}
       initial={fixedHeader ? 'open' : 'closed'}
       animate={fixedHeader ? 'open' : 'closed'}
-      className="hidden invisible sm:visible sm:flex flex-col justify-start absolute right-0 position-center z-50 w-[72px] text-white bg-[#D9D9D9] p-1 rounded-full"
+      className="hidden invisible sm:visible sm:flex absolute right-0 position-center z-50 w-[72px] text-white bg-[#D9D9D9] p-1 rounded-full"
     >
-      <m.figure
-        variants={themeVariants}
-        initial={theme === 'dark' ? 'toRight' : 'toLeft'}
-        animate={theme === 'dark' ? 'toRight' : 'toLeft'}
-        transition={{
-          duration: 0.5,
-          type: 'ease-out',
-        }}
-        className="w-7 h-7 p-1 bg-white rounded-full"
-      >
-        <Image src={light} />
-      </m.figure>
+      <div className="w-full h-7 relative">
+        <m.figure
+          variants={themeVariants}
+          initial={theme === 'dark' ? 'toLeft' : 'toRight'}
+          animate={theme === 'dark' ? 'toLeft' : 'toRight'}
+          transition={{
+            duration: 0.5,
+            type: 'ease-out',
+          }}
+          className="p-1 w-7 h-7 bg-white rounded-full absolute"
+        >
+          <Image src={light} />
+        </m.figure>
+      </div>
     </m.button>
   )
 }
