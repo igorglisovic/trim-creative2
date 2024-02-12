@@ -29,7 +29,7 @@ const PortfolioGallerySection = ({ project }) => {
             />
           )}
         </div>
-        {imagePairs.map((imagePair, i) => {
+        {imagePairs?.map((imagePair, i) => {
           if (i % 2) {
             return (
               <PortfolioGalleryLeft

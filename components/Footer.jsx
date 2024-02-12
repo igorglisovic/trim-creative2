@@ -1,5 +1,3 @@
-'use client'
-
 import Container from './UI/Container'
 import Logo from '../public/trim-logo.png'
 import { navItemsSr } from '../data/nav'

@@ -17,7 +17,7 @@ const PortfolioCards = ({ secondaryFont }) => {
   useEffect(() => {
     if (!currentFilter) return setCards(initialCards)
 
-    setCards(prev => {
+    setCards(() => {
       return initialCards.filter(card =>
         card.filters.includes(currentFilter.id)
       )

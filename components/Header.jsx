@@ -1,16 +1,12 @@
-'use client'
-
 import Container from './UI/Container'
 import LogoDark from '../public/trim-logo.png'
 import LogoLight from '../public/trim-logo2.png'
 import { navItemsSr } from '../data/nav'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { useAnimationContext } from '../store/animation-ctx'
 import { motion as m } from 'framer-motion'
 import { useHeaderContext } from '@/store/header-ctx'
-import { useRouter } from 'next/navigation'
 import Theme from './Theme'
 import RouteLink from './UI/RouteLink'
 
@@ -20,8 +16,6 @@ const Nav = ({ secondaryFont }) => {
   const [theme, setTheme] = useState(null)
 
   const ref = useRef(null)
-
-  const router = useRouter()
 
   const { animationFinished } = useAnimationContext()
   const { updateFixedHeader, fixedHeader } = useHeaderContext()
@@ -54,21 +48,11 @@ const Nav = ({ secondaryFont }) => {
       zIndex: 9999,
       backgroundColor: 'transparent',
       width: '100%',
-      transition: {
-        type: 'spring',
-        stiffness: 200,
-        damping: 25,
-      },
     },
     open: {
       position: 'fixed',
       top: '20px',
       zIndex: 9999,
-      transition: {
-        type: 'spring',
-        stiffness: 200,
-        damping: 25,
-      },
     },
   }
 
@@ -81,6 +65,11 @@ const Nav = ({ secondaryFont }) => {
       variants={headerVariants}
       initial={fixedHeader ? 'open' : 'closed'}
       animate={fixedHeader ? 'open' : 'closed'}
+      transition={{
+        type: 'spring',
+        stiffness: 200,
+        damping: 25,
+      }}
     >
       <Container>
         <m.div

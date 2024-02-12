@@ -1,4 +1,4 @@
-import { useContainerContext } from '@//store/container-ctx'
+import { useContainerContext } from '@/store/container-ctx'
 
 const H1 = ({ children }) => {
   const { containerWidth } = useContainerContext()

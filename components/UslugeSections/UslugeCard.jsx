@@ -5,8 +5,6 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
-  const [clickedCard, setClickedCard] = useState(card)
-
   const cardVariants = {
     closed: {
       flexGrow: 1,
@@ -33,12 +31,6 @@ const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
         if (i === index && !card.active) return { ...card, active: true }
         if (i === index && card.active) return { ...card, active: !card.active }
         else return card
-      })
-    )
-
-    setClickedCard(
-      ...cards.filter((card, i) => {
-        if (i === index) return card
       })
     )
   }

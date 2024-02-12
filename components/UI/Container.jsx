@@ -9,7 +9,6 @@ const Container = ({ children }) => {
   const { animationFinished } = useAnimationContext()
 
   useEffect(() => {
-    // if (animationFinished) {
     if (!containerWidth) {
       updateContainerWidth(ref.current.getBoundingClientRect().width - 96)
     }
@@ -22,7 +21,6 @@ const Container = ({ children }) => {
     return () => {
       window.removeEventListener('resize', calcWidth)
     }
-    // }
   }, [animationFinished])
 
   return (

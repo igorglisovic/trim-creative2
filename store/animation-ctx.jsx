@@ -1,5 +1,3 @@
-'use client'
-
 import { createContext, useContext, useEffect, useState } from 'react'
 
 const AnimationContext = createContext()
@@ -11,6 +9,7 @@ export const AnimationContextProvider = ({ children }) => {
   const [animationStarted, setAnimationStarted] = useState(null)
   const [animationFinished, setAnimationFinished] = useState(null)
   const [backgroundColor, setBackgroundColor] = useState(false)
+  const [variants, setVariants] = useState(null)
 
   const updateAnimationPosition = value => {
     setAnimationPosition(value)
@@ -28,6 +27,10 @@ export const AnimationContextProvider = ({ children }) => {
     setBackgroundColor(value)
   }
 
+  const updateVariants = value => {
+    setVariants(value)
+  }
+
   return (
     <AnimationContext.Provider
       value={{
@@ -35,10 +38,12 @@ export const AnimationContextProvider = ({ children }) => {
         animationFinished,
         backgroundColor,
         animationStarted,
+        variants,
         updateAnimationPosition,
         updateAnimationFinished,
         updateBackgroundColor,
         updateAnimationStarted,
+        updateVariants,
       }}
     >
       {children}

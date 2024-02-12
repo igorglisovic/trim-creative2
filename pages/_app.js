@@ -1,5 +1,3 @@
-'use client'
-
 import { AnimationContextProvider } from '@/store/animation-ctx'
 import { ContainerContextProvider } from '@/store/container-ctx'
 import { PortfolioContextProvider } from '@/store/portfolio-ctx'

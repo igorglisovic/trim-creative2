@@ -10,7 +10,6 @@ import Link from 'next/link'
 
 const CardsSection = ({ secondaryFont }) => {
   const [cards, setCards] = useState(cardsData)
-  const [clickedCard, setClickedCard] = useState(cardsData[0])
 
   const { scrollYProgress } = useScroll()
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -300])
@@ -45,25 +44,6 @@ const CardsSection = ({ secondaryFont }) => {
     },
   }
 
-  const buttonVariants = {
-    closed: {
-      rotate: 0,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 30,
-      },
-    },
-    open: {
-      rotate: '180deg',
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 30,
-      },
-    },
-  }
-
   const handleClick = index => {
     setCards(
       cards.map((card, i) => {
@@ -71,12 +51,6 @@ const CardsSection = ({ secondaryFont }) => {
         if (i === index && !card.active) return { ...card, active: true }
         if (i === index && card.active) return { ...card, active: false }
         else return card
-      })
-    )
-
-    setClickedCard(
-      ...cards.filter((card, i) => {
-        if (i === index) return card
       })
     )
   }
@@ -94,7 +68,6 @@ const CardsSection = ({ secondaryFont }) => {
             style={{ y: y1 }}
             className="bg-circle-gradient w-[50px] h-[50px] rounded-full absolute left-[210px] bottom-[-310px] -z-10 rotate-[99.13deg]"
           ></motion.div>
-
           <h2
             className={`text-white sm:text-4xl text-3xl text-center sm:text-left`}
           >
@@ -128,7 +101,14 @@ const CardsSection = ({ secondaryFont }) => {
                         {card.title}
                       </h3>
                       <motion.div
-                        variants={buttonVariants}
+                        variants={{
+                          closed: {
+                            rotate: 0,
+                          },
+                          open: {
+                            rotate: '180deg',
+                          },
+                        }}
                         initial={cards[i].active ? 'open' : 'closed'}
                         animate={cards[i].active ? 'open' : 'closed'}
                       >
