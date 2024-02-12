@@ -18,7 +18,7 @@ const Circle = ({ size, rotate, position, z: zIndex }) => {
 
   const { animationFinished } = useAnimationContext()
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, -250])
+  const y = useTransform(scrollYProgress, [0, 1], [0, -hookedYPostion])
 
   useMotionValueEvent(scrollYProgress, 'change', () => {
     if (animationFinished && hookedYPostion !== 250) {
