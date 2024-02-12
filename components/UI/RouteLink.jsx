@@ -1,6 +1,5 @@
 import { useAnimationContext } from '@/store/animation-ctx'
 import Link from 'next/link'
-import React from 'react'
 
 const RouteLink = ({ href, children, className, 'aria-label': ariaLabel }) => {
   const { updateAnimationPosition, animationFinished } = useAnimationContext()

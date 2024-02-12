@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { cards as cardsData } from '../../data/cards'
 import { KeyboardArrowDown } from '@mui/icons-material'
 import Link from 'next/link'
+import Circle from '../UI/Circle'
 
 const CardsSection = ({ secondaryFont }) => {
   const [cards, setCards] = useState(cardsData)
@@ -59,15 +60,8 @@ const CardsSection = ({ secondaryFont }) => {
     <section className="bg-dark-gray py-20">
       <Container>
         <div className="relative">
-          {/* Circles */}
-          <motion.div
-            style={{ y: y1 }}
-            className="bg-circle-gradient w-[160px] h-[160px] rounded-full absolute left-[-20px] bottom-[-330px] z-50 rotate-[99.13deg]"
-          ></motion.div>
-          <motion.div
-            style={{ y: y1 }}
-            className="bg-circle-gradient w-[50px] h-[50px] rounded-full absolute left-[210px] bottom-[-310px] -z-10 rotate-[99.13deg]"
-          ></motion.div>
+          <Circle size={160} rotate={99} position={[0, 0, -300, -20]} z={100} />
+          <Circle size={50} rotate={99} position={[0, 0, -260, 210]} z={-1} />
           <h2
             className={`text-white sm:text-4xl text-3xl text-center sm:text-left`}
           >

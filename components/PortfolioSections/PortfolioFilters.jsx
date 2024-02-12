@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import Container from '../UI/Container'
 import { portfolioFilters } from '@/data/portfolio'
 import slugify from 'slugify'

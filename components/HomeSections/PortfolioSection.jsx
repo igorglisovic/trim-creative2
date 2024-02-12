@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Container from '../UI/Container'
 import { useScroll, useTransform, motion } from 'framer-motion'
 import Trim from '../../public/aa.png'
+import Circle from '../UI/Circle'
 
 const PortfolioSection = () => {
   const { scrollYProgress } = useScroll()
@@ -11,20 +12,9 @@ const PortfolioSection = () => {
     <section className="py-20">
       <Container>
         <div className="relative">
-          {/* Circles */}
-          <motion.div
-            style={{ y: y1 }}
-            className="bg-circle-gradient w-[300px] h-[300px] rounded-full absolute right-[-230px] bottom-[-5%] z-0 rotate-[99.13deg]"
-          ></motion.div>
-          <motion.div
-            style={{ y: y1 }}
-            className="bg-circle-gradient w-[100px] h-[100px] rounded-full absolute left-[287px] bottom-[-280px] z-[1] rotate-[99.13deg]"
-          ></motion.div>
-          <motion.div
-            style={{ y: y1 }}
-            className="bg-circle-gradient w-[80px] h-[80px] rounded-full absolute right-[287px] top-[252px] z-[1] rotate-[99.13deg]"
-          ></motion.div>
-
+          <Circle size={300} rotate={99} position={[0, -230, '-5%', 0]} z={0} />
+          <Circle size={100} rotate={99} position={[0, 0, -230, 287]} z={1} />
+          <Circle size={80} rotate={99} position={[242, 287, 0, 0]} z={1} />
           <h2
             className={`text-center sm:text-4xl text-3xl mb-12 dark:text-dark`}
           >

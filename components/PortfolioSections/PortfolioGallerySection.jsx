@@ -2,7 +2,6 @@ import Container from '../UI/Container'
 import Image from 'next/image'
 import PortfolioGalleryLeft from './PortfolioGalleryLeft'
 import PortfolioGalleryRight from './PortfolioGalleryRight'
-import React from 'react'
 
 const PortfolioGallerySection = ({ project }) => {
   const images = project?.images.slice(1)
