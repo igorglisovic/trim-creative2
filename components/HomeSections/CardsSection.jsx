@@ -13,7 +13,7 @@ const CardsSection = ({ secondaryFont }) => {
   const [clickedCard, setClickedCard] = useState(cardsData[0])
 
   const { scrollYProgress } = useScroll()
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -80 - 20])
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -300])
 
   const cardVariants = {
     closed: {
@@ -88,11 +88,11 @@ const CardsSection = ({ secondaryFont }) => {
           {/* Circles */}
           <motion.div
             style={{ y: y1 }}
-            className="bg-circle-gradient w-[160px] h-[160px] rounded-full absolute left-[-20px] bottom-[-220px] z-50 rotate-[99.13deg]"
+            className="bg-circle-gradient w-[160px] h-[160px] rounded-full absolute left-[-20px] bottom-[-330px] z-50 rotate-[99.13deg]"
           ></motion.div>
           <motion.div
             style={{ y: y1 }}
-            className="bg-circle-gradient w-[50px] h-[50px] rounded-full absolute left-[210px] bottom-[-180px] -z-10 rotate-[99.13deg]"
+            className="bg-circle-gradient w-[50px] h-[50px] rounded-full absolute left-[210px] bottom-[-310px] -z-10 rotate-[99.13deg]"
           ></motion.div>
 
           <h2

@@ -24,8 +24,8 @@ const HeroSection = ({ secondaryFont }) => {
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -hookedYPostion])
 
   useMotionValueEvent(scrollYProgress, 'change', () => {
-    if (animationFinished && hookedYPostion !== 80) {
-      setHookedYPosition(80)
+    if (animationFinished && hookedYPostion !== 250) {
+      setHookedYPosition(250)
     }
   })
 

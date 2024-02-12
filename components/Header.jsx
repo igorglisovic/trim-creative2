@@ -105,7 +105,7 @@ const Nav = ({ secondaryFont }) => {
               },
             },
             open: {
-              borderRadius: '24px 24px 0 0',
+              borderRadius: '24px',
               backdropFilter: 'blur(3px)',
               transition: {
                 type: 'spring',
@@ -143,12 +143,14 @@ const Nav = ({ secondaryFont }) => {
             animate={fixedHeader ? 'open' : 'closed'}
             className="md:w-[8rem] w-[6.3rem] absolute left-0 position-center z-50"
           >
-            <Image
-              priority={true}
-              alt="Trim Creative logo"
-              className="max-w-full"
-              src={theme === 'dark' && !fixedHeader ? LogoLight : LogoDark}
-            />
+            <Link href="/" onClick={e => handleClick(e)}>
+              <Image
+                priority={true}
+                alt="Trim Creative logo"
+                className="max-w-full"
+                src={theme === 'dark' && !fixedHeader ? LogoLight : LogoDark}
+              />
+            </Link>
           </m.div>
           {/* Desktop Menu */}
           <nav className="hidden invisible sm:visible sm:flex items-center absolute nav z-50 ">

@@ -5,7 +5,7 @@ import Trim from '../../public/aa.png'
 
 const PortfolioSection = () => {
   const { scrollYProgress } = useScroll()
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -80 - 20])
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -300])
 
   return (
     <section className="py-20">
@@ -14,15 +14,15 @@ const PortfolioSection = () => {
           {/* Circles */}
           <motion.div
             style={{ y: y1 }}
-            className="bg-circle-gradient w-[300px] h-[300px] rounded-full absolute right-[-230px] bottom-[10%] z-0 rotate-[99.13deg]"
+            className="bg-circle-gradient w-[300px] h-[300px] rounded-full absolute right-[-230px] bottom-[-5%] z-0 rotate-[99.13deg]"
           ></motion.div>
           <motion.div
             style={{ y: y1 }}
-            className="bg-circle-gradient w-[100px] h-[100px] rounded-full absolute left-[287px] bottom-[-120px] z-[1] rotate-[99.13deg]"
+            className="bg-circle-gradient w-[100px] h-[100px] rounded-full absolute left-[287px] bottom-[-280px] z-[1] rotate-[99.13deg]"
           ></motion.div>
           <motion.div
             style={{ y: y1 }}
-            className="bg-circle-gradient w-[80px] h-[80px] rounded-full absolute right-[287px] top-[102px] z-[1] rotate-[99.13deg]"
+            className="bg-circle-gradient w-[80px] h-[80px] rounded-full absolute right-[287px] top-[252px] z-[1] rotate-[99.13deg]"
           ></motion.div>
 
           <h2
