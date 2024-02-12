@@ -11,6 +11,7 @@ export const portfolio = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justo eleifend varius. Sed id est ut ligula suscipit finibus. In euismod risus vitae nisl tincidunt, sit amet facilisis libero tristique. Cras vitae tellus at ex luctus fringilla nec id dui.Cras vitae tellus at ex luctus fringilla nec id dui.Cras vitae tellus at ex luctus fringilla nec id dui.Cras vitae tellus at ex luctus fringilla nec id dui.',
     filters: [1],
+    thumbnail: Trim2,
     images: [Trim2, Trim2, Trim3, Trim4, Trim5, Trim6, Trim1],
   },
   {
@@ -18,6 +19,7 @@ export const portfolio = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justo eleifend varius. Sed id est ut ligula suscipit finibus. In euismod risus vitae nisl tincidunt, sit amet facilisis libero tristique. Cras vitae tellus at ex luctus fringilla nec id dui.Cras vitae tellus at ex luctus fringilla nec id dui.Cras vitae tellus at ex luctus fringilla nec id dui.Cras vitae tellus at ex luctus fringilla nec id dui.',
     filters: [1],
+    thumbnail: Trim2,
     images: [Trim2, Trim2, Trim3, Trim4, Trim5, Trim6, Trim1],
   },
   {
@@ -25,6 +27,7 @@ export const portfolio = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justo eleifend varius. Sed id est ut ligula suscipit finibus. In euismod risus vitae nisl tincidunt, sit amet facilisis libero tristique. Cras vitae tellus at ex luctus fringilla nec id dui. Cras vitae tellus at ex luctus fringilla nec id dui.',
     filters: [2],
+    thumbnail: Trim2,
     images: [Trim2, Trim2, Trim3, Trim4, Trim5, Trim6, Trim1],
   },
   {
@@ -32,6 +35,7 @@ export const portfolio = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justo eleifend varius. Sed id est ut ligula suscipit finibus. In euismod risus vitae nisl tincidunt, sit amet facilisis libero tristique. Cras vitae tellus at ex luctus fringilla nec id dui. Cras vitae tellus at ex luctus fringilla nec id dui.',
     filters: [2],
+    thumbnail: Trim2,
     images: [Trim2, Trim2, Trim3, Trim4, Trim5, Trim6, Trim1],
   },
   {
@@ -39,6 +43,7 @@ export const portfolio = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justo eleifend varius. Sed id est ut ligula suscipit finibus. In euismod risus vitae nisl tincidunt, sit amet facilisis libero tristique. Cras vitae tellus at ex luctus fringilla nec id dui. Cras vitae tellus at ex luctus fringilla nec id dui.',
     filters: [3],
+    thumbnail: Trim2,
     images: [Trim2, Trim2, Trim3, Trim4, Trim5, Trim6, Trim1],
   },
   {
@@ -46,6 +51,7 @@ export const portfolio = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justo eleifend varius. Sed id est ut ligula suscipit finibus. In euismod risus vitae nisl tincidunt, sit amet facilisis libero tristique. Cras vitae tellus at ex luctus fringilla nec id dui. Cras vitae tellus at ex luctus fringilla nec id dui.',
     filters: [3],
+    thumbnail: Trim2,
     images: [Trim2, Trim2, Trim3, Trim4, Trim5, Trim6, Trim1],
   },
   {
@@ -53,6 +59,7 @@ export const portfolio = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justo.',
     filters: [4],
+    thumbnail: Trim2,
     images: [Trim2, Trim2, Trim3, Trim4, Trim5, Trim6, Trim1],
   },
   {
@@ -60,6 +67,7 @@ export const portfolio = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justo.',
     filters: [4],
+    thumbnail: Trim2,
     images: [Trim2, Trim2, Trim3, Trim4, Trim5, Trim6, Trim1],
   },
 ]

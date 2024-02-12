@@ -12,6 +12,7 @@ import { motion as m } from 'framer-motion'
 import { useHeaderContext } from '@/store/header-ctx'
 import { useRouter } from 'next/navigation'
 import Theme from './Theme'
+import RouteLink from './UI/RouteLink'
 
 const Nav = ({ secondaryFont }) => {
   const [expand, setExpand] = useState(false)
@@ -22,20 +23,8 @@ const Nav = ({ secondaryFont }) => {
 
   const router = useRouter()
 
-  const { updateAnimationPosition, animationFinished, animationPosition } =
-    useAnimationContext()
+  const { animationFinished } = useAnimationContext()
   const { updateFixedHeader, fixedHeader } = useHeaderContext()
-
-  const handleClick = (e, navItem) => {
-    if (!animationFinished) {
-      e.preventDefault()
-      return
-    }
-
-    // router.push(navItem.path, { scroll: false })
-
-    updateAnimationPosition({ x: e.clientX, y: e.clientY })
-  }
 
   useEffect(() => {
     const handleScroll = e => {
@@ -143,14 +132,14 @@ const Nav = ({ secondaryFont }) => {
             animate={fixedHeader ? 'open' : 'closed'}
             className="md:w-[8rem] w-[6.3rem] absolute left-0 position-center z-50"
           >
-            <Link href="/" onClick={e => handleClick(e)}>
+            <RouteLink href="/">
               <Image
                 priority={true}
-                alt="Trim Creative logo"
+                alt="TrimCreative logo"
                 className="max-w-full"
                 src={theme === 'dark' && !fixedHeader ? LogoLight : LogoDark}
               />
-            </Link>
+            </RouteLink>
           </m.div>
           {/* Desktop Menu */}
           <nav className="hidden invisible sm:visible sm:flex items-center absolute nav z-50 ">
@@ -162,16 +151,13 @@ const Nav = ({ secondaryFont }) => {
                     fixedHeader ? 'text-light-black' : 'dark:text-dark'
                   }`}
                 >
-                  <Link
-                    onClick={e => handleClick(e, navItem)}
-                    className={`font-medium text-sm lg:text-base ${
-                      !animationFinished ? 'cursor-default' : 'cursor-pointer'
-                    } `}
+                  <RouteLink
+                    className={`font-medium text-sm lg:text-base`}
                     href={navItem.path}
                     aria-label={navItem.title}
                   >
                     {navItem.title}
-                  </Link>
+                  </RouteLink>
                 </li>
               ))}
             </ul>

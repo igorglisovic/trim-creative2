@@ -7,26 +7,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { EmailOutlined, Instagram } from '@mui/icons-material'
 import Form from './Form'
-import { useAnimationContext } from '@/store/animation-ctx'
-import { useEffect } from 'react'
+import RouteLink from './UI/RouteLink'
 
 const Footer = ({ secondaryFont }) => {
-  const { updateAnimationPosition, animationFinished, animationPosition } =
-    useAnimationContext()
-
-  useEffect(() => {
-    console.log('animationPosition ', animationPosition)
-  }, [animationPosition])
-
-  const handleClick = e => {
-    if (!animationFinished) {
-      e.preventDefault()
-      return
-    }
-
-    updateAnimationPosition({ x: e.clientX, y: e.clientY })
-  }
-
   return (
     <footer className="bg-footer-gradient pt-20 pb-14">
       <Container>
@@ -59,14 +42,13 @@ const Footer = ({ secondaryFont }) => {
             <ul className="flex flex-row gap-2 sm:gap-5">
               {navItemsSr?.map(navItem => (
                 <li key={navItem.title} className="uppercase text-white">
-                  <Link
-                    onClick={e => handleClick(e, navItem)}
+                  <RouteLink
                     className={`font-medium sm:text-sm lg:text-base text-xs ${secondaryFont.className}`}
                     href={navItem.path}
                     aria-label={navItem.title}
                   >
                     {navItem.title}
-                  </Link>
+                  </RouteLink>
                 </li>
               ))}
             </ul>

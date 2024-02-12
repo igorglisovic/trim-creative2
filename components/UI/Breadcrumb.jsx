@@ -1,15 +1,9 @@
-import Link from 'next/link'
 import Container from './Container'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { useAnimationContext } from '@/store/animation-ctx'
+import RouteLink from './RouteLink'
 
 const Breadcrumb = ({ font, items }) => {
   const [breadcrumbArr, setBreadcrumbArr] = useState(items)
-
-  const { updateAnimationPosition, animationFinished } = useAnimationContext()
-
-  const router = useRouter()
 
   useEffect(() => {
     const breadcrumbArr = items.reduce((acc, curr, i) => {
@@ -24,17 +18,6 @@ const Breadcrumb = ({ font, items }) => {
     setBreadcrumbArr(breadcrumbArr)
   }, [])
 
-  const handleClick = (e, item) => {
-    if (!animationFinished) {
-      e.preventDefault()
-      return
-    }
-
-    updateAnimationPosition({ x: e.clientX, y: e.clientY })
-
-    router.push(item.link, { scroll: false })
-  }
-
   return (
     <Container>
       <div className="py-3">
@@ -42,14 +25,9 @@ const Breadcrumb = ({ font, items }) => {
           {breadcrumbArr?.map((item, i) => {
             if (item.link) {
               return (
-                <span
-                  onClick={e => handleClick(e, item)}
-                  className="capitalize cursor-pointer"
-                  key={i}
-                  href={item.link}
-                >
+                <RouteLink className="capitalize" key={i} href={item.link}>
                   {item.title}{' '}
-                </span>
+                </RouteLink>
               )
             } else {
               return (
