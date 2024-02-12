@@ -1,44 +1,23 @@
-import { useState } from 'react'
-import {
-  useScroll,
-  useTransform,
-  motion,
-  useMotionValueEvent,
-} from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 import Trim from '../../public/aa.png'
 import Trim2 from '../../public/bmwm4.jpg'
 import Button from '../UI/Button'
 import Image from 'next/image'
-import { useAnimationContext } from '@//store/animation-ctx'
 import Container from '../UI/Container'
 import H1 from '../UI/H1'
+import Circle from '../UI/Circle'
 
 const HeroSection = ({ secondaryFont }) => {
-  const [hookedYPostion, setHookedYPosition] = useState(0)
-
-  const { animationFinished } = useAnimationContext()
-
-  const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0, 1], [0, -hookedYPostion])
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -hookedYPostion])
-
-  useMotionValueEvent(scrollYProgress, 'change', () => {
-    if (animationFinished && hookedYPostion !== 250) {
-      setHookedYPosition(250)
-    }
-  })
-
   return (
     <Container>
       <div className="flex flex-col gap-6 pt-6 pb-20">
         <section>
           <div className="w-full relative">
-            {/* Circles */}
-            <motion.div
-              style={{ y }}
-              className="bg-circle-gradient w-[200px] h-[200px] rounded-full absolute right-[-130px] top-[-60px] z-20 rotate-[-176.47deg]"
-            ></motion.div>
+            <Circle
+              size={200}
+              rotate={176}
+              position={[-60, -130, 0, 0]}
+              z={20}
+            />
             <H1>
               Odsecite vasu <br /> konkurenciju
             </H1>
@@ -46,31 +25,32 @@ const HeroSection = ({ secondaryFont }) => {
           <div
             className={`${secondaryFont?.className} flex flex-col md:flex-row md:text-left text-center lg:gap-10 gap-8 mt-14 relative`}
           >
-            {/* Circles */}
-            <motion.div
-              style={{ y: y1 }}
-              className="bg-circle-gradient w-[130px] h-[130px] rounded-full absolute left-[47%] top-[40%] z-20 rotate-[99.13deg]"
-            ></motion.div>
-            <motion.div
-              style={{ y }}
-              className="bg-circle-gradient w-[70px] h-[70px] rounded-full absolute right-[5%] top-[-55px] z-20 rotate-[-2.4deg]"
-            ></motion.div>
-            <motion.div
-              style={{ y: y1 }}
-              className="bg-circle-gradient w-[170px] h-[170px] lg:w-[300px] lg:h-[300px] rounded-full absolute left-[-150px] top-[-95px] z-50 rotate-[43.97deg]"
-            ></motion.div>
-            <motion.div
-              style={{ y: y1 }}
-              className="bg-circle-gradient w-[60px] h-[60px] rounded-full absolute left-[-25px] top-[365px] z-10 rotate-[43.97deg]"
-            ></motion.div>
-            <motion.div
-              style={{ y: y1 }}
-              className="bg-circle-gradient w-[160px] h-[160px] rounded-full absolute right-[0] bottom-[-470px] z-50 rotate-[99.13deg]"
-            ></motion.div>
-            <motion.div
-              style={{ y: y1 }}
-              className="bg-circle-gradient w-[55px] h-[55px] rounded-full absolute left-[200px] bottom-[-420px] -z-10 rotate-[99.13deg]"
-            ></motion.div>
+            <Circle
+              size={130}
+              rotate={99}
+              position={['40%', 0, 0, '47%']}
+              z={20}
+            />
+            <Circle
+              size={70}
+              rotate={-2.5}
+              position={[-55, '5%', 0, 0]}
+              z={20}
+            />
+            <Circle
+              size={300}
+              rotate={44}
+              position={[-85, 0, 0, -150]}
+              z={50}
+            />
+            <Circle size={60} rotate={44} position={[395, 0, 0, -25]} z={10} />
+            <Circle size={160} rotate={99} position={[0, 1, -520, 0]} z={50} />
+            <Circle
+              size={55}
+              rotate={99}
+              position={[0, 0, -440, 200]}
+              z={-10}
+            />
 
             <div className="flex relative pb-[38.55%] overflow-hidden flex-1 shadow-md rounded-[38px]">
               <Image
