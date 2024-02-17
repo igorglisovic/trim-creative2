@@ -4,14 +4,13 @@ import { motion } from 'framer-motion'
 import Trim from '../../public/aa.png'
 import Button from '../UI/Button'
 import Image from 'next/image'
-import { cards as cardsData } from '../../data/cards'
 import { KeyboardArrowDown } from '@mui/icons-material'
 import Link from 'next/link'
 import Circle from '../UI/Circle'
 import { cardVariants } from '@/data/animations'
 
 const CardsSection = ({ secondaryFont, content }) => {
-  const [cards, setCards] = useState(cardsData)
+  const [cards, setCards] = useState(content.cardsItems)
 
   const handleClick = index => {
     setCards(
@@ -45,7 +44,7 @@ const CardsSection = ({ secondaryFont, content }) => {
             </div>
             <div className={`${secondaryFont?.className} flex-1`}>
               <ul className="flex flex-col gap-3">
-                {content.cardsItems?.map((card, i) => (
+                {cards?.map((card, i) => (
                   <li
                     className="px-7 rounded-[37px] bg-card-black text-white"
                     key={card.title}

@@ -6,12 +6,11 @@ import Main from '@/components/UI/Main'
 import useLocalization from '@/components/hooks/useLocalization'
 
 const page = ({ mainFont, secondaryFont }) => {
-  const { getContent } = useLocalization()
   const {
-    pocetna: { hero, cards, portfolio },
-  } = getContent()
-
-  console.log(portfolio)
+    content: {
+      pocetna: { hero, cards, portfolio },
+    },
+  } = useLocalization()
 
   return (
     <Main mainFont={mainFont} path="/">

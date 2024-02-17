@@ -1,16 +1,17 @@
 import { useState } from 'react'
 import Container from '../UI/Container'
 import UslugeCard from './UslugeCard'
-import { uslugeCards } from '../../data/cards'
 import H1 from '../UI/H1'
 
-const UslugeCards = ({ secondaryFont }) => {
-  const [cards, setCards] = useState(uslugeCards)
+const UslugeCards = ({ secondaryFont, content }) => {
+  const [cards, setCards] = useState(content.cardsItems)
+
+  console.log(content)
 
   return (
     <Container>
       <div className="pt-6 pb-20">
-        <H1>Nase usluge</H1>
+        <H1>{content.h1}</H1>
         <div className="flex flex-col gap-7 mt-12">
           {cards?.map((card, index) => (
             <UslugeCard

@@ -21,8 +21,9 @@ const Nav = ({ secondaryFont }) => {
   const { animationFinished } = useAnimationContext()
   const { updateFixedHeader, fixedHeader } = useHeaderContext()
 
-  const { getContent } = useLocalization()
-  const { header } = getContent()
+  const {
+    content: { header },
+  } = useLocalization()
 
   useEffect(() => {
     const handleScroll = e => {

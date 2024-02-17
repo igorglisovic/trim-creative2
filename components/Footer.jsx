@@ -8,8 +8,9 @@ import RouteLink from './UI/RouteLink'
 import useLocalization from './hooks/useLocalization'
 
 const Footer = ({ secondaryFont }) => {
-  const { getContent } = useLocalization()
-  const { header, footer } = getContent()
+  const {
+    content: { footer, header },
+  } = useLocalization()
 
   return (
     <footer className="bg-footer-gradient pt-20 pb-14">
@@ -40,7 +41,7 @@ const Footer = ({ secondaryFont }) => {
           </div>
           <nav className="flex items-center">
             <ul className="flex flex-row gap-2 sm:gap-5">
-              {header.navItems?.map(navItem => (
+              {header?.navItems?.map(navItem => (
                 <li key={navItem.title} className="uppercase text-white">
                   <RouteLink
                     className={`font-medium sm:text-sm lg:text-base text-xs ${secondaryFont.className}`}

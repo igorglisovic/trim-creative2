@@ -1,16 +1,21 @@
 import enContent from '@/data/content/en.json'
 import srContent from '@/data/content/sr.json'
+import { useEffect, useState } from 'react'
 
-export default function useLocalization() {
+const useLocalization = () => {
+  const [content, setContent] = useState(srContent)
+
   const { languages } = typeof window !== 'undefined' ? navigator : false
 
-  const getContent = () => {
+  useEffect(() => {
     if (languages && languages.includes('sr')) {
-      return srContent
+      setContent(srContent)
+    } else {
+      setContent(enContent)
     }
+  }, [])
 
-    return enContent
-  }
-
-  return { getContent }
+  return { content, setContent }
 }
+
+export default useLocalization
