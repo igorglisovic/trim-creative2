@@ -3,6 +3,7 @@ import { motion as m } from 'framer-motion'
 import { useHeaderContext } from '@/store/header-ctx'
 import light from '../public/light.png'
 import Image from 'next/image'
+import { themeVariants } from '@/data/animations'
 
 const Theme = ({ theme, setTheme }) => {
   const [userTheme, setUserTheme] = useState(null)
@@ -43,15 +44,6 @@ const Theme = ({ theme, setTheme }) => {
 
     setUserTheme(newTheme)
     setTheme(newTheme)
-  }
-
-  const themeVariants = {
-    toLeft: {
-      left: 'calc(100% - 1.75rem)',
-    },
-    toRight: {
-      left: 0,
-    },
   }
 
   return (

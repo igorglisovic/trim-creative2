@@ -1,13 +1,10 @@
 import Image from 'next/image'
 import Container from '../UI/Container'
-import { useScroll, useTransform, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Trim from '../../public/aa.png'
 import Circle from '../UI/Circle'
 
-const PortfolioSection = () => {
-  const { scrollYProgress } = useScroll()
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -300])
-
+const PortfolioSection = ({ content }) => {
   return (
     <section className="py-20">
       <Container>
@@ -18,7 +15,7 @@ const PortfolioSection = () => {
           <h2
             className={`text-center sm:text-4xl text-3xl mb-12 dark:text-dark`}
           >
-            Portfolio
+            {content.h2}
           </h2>
           <div className="flex flex-col w-full md:flex-row gap-5 min-h-[600px]">
             <motion.div

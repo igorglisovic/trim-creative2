@@ -1,7 +1,6 @@
 import Container from './UI/Container'
 import LogoDark from '../public/trim-logo.png'
 import LogoLight from '../public/trim-logo2.png'
-import { navItemsSr } from '../data/nav'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { useAnimationContext } from '../store/animation-ctx'
@@ -9,6 +8,8 @@ import { motion as m } from 'framer-motion'
 import { useHeaderContext } from '@/store/header-ctx'
 import Theme from './Theme'
 import RouteLink from './UI/RouteLink'
+import { headerVariants } from '@/data/animations'
+import useLocalization from './hooks/useLocalization'
 
 const Nav = ({ secondaryFont }) => {
   const [expand, setExpand] = useState(false)
@@ -19,6 +20,9 @@ const Nav = ({ secondaryFont }) => {
 
   const { animationFinished } = useAnimationContext()
   const { updateFixedHeader, fixedHeader } = useHeaderContext()
+
+  const { getContent } = useLocalization()
+  const { header } = getContent()
 
   useEffect(() => {
     const handleScroll = e => {
@@ -39,22 +43,6 @@ const Nav = ({ secondaryFont }) => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [ref])
-
-  const headerVariants = {
-    closed: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      zIndex: 9999,
-      backgroundColor: 'transparent',
-      width: '100%',
-    },
-    open: {
-      position: 'fixed',
-      top: '20px',
-      zIndex: 9999,
-    },
-  }
 
   return (
     <m.header
@@ -133,7 +121,7 @@ const Nav = ({ secondaryFont }) => {
           {/* Desktop Menu */}
           <nav className="hidden invisible sm:visible sm:flex items-center absolute nav z-50 ">
             <ul className="flex md:gap-5 gap-3">
-              {navItemsSr?.map(navItem => (
+              {header.navItems?.map(navItem => (
                 <li
                   key={navItem.title}
                   className={`uppercase text-light-black ${

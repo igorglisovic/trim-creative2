@@ -1,7 +1,5 @@
 import { useAnimationContext } from '@/store/animation-ctx'
-import Lenis from '@studio-freight/lenis'
-import { useEffect, useState } from 'react'
-import { motion as m } from 'framer-motion'
+import { useEffect } from 'react'
 import Footer from '@/components/Footer'
 import PortfolioFilters from '@/components/PortfolioSections/PortfolioFilters'
 import PortfolioCards from '@/components/PortfolioSections/PortfolioCards'

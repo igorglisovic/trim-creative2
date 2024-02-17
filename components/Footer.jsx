@@ -1,13 +1,16 @@
 import Container from './UI/Container'
 import Logo from '../public/trim-logo.png'
-import { navItemsSr } from '../data/nav'
 import Image from 'next/image'
 import Link from 'next/link'
 import { EmailOutlined, Instagram } from '@mui/icons-material'
 import Form from './Form'
 import RouteLink from './UI/RouteLink'
+import useLocalization from './hooks/useLocalization'
 
 const Footer = ({ secondaryFont }) => {
+  const { getContent } = useLocalization()
+  const { header, footer } = getContent()
+
   return (
     <footer className="bg-footer-gradient pt-20 pb-14">
       <Container>
@@ -15,13 +18,12 @@ const Footer = ({ secondaryFont }) => {
           <h2
             className={`uppercase sm:text-5xl text-4xl text-center md:whitespace-nowrap`}
           >
-            Spremni za rast?
+            {footer.h2}
           </h2>
           <p
             className={`md:text-lg text-gray-300 text-center ${secondaryFont.className}`}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            libero a dolor feugiat iaculis.
+            {footer.p}
           </p>
           <Form secondaryFont={secondaryFont} />
         </div>
@@ -38,7 +40,7 @@ const Footer = ({ secondaryFont }) => {
           </div>
           <nav className="flex items-center">
             <ul className="flex flex-row gap-2 sm:gap-5">
-              {navItemsSr?.map(navItem => (
+              {header.navItems?.map(navItem => (
                 <li key={navItem.title} className="uppercase text-white">
                   <RouteLink
                     className={`font-medium sm:text-sm lg:text-base text-xs ${secondaryFont.className}`}

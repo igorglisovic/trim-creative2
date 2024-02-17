@@ -1,0 +1,72 @@
+{
+  "header": {
+    "navItems": [
+      {
+        "title": "Početna",
+        "path": "/"
+      },
+      {
+        "title": "Usluge",
+        "path": "/usluge"
+      },
+      {
+        "title": "Portfolio",
+        "path": "/portfolio"
+      },
+      {
+        "title": "O nama",
+        "path": "/onama"
+      },
+      {
+        "title": "Kontakt",
+        "path": "/test"
+      }
+    ]
+  },
+  "footer": {
+    "h2": "SPREMNI ZA RAST?",
+    "p": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis."
+  },
+  "pocetna": {
+    "hero": {
+      "h1": "ODSECITE VASU KONKURENCIJU",
+      "p": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum fuga modi, inventore cupiditate natus eius accusamus voluptatum iure ipsa quod tempora eaque molestias impedit totam magni veniam doloribus sunt praesentium.",
+      "button": "Saznaj više"
+    },
+    "cards": {
+      "h2": "Maximizing Your Online Impact",
+      "cardsItems": [
+        {
+          "title": "Digitalni marketing",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justo eleifend varius. Sed id est ut ligula suscipit finibus. In euismod risus vitae nisl tincidunt, sit amet facilisis libero tristique. Cras vitae tellus at ex luctus fringilla nec id dui.Cras vitae tellus at ex luctus fringilla nec id dui.Cras vitae tellus at ex luctus fringilla nec id dui.Cras vitae tellus at ex luctus fringilla nec id dui.",
+          "link": "/",
+          "active": true
+        },
+        {
+          "title": "Web dizajn",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justo eleifend varius. Sed id est ut ligula suscipit finibus. In euismod risus vitae nisl tincidunt, sit amet facilisis libero tristique. Cras vitae tellus at ex luctus fringilla nec id dui. Cras vitae tellus at ex luctus fringilla nec id dui.",
+          "link": "/",
+          "active": false
+        },
+        {
+          "title": "Graficki dizajn",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac.",
+          "link": "/",
+          "active": false
+        },
+        {
+          "title": "Drustvene mreze",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justo.",
+          "link": "/",
+          "active": false
+        }
+      ],
+      "button": "Saznaj više"
+    },
+    "portfolio": { "h2": "Portfolio" }
+  },
+  "usluge": "",
+  "portfolio": "",
+  "onama": "",
+  "kontakt": ""
+}

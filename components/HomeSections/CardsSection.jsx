@@ -1,6 +1,6 @@
 import Container from '../UI/Container'
 import { useState } from 'react'
-import { useScroll, useTransform, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Trim from '../../public/aa.png'
 import Button from '../UI/Button'
 import Image from 'next/image'
@@ -8,42 +8,10 @@ import { cards as cardsData } from '../../data/cards'
 import { KeyboardArrowDown } from '@mui/icons-material'
 import Link from 'next/link'
 import Circle from '../UI/Circle'
+import { cardVariants } from '@/data/animations'
 
-const CardsSection = ({ secondaryFont }) => {
+const CardsSection = ({ secondaryFont, content }) => {
   const [cards, setCards] = useState(cardsData)
-
-  const { scrollYProgress } = useScroll()
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -300])
-
-  const cardVariants = {
-    closed: {
-      opacity: 0,
-      visibility: 'hidden',
-      height: 0,
-      y: 20,
-      margin: 0,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 30,
-      },
-      transitionEnd: {
-        display: 'none',
-      },
-    },
-    open: {
-      opacity: 1,
-      visibility: 'visible',
-      y: 0,
-      height: 'fit-content',
-      display: 'flex',
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 30,
-      },
-    },
-  }
 
   const handleClick = index => {
     setCards(
@@ -65,7 +33,7 @@ const CardsSection = ({ secondaryFont }) => {
           <h2
             className={`text-white sm:text-4xl text-3xl text-center sm:text-left`}
           >
-            Maximizing Your Online Impact
+            {content.h2}
           </h2>
           <div className="flex flex-col-reverse lg:flex-row gap-6 mt-12">
             <div className="flex-1 grow-[1.2] min-h-[300px] rounded-[37px] overflow-hidden relative">
@@ -77,7 +45,7 @@ const CardsSection = ({ secondaryFont }) => {
             </div>
             <div className={`${secondaryFont?.className} flex-1`}>
               <ul className="flex flex-col gap-3">
-                {cards?.map((card, i) => (
+                {content.cardsItems?.map((card, i) => (
                   <li
                     className="px-7 rounded-[37px] bg-card-black text-white"
                     key={card.title}
@@ -126,7 +94,7 @@ const CardsSection = ({ secondaryFont }) => {
                         className="uppercase mt-2 mb-4 self-end float-right"
                       >
                         <Link aria-label="Saznaj više" href={card.link}>
-                          Saznaj vise
+                          {content.button}
                         </Link>
                       </Button>
                     </motion.div>

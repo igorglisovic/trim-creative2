@@ -6,7 +6,7 @@ import Container from '../UI/Container'
 import H1 from '../UI/H1'
 import Circle from '../UI/Circle'
 
-const HeroSection = ({ secondaryFont }) => {
+const HeroSection = ({ secondaryFont, content }) => {
   return (
     <Container>
       <div className="flex flex-col gap-6 pt-6 pb-20">
@@ -68,17 +68,12 @@ const HeroSection = ({ secondaryFont }) => {
                 />
               </div>
               <div className="flex flex-col gap-3">
-                <p className="md:text-lg dark:text-dark">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Dolorum fuga modi, inventore cupiditate natus eius accusamus
-                  voluptatum iure ipsa quod tempora eaque molestias impedit
-                  totam magni veniam doloribus sunt praesentium.
-                </p>
+                <p className="md:text-lg dark:text-dark">{content.p}</p>
                 <Button
                   className="md:self-end self-center"
                   ariaLabel="Saznaj više"
                 >
-                  Saznaj više
+                  {content.button}
                 </Button>
               </div>
             </div>

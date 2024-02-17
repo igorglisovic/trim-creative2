@@ -1,29 +1,10 @@
 import { East, West } from '@mui/icons-material'
 import Trim from '../../public/aa.png'
 import Image from 'next/image'
-import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { uslugeCardVariants as cardVariants } from '@/data/animations'
 
 const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
-  const cardVariants = {
-    closed: {
-      flexGrow: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 60,
-      },
-    },
-    open: {
-      flexGrow: 2.5,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 30,
-      },
-    },
-  }
-
   const handleClick = () => {
     setCards(
       cards.map((card, i) => {
