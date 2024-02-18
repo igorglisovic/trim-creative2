@@ -9,6 +9,12 @@ const PortfolioSection = ({ content }) => {
     <section className="py-20">
       <Container>
         <div className="relative">
+          <Circle
+            size={824}
+            position={[200, 0, 0, -676]}
+            z={0}
+            className="bg-[#302839] blur-[200px] opacity-60"
+          />
           <Circle size={300} rotate={99} position={[0, -230, '-5%', 0]} z={0} />
           <Circle size={100} rotate={99} position={[0, 0, -230, 287]} z={1} />
           <Circle size={80} rotate={99} position={[242, 287, 0, 0]} z={1} />

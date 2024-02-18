@@ -18,6 +18,7 @@ const HeroSection = ({ secondaryFont, content }) => {
               position={[-60, -130, 0, 0]}
               z={20}
             />
+
             <H1>
               Odsecite vasu <br /> konkurenciju
             </H1>
@@ -25,6 +26,18 @@ const HeroSection = ({ secondaryFont, content }) => {
           <div
             className={`${secondaryFont?.className} flex flex-col md:flex-row md:text-left text-center lg:gap-10 gap-8 mt-14 relative`}
           >
+            <Circle
+              size={824}
+              position={[-150, 0, 0, -635]}
+              z={0}
+              className="bg-[#302839] blur-[200px] opacity-60"
+            />
+            <Circle
+              size={824}
+              position={[700, 0, 0, 1253]}
+              z={0}
+              className="bg-[#302839] blur-[100px] opacity-40"
+            />
             <Circle
               size={130}
               rotate={99}

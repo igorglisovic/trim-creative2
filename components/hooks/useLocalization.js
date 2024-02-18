@@ -5,17 +5,37 @@ import { useEffect, useState } from 'react'
 const useLocalization = () => {
   const [content, setContent] = useState(srContent)
 
-  const { languages } = typeof window !== 'undefined' ? navigator : false
+  const { languages: localeLangs } =
+    typeof window !== 'undefined' ? navigator : false
+
+  const updateContent = value => {
+    setContent(value)
+  }
 
   useEffect(() => {
-    if (languages && languages.includes('sr')) {
-      setContent(srContent)
+    const userLang = localStorage.getItem('lang')
+
+    if (!userLang) {
+      if (localeLangs && localeLangs.includes('sr')) {
+        setContent(srContent)
+        document.documentElement.setAttribute('lang', 'sr')
+      } else {
+        setContent(enContent)
+        document.documentElement.setAttribute('lang', 'en')
+      }
     } else {
-      setContent(enContent)
+      const content = userLang === 'sr' ? srContent : enContent
+
+      setContent(content)
+      document.documentElement.setAttribute('lang', userLang)
     }
   }, [])
 
-  return { content, setContent }
+  useEffect(() => {
+    console.log(content)
+  }, [content])
+
+  return { content, updateContent }
 }
 
 export default useLocalization

@@ -84,7 +84,9 @@ const Nav = ({ secondaryFont }) => {
           initial={fixedHeader ? 'open' : 'closed'}
           animate={fixedHeader ? 'open' : 'closed'}
           className={`relative min-h-[95px] whitespace-nowrap ${
-            fixedHeader ? ' bg-[#ffffffb5]' : ''
+            fixedHeader
+              ? 'bg-[#ffffffb5] dark:bg-[#231F20B2] dark:border-2 dark:border-[#373737]'
+              : ''
           }`}
         >
           <m.div
@@ -115,7 +117,8 @@ const Nav = ({ secondaryFont }) => {
                 priority={true}
                 alt="TrimCreative logo"
                 className="max-w-full"
-                src={theme === 'dark' && !fixedHeader ? LogoLight : LogoDark}
+                // src={theme === 'dark' && !fixedHeader ? LogoLight : LogoDark}
+                src={theme === 'dark' ? LogoLight : LogoDark}
               />
             </RouteLink>
           </m.div>
@@ -125,8 +128,10 @@ const Nav = ({ secondaryFont }) => {
               {header.navItems?.map(navItem => (
                 <li
                   key={navItem.title}
-                  className={`uppercase text-light-black ${
-                    fixedHeader ? 'text-light-black' : 'dark:text-dark'
+                  className={`uppercase ${
+                    fixedHeader
+                      ? 'text-light-black dark:text-dark'
+                      : 'dark:text-dark'
                   }`}
                 >
                   <RouteLink

@@ -6,11 +6,22 @@ import { EmailOutlined, Instagram } from '@mui/icons-material'
 import Form from './Form'
 import RouteLink from './UI/RouteLink'
 import useLocalization from './hooks/useLocalization'
+import enContent from '@/data/content/en.json'
+import srContent from '@/data/content/sr.json'
 
 const Footer = ({ secondaryFont }) => {
   const {
-    content: { footer, header },
+    content: { footer, header, lang },
+    updateContent,
   } = useLocalization()
+
+  const handleLangChange = e => {
+    const lang = e.target.value
+
+    updateContent(lang === 'sr' ? srContent : enContent)
+    localStorage.setItem('lang', lang)
+  }
+  console.log(lang)
 
   return (
     <footer className="bg-footer-gradient pt-20 pb-14">
@@ -54,7 +65,11 @@ const Footer = ({ secondaryFont }) => {
               ))}
             </ul>
           </nav>
-          <div className="flex gap-2 items-center">
+          <div className={`flex gap-2 items-center ${secondaryFont.className}`}>
+            <select onChange={handleLangChange} name="" id="" value={lang}>
+              <option value="en">EN</option>
+              <option value="sr">SR</option>
+            </select>
             <Link aria-label="TrimCreative Instagram" href="/">
               <Instagram className="text-white" sx={{ fontSize: '1.9rem' }} />
             </Link>

@@ -24,8 +24,8 @@ const CardsSection = ({ secondaryFont, content }) => {
   }
 
   return (
-    <section className="bg-dark-gray py-20">
-      <Container>
+    <section className="bg-dark-gray py-20 relative">
+      <Container className="absolute">
         <div className="relative">
           <Circle size={160} rotate={99} position={[0, 0, -300, -20]} z={100} />
           <Circle size={50} rotate={99} position={[0, 0, -260, 210]} z={-1} />

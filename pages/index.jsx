@@ -12,6 +12,8 @@ const page = ({ mainFont, secondaryFont }) => {
     },
   } = useLocalization()
 
+  console.log(hero)
+
   return (
     <Main mainFont={mainFont} path="/">
       <HeroSection secondaryFont={secondaryFont} content={hero} />

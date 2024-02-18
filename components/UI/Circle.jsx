@@ -12,7 +12,7 @@ const checkAndMakePositionStr = position => {
   return position.toString().includes('%') ? `${position}` : `${position}px`
 }
 
-const Circle = ({ size, rotate, position, z: zIndex }) => {
+const Circle = ({ size, rotate, position, z: zIndex, className }) => {
   const [hookedYPostion, setHookedYPosition] = useState(0)
 
   const { scrollYProgress } = useScroll()
@@ -48,7 +48,7 @@ const Circle = ({ size, rotate, position, z: zIndex }) => {
         width,
         height,
       }}
-      className={`absolute bg-circle-gradient rounded-full `}
+      className={`absolute bg-circle-gradient rounded-full ${className}`}
     />
   )
 }
