@@ -8,7 +8,7 @@ const initialFilters = portfolioFilters.map(filter => {
   return { ...filter, slug: slugify(filter.title, { lower: true }) }
 })
 
-const PortfolioFilters = ({ secondaryFont }) => {
+const PortfolioFilters = () => {
   const { updateCurrentFilter, currentFilter } = usePortfolioContext()
 
   const handleFilterChange = filter => {
@@ -20,14 +20,12 @@ const PortfolioFilters = ({ secondaryFont }) => {
   return (
     <Container>
       <div className="pt-6 pb-12">
-        <div className={`flex gap-6 w-full ${secondaryFont.className}`}>
+        <div className={`flex gap-6 w-full font-secondary`}>
           {initialFilters.map(filter => (
             <Button
               onClick={() => handleFilterChange(filter)}
               className={`flex-1 !text-base ${
-                filter.id === currentFilter?.id
-                  ? '!font-extrabold'
-                  : '!font-medium'
+                filter.id === currentFilter?.id ? '!font-extrabold' : '!font-medium'
               }`}
               key={filter.id}
               ariaLabel={filter.title}
@@ -37,7 +35,7 @@ const PortfolioFilters = ({ secondaryFont }) => {
           ))}
         </div>
         {currentFilter && (
-          <div className={`${secondaryFont.className}`}>
+          <div className="font-secondary">
             <button
               onClick={() => {
                 updateCurrentFilter(null)

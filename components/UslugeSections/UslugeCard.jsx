@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { uslugeCardVariants as cardVariants } from '@/data/animations'
 
-const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
+const UslugeCard = ({ card, cards, setCards, index }) => {
   const handleClick = () => {
     setCards(
       cards.map((card, i) => {
@@ -19,18 +19,14 @@ const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
   return (
     <>
       {card.type ? (
-        <section
-          className={`flex gap-7 ${secondaryFont.className} min-h-[320px]`}
-        >
+        <section className={`flex gap-7 font-secondary min-h-[320px]`}>
           <motion.div
             variants={cardVariants}
             initial={card.active ? 'open' : 'closed'}
             animate={card.active ? 'open' : 'closed'}
             className="flex-1 flex flex-col bg-main-gradient rounded-[37px] p-8 text-white"
           >
-            <h2 className="text-4xl font-bold mb-4 w-[50%] uppercase">
-              {card.title}
-            </h2>
+            <h2 className="text-4xl font-bold mb-4 w-[50%] uppercase">{card.title}</h2>
             <p className="mb-5 three-line-ellipsis">{card.description}</p>
             <button
               className="px-[0.9em] border-0 float-right flex rounded-full bg-arrow self-end mt-auto"
@@ -60,17 +56,11 @@ const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
             animate={!card.active ? 'open' : 'closed'}
             className="flex-1 grow-[3.5] relative rounded-[37px] overflow-hidden"
           >
-            <Image
-              className="absolute top-0 left-0 w-full h-full object-cover"
-              src={Trim}
-              alt=""
-            />
+            <Image className="absolute top-0 left-0 w-full h-full object-cover" src={Trim} alt="" />
           </motion.div>
         </section>
       ) : (
-        <section
-          className={`flex flex-row-reverse gap-7 min-h-[320px] ${secondaryFont.className}`}
-        >
+        <section className={`flex flex-row-reverse gap-7 min-h-[320px] font-secondary`}>
           <motion.div
             variants={cardVariants}
             initial={card.active ? 'open' : 'closed'}
@@ -82,9 +72,7 @@ const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
                 {card.title}
               </h2>
             </div>
-            <p className="mb-5 three-line-ellipsis text-right">
-              {card.description}
-            </p>
+            <p className="mb-5 three-line-ellipsis text-right">{card.description}</p>
             <button
               onClick={handleClick}
               className="px-[0.9em] border-0 self-start mt-auto flex rounded-full bg-arrow"
@@ -113,11 +101,7 @@ const UslugeCard = ({ card, cards, setCards, index, secondaryFont }) => {
             animate={!card.active ? 'open' : 'closed'}
             className="flex-1 grow-[3.5] relative rounded-[37px] overflow-hidden"
           >
-            <Image
-              className="absolute top-0 left-0 w-full h-full object-cover"
-              src={Trim}
-              alt=""
-            />
+            <Image className="absolute top-0 left-0 w-full h-full object-cover" src={Trim} alt="" />
           </motion.div>
         </section>
       )}

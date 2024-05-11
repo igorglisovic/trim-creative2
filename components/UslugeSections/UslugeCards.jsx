@@ -3,7 +3,7 @@ import Container from '../UI/Container'
 import UslugeCard from './UslugeCard'
 import H1 from '../UI/H1'
 
-const UslugeCards = ({ secondaryFont, content }) => {
+const UslugeCards = ({ content }) => {
   const [cards, setCards] = useState(content.cardsItems)
 
   console.log(content)
@@ -20,7 +20,6 @@ const UslugeCards = ({ secondaryFont, content }) => {
               card={card}
               setCards={setCards}
               index={index}
-              secondaryFont={secondaryFont}
             />
           ))}
         </div>

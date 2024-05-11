@@ -11,7 +11,7 @@ import RouteLink from './UI/RouteLink'
 import { headerVariants } from '@/data/animations'
 import useLocalization from './hooks/useLocalization'
 
-const Nav = ({ secondaryFont }) => {
+const Nav = () => {
   const [expand, setExpand] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [theme, setTheme] = useState(null)
@@ -47,9 +47,9 @@ const Nav = ({ secondaryFont }) => {
 
   return (
     <m.header
-      className={`${secondaryFont?.className} ${
-        animationFinished ? '' : 'move-header'
-      } ${fixedHeader ? 'pos-fixed z-[100] w-full' : ''}`}
+      className={`font-secondary ${animationFinished ? '' : 'move-header'} ${
+        fixedHeader ? 'pos-fixed z-[100] w-full' : ''
+      }`}
       ref={ref}
       variants={headerVariants}
       initial={fixedHeader ? 'open' : 'closed'}
@@ -129,9 +129,7 @@ const Nav = ({ secondaryFont }) => {
                 <li
                   key={navItem.title}
                   className={`uppercase ${
-                    fixedHeader
-                      ? 'text-light-black dark:text-dark'
-                      : 'dark:text-dark'
+                    fixedHeader ? 'text-light-black dark:text-dark' : 'dark:text-dark'
                   }`}
                 >
                   <RouteLink

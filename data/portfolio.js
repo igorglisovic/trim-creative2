@@ -4,6 +4,7 @@ import Trim3 from '../public/trim.jpg'
 import Trim4 from '../public/trim2.jpg'
 import Trim5 from '../public/trim3.jpg'
 import Trim6 from '../public/trim4.jpg'
+import Trim7 from '../public/bmw.jpg'
 
 export const portfolio = [
   {
@@ -12,7 +13,7 @@ export const portfolio = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis. Maecenas non arcu at justo eleifend varius. Sed id est ut ligula suscipit finibus. In euismod risus vitae nisl tincidunt, sit amet facilisis libero tristique. Cras vitae tellus at ex luctus fringilla nec id dui.Cras vitae tellus at ex luctus fringilla nec id dui.Cras vitae tellus at ex luctus fringilla nec id dui.Cras vitae tellus at ex luctus fringilla nec id dui.',
     filters: [1],
     thumbnail: Trim2,
-    images: [Trim2, Trim2, Trim3, Trim4, Trim5, Trim6, Trim1],
+    images: [Trim7, Trim2, Trim3, Trim4, Trim5, Trim6, Trim1],
   },
   {
     title: 'Golijska ledena2',

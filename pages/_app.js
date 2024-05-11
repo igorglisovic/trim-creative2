@@ -22,6 +22,7 @@ const akira = localFont({
 const gabarito = Gabarito({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
+  variable: '--font-gabarito',
 })
 
 export default function App({ Component, pageProps, router }) {
@@ -40,15 +41,17 @@ export default function App({ Component, pageProps, router }) {
         <AnimationContextProvider>
           <PortfolioContextProvider>
             <HeaderContextProvider>
-              <Nav secondaryFont={gabarito} />
-              <AnimatePresence>
-                <Component
-                  mainFont={akira}
-                  secondaryFont={gabarito}
-                  key={router._key}
-                  {...pageProps}
-                />
-              </AnimatePresence>
+              <div className={`${akira.variable} ${gabarito.variable}`}>
+                <Nav secondaryFont={gabarito} />
+                <AnimatePresence>
+                  <Component
+                    mainFont={akira}
+                    secondaryFont={gabarito}
+                    key={router._key}
+                    {...pageProps}
+                  />
+                </AnimatePresence>
+              </div>
             </HeaderContextProvider>
           </PortfolioContextProvider>
         </AnimationContextProvider>

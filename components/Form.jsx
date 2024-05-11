@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import Button from './UI/Button'
 
-const Form = ({ secondaryFont }) => {
+const Form = () => {
   const [submitting, setSubmitting] = useState(false)
   const [isMessageSent, setIsMessageSent] = useState(false)
   const [errorMessage, setErrorMessage] = useState({
@@ -80,20 +80,11 @@ const Form = ({ secondaryFont }) => {
       })
     }
 
-    if (
-      errorMessage.email === '' &&
-      errorMessage.message === '' &&
-      errorMessage.name === ''
-    ) {
+    if (errorMessage.email === '' && errorMessage.message === '' && errorMessage.name === '') {
       setSubmitting(true)
 
       emailjs
-        .sendForm(
-          'service_erysgzg',
-          'template_pmdwird',
-          formRef.current,
-          'I_JeOrI32X7cMuw0o'
-        )
+        .sendForm('service_erysgzg', 'template_pmdwird', formRef.current, 'I_JeOrI32X7cMuw0o')
         .then(
           result => {
             setIsMessageSent(true)
@@ -122,32 +113,21 @@ const Form = ({ secondaryFont }) => {
 
   return (
     <form
-      className={`${secondaryFont.className} flex flex-col gap-3 w-full xl:px-20 md:px-10`}
+      className={`font-secondary flex flex-col gap-3 w-full xl:px-20 md:px-10`}
       onSubmit={sendEmail}
       ref={formRef}
     >
       {isMessageSent ? (
         <p className="text-lg mt-3">
-          Poruka je uspešno poslata! Potrudićemo se da je obradimo u najkraćem
-          mogućem roku.
+          Poruka je uspešno poslata! Potrudićemo se da je obradimo u najkraćem mogućem roku.
         </p>
       ) : (
         <>
           {errorMessage.error === '' ? (
             <>
-              <input
-                ref={emailRef}
-                className="input"
-                type="email"
-                placeholder="E-mail"
-              />
+              <input ref={emailRef} className="input" type="email" placeholder="E-mail" />
               <p className="text-rose-700">{errorMessage.email}</p>
-              <input
-                ref={nameRef}
-                className="input"
-                type="text"
-                placeholder="Ime"
-              />
+              <input ref={nameRef} className="input" type="text" placeholder="Ime" />
               <p className="text-rose-700">{errorMessage.name}</p>
               <textarea
                 rows={1}

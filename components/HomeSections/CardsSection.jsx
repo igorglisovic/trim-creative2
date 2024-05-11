@@ -9,7 +9,7 @@ import Link from 'next/link'
 import Circle from '../UI/Circle'
 import { cardVariants } from '@/data/animations'
 
-const CardsSection = ({ secondaryFont, content }) => {
+const CardsSection = ({ content }) => {
   const [cards, setCards] = useState(content.cardsItems)
 
   const handleClick = index => {
@@ -29,9 +29,7 @@ const CardsSection = ({ secondaryFont, content }) => {
         <div className="relative">
           <Circle size={160} rotate={99} position={[0, 0, -300, -20]} z={100} />
           <Circle size={50} rotate={99} position={[0, 0, -260, 210]} z={-1} />
-          <h2
-            className={`text-white sm:text-4xl text-3xl text-center sm:text-left`}
-          >
+          <h2 className={`text-white sm:text-4xl text-3xl text-center sm:text-left`}>
             {content.h2}
           </h2>
           <div className="flex flex-col-reverse lg:flex-row gap-6 mt-12">
@@ -42,23 +40,16 @@ const CardsSection = ({ secondaryFont, content }) => {
                 alt=""
               />
             </div>
-            <div className={`${secondaryFont?.className} flex-1`}>
+            <div className={`font-secondary flex-1`}>
               <ul className="flex flex-col gap-3">
                 {cards?.map((card, i) => (
-                  <li
-                    className="px-7 rounded-[37px] bg-card-black text-white"
-                    key={card.title}
-                  >
+                  <li className="px-7 rounded-[37px] bg-card-black text-white" key={card.title}>
                     <button
                       onClick={() => handleClick(i)}
                       className="flex justify-between items-center w-full py-4"
                       aria-label={card.title}
                     >
-                      <h3
-                        className={`text-2xl uppercase ${
-                          card.active && 'font-bold'
-                        }`}
-                      >
+                      <h3 className={`text-2xl uppercase ${card.active && 'font-bold'}`}>
                         {card.title}
                       </h3>
                       <motion.div

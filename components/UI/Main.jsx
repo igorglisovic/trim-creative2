@@ -4,7 +4,7 @@ import Lenis from '@studio-freight/lenis'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-const Main = ({ children, mainFont, path }) => {
+const Main = ({ children, path }) => {
   const [removeComponent, setRemoveComponent] = useState(false)
 
   const {
@@ -43,9 +43,9 @@ const Main = ({ children, mainFont, path }) => {
           clipPath: `circle(0px at ${screenWidth / 2}px ${screenHeight / 2}px)`,
         },
         show: {
-          clipPath: `circle(${
-            screenWidth > screenHeight ? screenWidth : screenHeight
-          }px at ${screenWidth / 2}px ${screenHeight / 2}px)`,
+          clipPath: `circle(${screenWidth > screenHeight ? screenWidth : screenHeight}px at ${
+            screenWidth / 2
+          }px ${screenHeight / 2}px)`,
           transitionEnd: {
             clipPath: 'none',
           },
@@ -92,6 +92,7 @@ const Main = ({ children, mainFont, path }) => {
         exit={{ opacity: 0.99 }}
         transition={{
           duration: 2,
+          // duration: 6,
           type: 'ease-out',
         }}
         onAnimationStart={() => {
@@ -103,9 +104,7 @@ const Main = ({ children, mainFont, path }) => {
           updateAnimationStarted(false)
           updateBackgroundColor(false)
         }}
-        className={`${animationFinished ? '' : 'page-transition'} ${
-          mainFont.className
-        }  pt-[95px] dark:bg-dark`}
+        className={`${animationFinished ? '' : 'page-transition'} font-main pt-[95px] dark:bg-dark`}
       >
         {children}
       </m.main>

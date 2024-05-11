@@ -9,7 +9,7 @@ const initialCards = portfolio.map(card => {
   return { ...card, slug: slugify(card.title, { lower: true }) }
 })
 
-const PortfolioCards = ({ secondaryFont }) => {
+const PortfolioCards = () => {
   const [cards, setCards] = useState(initialCards)
 
   const { currentFilter } = usePortfolioContext()
@@ -18,17 +18,13 @@ const PortfolioCards = ({ secondaryFont }) => {
     if (!currentFilter) return setCards(initialCards)
 
     setCards(() => {
-      return initialCards.filter(card =>
-        card.filters.includes(currentFilter.id)
-      )
+      return initialCards.filter(card => card.filters.includes(currentFilter.id))
     })
   }, [currentFilter])
 
   return (
     <Container>
-      <div
-        className={`flex flex-wrap gap-x-5 gap-y-10 pb-12 ${secondaryFont.className}`}
-      >
+      <div className={`flex flex-wrap gap-x-5 gap-y-10 pb-12 font-secondary`}>
         {cards.map(card => (
           <PortfolioCard key={card.title} card={card} />
         ))}

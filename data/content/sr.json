@@ -15,8 +15,8 @@
         "path": "/portfolio"
       },
       {
-        "title": "O nama",
-        "path": "/onama"
+        "title": "Naš tim",
+        "path": "/nas-tim"
       },
       {
         "title": "Kontakt",
@@ -97,6 +97,32 @@
     "button": "Saznaj više"
   },
   "portfolio": "",
-  "onama": "",
+  "nasTim": {
+    "h1": "NAS TIM",
+    "cardsItems": [
+      {
+        "name": "Mihailo",
+        "titles": ["Co-founder", "Graphic Design"],
+        "img": "https://res.cloudinary.com/dgpxbcu8p/image/upload/v1715457916/2_ypjfaq.png",
+        "email": "mihailo@trimcreative.com",
+        "instagram": "s"
+      },
+      {
+        "name": "Ilija",
+        "titles": ["Co-founder", "Social Media Manager"],
+        "img": "https://res.cloudinary.com/dgpxbcu8p/image/upload/v1715457912/1_ugpoyt.png",
+        "email": "ilija@trimcreative.com",
+        "instagram": "s"
+      },
+      {
+        "name": "Igor",
+        "titles": ["Co-founder", "Web Developer"],
+        "img": "https://res.cloudinary.com/dgpxbcu8p/image/upload/v1715457911/3_xlegie.png",
+        "email": "igor@trimcreative.com",
+        "linkedin": "https://www.linkedin.com/in/igor-glisovic/"
+      }
+    ],
+    "button": "Saznaj više"
+  },
   "kontakt": ""
 }

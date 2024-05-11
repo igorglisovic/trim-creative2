@@ -23,6 +23,10 @@ module.exports = {
         'card-black': '#181415',
         dark: '#ffffff',
       },
+      fontFamily: {
+        main: ['var(--font-akira)'],
+        secondary: ['var(--font-gabarito)'],
+      },
     },
   },
   plugins: [],
