@@ -12,7 +12,10 @@ const PortfolioFilters = () => {
   const { updateCurrentFilter, currentFilter } = usePortfolioContext()
 
   const handleFilterChange = filter => {
-    if (filter.id === currentFilter?.id) return
+    if (filter.id === currentFilter?.id) {
+      updateCurrentFilter(null)
+      return
+    }
 
     updateCurrentFilter({ ...filter, active: true })
   }
@@ -34,7 +37,7 @@ const PortfolioFilters = () => {
             </Button>
           ))}
         </div>
-        {currentFilter && (
+        {/* {currentFilter && (
           <div className="font-secondary">
             <button
               onClick={() => {
@@ -46,7 +49,7 @@ const PortfolioFilters = () => {
               Clear filters
             </button>
           </div>
-        )}
+        )} */}
       </div>
     </Container>
   )

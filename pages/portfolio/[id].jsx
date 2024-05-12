@@ -13,7 +13,7 @@ const initialCards = portfolio.map(card => {
   return { ...card, slug: slugify(card.title, { lower: true }) }
 })
 
-const PortfolioProject = ({ mainFont, secondaryFont }) => {
+const PortfolioProject = () => {
   const router = useRouter()
 
   const [project, setProject] = useState(null)
@@ -26,14 +26,11 @@ const PortfolioProject = ({ mainFont, secondaryFont }) => {
   }, [initialCards, router.query.id, portfolioFilters])
 
   useEffect(() => {
-    if (project)
-      setProjectFilter(
-        portfolioFilters.find(el => el.id === project?.filters[0])
-      )
+    if (project) setProjectFilter(portfolioFilters.find(el => el.id === project?.filters[0]))
   }, [project, portfolioFilters, router.query.id])
 
   return (
-    <Main mainFont={mainFont} path="/portfolio/[id]">
+    <Main path="/portfolio/[id]">
       {project && projectFilter && (
         <Breadcrumb
           items={[
@@ -41,12 +38,11 @@ const PortfolioProject = ({ mainFont, secondaryFont }) => {
             { link: null, title: projectFilter?.title },
             { link: null, title: project?.title },
           ]}
-          font={secondaryFont}
         />
       )}
-      <PortfolioTitleSection project={project} secondaryFont={secondaryFont} />
+      <PortfolioTitleSection project={project} />
       <PortfolioGallerySection project={project} />
-      <Footer secondaryFont={secondaryFont} />
+      <Footer />
     </Main>
   )
 }

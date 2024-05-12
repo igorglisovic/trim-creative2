@@ -2,7 +2,7 @@ import Container from './Container'
 import { useEffect, useState } from 'react'
 import RouteLink from './RouteLink'
 
-const Breadcrumb = ({ font, items }) => {
+const Breadcrumb = ({ items }) => {
   const [breadcrumbArr, setBreadcrumbArr] = useState(items)
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Breadcrumb = ({ font, items }) => {
   return (
     <Container>
       <div className="py-3">
-        <span className={`${font.className} text-sm dark:text-dark`}>
+        <span className={`font-secondary text-sm dark:text-dark`}>
           {breadcrumbArr?.map((item, i) => {
             if (item.link) {
               return (

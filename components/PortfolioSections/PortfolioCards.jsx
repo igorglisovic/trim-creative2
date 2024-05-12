@@ -11,22 +11,53 @@ const initialCards = portfolio.map(card => {
 
 const PortfolioCards = () => {
   const [cards, setCards] = useState(initialCards)
+  const [otherCards, setOtherCards] = useState([])
+  const [prevFilter, setPrevFilter] = useState(undefined)
+
+  const [otherCardsAnimFinished, setOtherCardsAnimFinished] = useState(false)
 
   const { currentFilter } = usePortfolioContext()
 
   useEffect(() => {
-    if (!currentFilter) return setCards(initialCards)
+    console.log(prevFilter, currentFilter)
+    setPrevFilter(currentFilter)
+    if (!currentFilter) {
+      setOtherCards([])
+      return setCards(initialCards)
+    }
+
+    if (prevFilter === null && currentFilter) {
+      setOtherCards(() => {
+        return cards.filter(card => !card.filters.includes(currentFilter.id))
+      })
+    }
 
     setCards(() => {
       return initialCards.filter(card => card.filters.includes(currentFilter.id))
     })
   }, [currentFilter])
 
+  useEffect(() => {
+    if (otherCardsAnimFinished) {
+      setOtherCards([])
+    }
+  }, [otherCardsAnimFinished])
+
+  useEffect(() => {}, [otherCards])
+
   return (
     <Container>
       <div className={`flex flex-wrap gap-x-5 gap-y-10 pb-12 font-secondary`}>
         {cards.map(card => (
           <PortfolioCard key={card.title} card={card} />
+        ))}
+        {otherCards.map(card => (
+          <PortfolioCard
+            key={card.title}
+            card={card}
+            loading={true}
+            setOtherCardsAnimFinished={setOtherCardsAnimFinished}
+          />
         ))}
       </div>
     </Container>

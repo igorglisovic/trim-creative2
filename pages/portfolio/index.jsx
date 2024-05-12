@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import { usePortfolioContext } from '@/store/portfolio-ctx'
 import Main from '@/components/UI/Main'
 
-const portfolio = ({ mainFont, secondaryFont }) => {
+const portfolio = () => {
   const { updateCurrentFilter } = usePortfolioContext()
   const { animationFinished } = useAnimationContext()
 
@@ -30,10 +30,10 @@ const portfolio = ({ mainFont, secondaryFont }) => {
   }, [animationFinished])
 
   return (
-    <Main mainFont={mainFont} path="/portfolio">
-      <PortfolioFilters secondaryFont={secondaryFont} />
-      <PortfolioCards secondaryFont={secondaryFont} />
-      <Footer secondaryFont={secondaryFont} />
+    <Main path="/portfolio">
+      <PortfolioFilters />
+      <PortfolioCards />
+      <Footer />
     </Main>
   )
 }

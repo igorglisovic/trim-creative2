@@ -22,7 +22,9 @@ const Kontakt = () => {
           <div className="flex flex-row gap-3 mt-8">
             <div className="flex flex-col gap-6 min-w-[50%]">
               <div>
-                <h2 className={`uppercase sm:text-5xl text-4xl text-center md:whitespace-nowrap`}>
+                <h2
+                  className={`uppercase sm:text-5xl text-4xl text-center md:whitespace-nowrap dark:text-dark`}
+                >
                   {footer.h2}
                 </h2>
                 <p className={`md:text-lg text-gray-300 text-center font-secondary`}>{footer.p}</p>

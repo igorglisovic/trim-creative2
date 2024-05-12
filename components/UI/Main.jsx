@@ -3,6 +3,7 @@ import { useAnimationContext } from '@/store/animation-ctx'
 import Lenis from '@studio-freight/lenis'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { easeIn } from 'framer-motion'
 
 const Main = ({ children, path }) => {
   const [removeComponent, setRemoveComponent] = useState(false)
@@ -91,9 +92,17 @@ const Main = ({ children, path }) => {
         animate={'show'}
         exit={{ opacity: 0.99 }}
         transition={{
-          duration: 2,
-          // duration: 6,
           type: 'ease-out',
+          // type: 'tween',
+          duration: 2,
+          // mass: 0.5,
+          // bounce: 0.5,
+          // damping: 30,
+          // stiffness: 50,
+          // restDelta: 0.001,
+          // type: 'spring',
+          // velocity: 50,
+          // ease: 'easeOut',
         }}
         onAnimationStart={() => {
           updateAnimationStarted(true)

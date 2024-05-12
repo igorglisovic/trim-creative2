@@ -71,7 +71,7 @@ const OurTeamCards = ({ content }) => {
                       </Link>
                     )}
                     {item.email && (
-                      <Link href={item.email} target="_blank">
+                      <Link href={`mailto:${item.email}`} target="_blank">
                         <Email sx={{ fontSize: '2.1rem' }} />
                       </Link>
                     )}
