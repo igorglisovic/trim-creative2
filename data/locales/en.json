@@ -8,19 +8,19 @@
       },
       {
         "title": "Services",
-        "path": "/usluge"
+        "path": "/services"
       },
       {
         "title": "Portfolio",
         "path": "/portfolio"
       },
       {
-        "title": "About us",
-        "path": "/onama"
+        "title": "Our team",
+        "path": "/our-team"
       },
       {
         "title": "Contact",
-        "path": "/test"
+        "path": "/contact"
       }
     ]
   },
@@ -28,9 +28,9 @@
     "h2": "SPREMNI ZA RAST?",
     "p": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero a dolor feugiat iaculis."
   },
-  "pocetna": {
+  "home": {
     "hero": {
-      "h1": "ODSECITE VASU KONKURENCIJU",
+      "h1": "ODSECITE VASU KONKURENCIJU2",
       "p": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum fuga modi, inventore cupiditate natus eius accusamus voluptatum iure ipsa quod tempora eaque molestias impedit totam magni veniam doloribus sunt praesentium.",
       "button": "Saznaj više"
     },
@@ -66,7 +66,7 @@
     },
     "portfolio": { "h2": "Portfolio" }
   },
-  "usluge": {
+  "services": {
     "h1": "NASE USLUGE",
     "cardsItems": [
       {
@@ -97,6 +97,35 @@
     "button": "Saznaj više"
   },
   "portfolio": "",
-  "onama": "",
-  "kontakt": ""
+  "ourTeam": {
+    "h1": "OUR TEAM",
+    "cardsItems": [
+      {
+        "name": "Mihailo",
+        "titles": ["Co-founder", "Graphic Design"],
+        "img": "https://res.cloudinary.com/dgpxbcu8p/image/upload/v1715457916/2_ypjfaq.png",
+        "email": "mihailo@trimcreative.com",
+        "instagram": "s",
+        "more": "Some info about us"
+      },
+      {
+        "name": "Ilija",
+        "titles": ["Co-founder", "Social Media Manager"],
+        "img": "https://res.cloudinary.com/dgpxbcu8p/image/upload/v1715457912/1_ugpoyt.png",
+        "email": "ilija@trimcreative.com",
+        "instagram": "s",
+        "more": "Some info about us"
+      },
+      {
+        "name": "Igor",
+        "titles": ["Co-founder", "Web Developer"],
+        "img": "https://res.cloudinary.com/dgpxbcu8p/image/upload/v1715457911/3_xlegie.png",
+        "email": "igor@trimcreative.com",
+        "linkedin": "https://www.linkedin.com/in/igor-glisovic/",
+        "more": "Some info about us"
+      }
+    ],
+    "button": "Saznaj više"
+  },
+  "contact": ""
 }

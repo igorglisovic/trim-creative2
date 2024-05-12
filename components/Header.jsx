@@ -9,7 +9,9 @@ import { useHeaderContext } from '@/store/header-ctx'
 import Theme from './Theme'
 import RouteLink from './UI/RouteLink'
 import { headerVariants } from '@/data/animations'
-import useLocalization from './hooks/useLocalization'
+import en from '@/data/locales/en'
+import sr from '@/data/locales/sr'
+import { useRouter } from 'next/router'
 
 const Nav = () => {
   const [expand, setExpand] = useState(false)
@@ -21,9 +23,11 @@ const Nav = () => {
   const { animationFinished } = useAnimationContext()
   const { updateFixedHeader, fixedHeader } = useHeaderContext()
 
-  const {
-    content: { header },
-  } = useLocalization()
+  const router = useRouter()
+  const { locale } = router
+  const content = locale === 'en' ? en : sr
+
+  const { header } = content
 
   useEffect(() => {
     const handleScroll = e => {

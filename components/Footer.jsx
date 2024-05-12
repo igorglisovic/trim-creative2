@@ -5,23 +5,19 @@ import Link from 'next/link'
 import { EmailOutlined, Instagram } from '@mui/icons-material'
 import Form from './Form'
 import RouteLink from './UI/RouteLink'
-import useLocalization from './hooks/useLocalization'
-import enContent from '@/data/content/en.json'
-import srContent from '@/data/content/sr.json'
+import en from '@/data/locales/en.json'
+import sr from '@/data/locales/sr.json'
+import { useRouter } from 'next/router'
 
 const Footer = () => {
-  const {
-    content: { footer, header, lang },
-    updateContent,
-  } = useLocalization()
+  const router = useRouter()
+  const { locale } = router
+  const { footer, header, lang } = locale === 'en' ? en : sr
 
-  const handleLangChange = e => {
-    const lang = e.target.value
-
-    updateContent(lang === 'sr' ? srContent : enContent)
-    localStorage.setItem('lang', lang)
+  const handleChangeLanguage = e => {
+    const locale = e.target.value
+    router.push(router.pathname, router.asPath, { locale })
   }
-  console.log(lang)
 
   return (
     <footer className="bg-footer-gradient pt-20 pb-14">
@@ -55,7 +51,7 @@ const Footer = () => {
             </ul>
           </nav>
           <div className={`flex gap-2 items-center font-secondary`}>
-            <select onChange={handleLangChange} name="" id="" value={lang}>
+            <select onChange={handleChangeLanguage} name="" id="" value={lang}>
               <option value="en">EN</option>
               <option value="sr">SR</option>
             </select>
