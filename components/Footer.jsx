@@ -27,7 +27,7 @@ const Footer = () => {
             {footer.h2}
           </h2>
           <p className={`md:text-lg text-gray-300 text-center font-secondary`}>{footer.p}</p>
-          <Form />
+          <Form footer={true} />
         </div>
         <div
           className={`flex flex-col md:flex-row items-center justify-between gap-7 mt-4 md:mt-16`}

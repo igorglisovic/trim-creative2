@@ -2,7 +2,7 @@ import { useAnimationContext } from '@//store/animation-ctx'
 import { useContainerContext } from '@//store/container-ctx'
 import { useEffect, useRef } from 'react'
 
-const Container = ({ children }) => {
+const Container = ({ children, className }) => {
   const ref = useRef()
 
   const { updateContainerWidth, containerWidth } = useContainerContext()
@@ -24,7 +24,7 @@ const Container = ({ children }) => {
   }, [animationFinished])
 
   return (
-    <div ref={ref} className="max-w-[1700px] m-auto md:px-12 px-[1.2rem]">
+    <div ref={ref} className={`max-w-[1700px] m-auto md:px-12 px-[1.2rem]`}>
       {children}
     </div>
   )

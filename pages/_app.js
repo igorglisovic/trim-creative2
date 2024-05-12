@@ -41,23 +41,12 @@ export default function App({ Component, pageProps, router }) {
         <AnimationContextProvider>
           <PortfolioContextProvider>
             <HeaderContextProvider>
-              {/* <NextIntlClientProvider
-                locale={router.locale}
-                messages={pageProps.messages}
-                timeZone="Europe/Vienna"
-              > */}
               <div className={`${akira.variable} ${gabarito.variable}`}>
-                <Nav secondaryFont={gabarito} />
+                <Nav />
                 <AnimatePresence>
-                  <Component
-                    mainFont={akira}
-                    secondaryFont={gabarito}
-                    key={router._key}
-                    {...pageProps}
-                  />
+                  <Component key={router._key} {...pageProps} />
                 </AnimatePresence>
               </div>
-              {/* </NextIntlClientProvider> */}
             </HeaderContextProvider>
           </PortfolioContextProvider>
         </AnimationContextProvider>

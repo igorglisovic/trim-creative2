@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import Button from './UI/Button'
+import ChooseItem from './UI/ChooseItem'
 
-const Form = () => {
+const Form = ({ className, footer }) => {
   const [submitting, setSubmitting] = useState(false)
   const [isMessageSent, setIsMessageSent] = useState(false)
   const [errorMessage, setErrorMessage] = useState({
@@ -11,6 +12,8 @@ const Form = () => {
     message: ' ',
     error: '',
   })
+
+  const [service, setService] = useState('')
 
   const formRef = useRef()
   const emailRef = useRef()
@@ -113,7 +116,9 @@ const Form = () => {
 
   return (
     <form
-      className={`font-secondary flex flex-col gap-3 w-full xl:px-20 md:px-10`}
+      className={`font-secondary flex flex-col gap-3 w-full xl:px-20 md:px-10 ${className} ${
+        footer ? '' : 'text-black'
+      }`}
       onSubmit={sendEmail}
       ref={formRef}
     >
@@ -125,22 +130,53 @@ const Form = () => {
         <>
           {errorMessage.error === '' ? (
             <>
-              <input ref={emailRef} className="input" type="email" placeholder="E-mail" />
+              <input
+                ref={emailRef}
+                className={`input ${
+                  footer ? 'placeholder:text-[white] !border-[#e4e4e4] !text-white' : ''
+                }`}
+                type="email"
+                placeholder="E-mail"
+              />
               <p className="text-rose-700">{errorMessage.email}</p>
-              <input ref={nameRef} className="input" type="text" placeholder="Ime" />
+              <input
+                ref={nameRef}
+                className={`input ${
+                  footer ? 'placeholder:text-[white] !border-[#e4e4e4] !text-white' : ''
+                }`}
+                type="text"
+                placeholder="Ime"
+              />
               <p className="text-rose-700">{errorMessage.name}</p>
               <textarea
                 rows={1}
                 ref={messageRef}
-                className="input"
+                className={`input ${
+                  footer ? 'placeholder:text-[white] !border-[#e4e4e4] !text-white' : ''
+                }`}
                 type="text"
                 placeholder="Poruka"
               />
               <p className="text-rose-700">{errorMessage.message}</p>
-
+              <ChooseItem
+                items={[
+                  { value: 'Digitalni marketing', label: 'Digitalni marketing' },
+                  { value: 'Web dizajn', label: 'Web dizajn' },
+                  { value: 'Graficki dizajn', label: 'Graficki dizajn' },
+                  { value: 'Drustvene mreze', label: 'Drustvene mreze' },
+                  { value: 'Web development', label: 'Web development' },
+                ]}
+                setState={setService}
+                value={service}
+                label="Izaberi uslugu:"
+              />
               <Button
                 style={{ backgroundImage: 'none', color: 'black' }}
-                className="bg-white self-end mt-5"
+                className={
+                  footer
+                    ? '!bg-white !text-black self-end mt-5'
+                    : '!bg-main-gradient !text-white self-start mt-5'
+                }
                 disabled={submitting}
                 ariaLabel="Pošalji email"
               >

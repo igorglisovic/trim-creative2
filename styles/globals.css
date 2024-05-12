@@ -13,6 +13,7 @@ html {
 .page-transition {
   will-change: clip-path;
   width: 100%;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
@@ -20,8 +21,7 @@ html {
   z-index: 49;
   padding-top: 95px;
   background: white;
-  position: fixed;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   overflow-x: hidden;
 }
 
@@ -37,7 +37,7 @@ html {
 }
 
 .input {
-  @apply bg-transparent border-b-[1px] py-4 px-3 text-white;
+  @apply bg-transparent border-b-[1px] dark:border-[#e4e4e4] border-[black] py-4 px-3 text-black dark:text-white;
 }
 
 .input:focus {
@@ -45,7 +45,7 @@ html {
 }
 
 .input::placeholder {
-  color: #e4e4e4;
+  @apply dark:text-[#e4e4e4] text-black;
 }
 
 .three-line-ellipsis {
@@ -123,4 +123,20 @@ html {
     stroke-dashoffset: 0;
     scale: 1;
   }
+}
+
+.choose-item > div {
+  @apply w-36;
+}
+
+.choose-item > div > input {
+  @apply absolute opacity-0;
+}
+
+.choose-item > div > label {
+  @apply absolute w-full z-10 bg-white border-gray-300 border-2 text-center cursor-pointer rounded-md;
+}
+
+.choose-item input:checked + label {
+  @apply bg-blue-600 bg-gray-200;
 }

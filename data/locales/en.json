@@ -127,5 +127,7 @@
     ],
     "button": "Saznaj više"
   },
-  "contact": ""
+  "contact": {
+    "h1": "CONTACT"
+  }
 }
