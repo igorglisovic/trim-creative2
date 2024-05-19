@@ -13,13 +13,13 @@ const RouteLink = ({ href, children, className, 'aria-label': ariaLabel }) => {
       return
     }
 
-    router.push(href, undefined, { scroll: false })
+    // router.push(href, undefined, { scroll: false })
 
     updateAnimationPosition({ x: e.clientX, y: e.clientY })
   }
 
   return (
-    <div
+    <Link
       aria-label={ariaLabel}
       onClick={e => handleClick(e)}
       className={`${!animationFinished ? 'cursor-default' : 'cursor-pointer'} ${className}`}
@@ -27,7 +27,7 @@ const RouteLink = ({ href, children, className, 'aria-label': ariaLabel }) => {
       // scroll={false}
     >
       {children}
-    </div>
+    </Link>
   )
 }
 

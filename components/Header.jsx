@@ -87,7 +87,7 @@ const Nav = () => {
           }}
           initial={fixedHeader ? 'open' : 'closed'}
           animate={fixedHeader ? 'open' : 'closed'}
-          className={`relative min-h-[95px] whitespace-nowrap ${
+          className={`relative min-h-[95px] whitespace-nowrap flex justify-between items-center  ${
             fixedHeader
               ? 'bg-[#ffffffb5] dark:bg-[#231F20B2] dark:border-2 dark:border-[#373737]'
               : ''
@@ -96,7 +96,7 @@ const Nav = () => {
           <m.div
             variants={{
               closed: {
-                left: '0',
+                marginLeft: '0',
                 transition: {
                   type: 'spring',
                   stiffness: 300,
@@ -104,7 +104,7 @@ const Nav = () => {
                 },
               },
               open: {
-                left: '40px',
+                marginLeft: '40px',
                 transition: {
                   type: 'spring',
                   stiffness: 300,
@@ -114,7 +114,7 @@ const Nav = () => {
             }}
             initial={fixedHeader ? 'open' : 'closed'}
             animate={fixedHeader ? 'open' : 'closed'}
-            className="md:w-[8rem] w-[6.3rem] absolute left-0 position-center z-50"
+            className="md:w-[8rem] w-[6.3rem]"
           >
             <RouteLink href="/">
               <Image
@@ -126,8 +126,8 @@ const Nav = () => {
               />
             </RouteLink>
           </m.div>
-          {/* Desktop Menu */}
-          <nav className="hidden invisible sm:visible sm:flex items-center absolute nav z-50 ">
+          {/* Desktop Navigation */}
+          <nav className="hidden invisible sm:visible sm:flex items-center  z-50 ">
             <ul className="flex md:gap-5 gap-3">
               {header.navItems?.map(navItem => (
                 <li
@@ -136,24 +136,27 @@ const Nav = () => {
                     fixedHeader ? 'text-light-black dark:text-dark' : 'dark:text-dark'
                   }`}
                 >
-                  <RouteLink
-                    className={`font-semibold text-sm lg:text-base`}
-                    href={navItem.path}
-                    aria-label={navItem.title}
-                  >
-                    {navItem.title}
-                  </RouteLink>
+                  <span className="relative">
+                    <RouteLink
+                      className={`font-semibold text-sm lg:text-base`}
+                      href={navItem.path}
+                      aria-label={navItem.title}
+                    >
+                      {navItem.title}
+                    </RouteLink>
+                  </span>
                 </li>
               ))}
             </ul>
           </nav>
-          {/* Mobile Menu */}
+          <Theme theme={theme} setTheme={setTheme} />
+          {/* Mobile Hamburger Navigation */}
           <m.button
             onClick={() => {
               setIsOpen(!isOpen)
             }}
             className={
-              'sm:hidden sm:invisible visible flex button-two absolute right-0 top-[50%] translate-y-[-50%] w-10 h-10 justify-center items-center'
+              'sm:hidden sm:invisible visible flex button-two w-10 h-10 justify-center items-center'
             }
             aria-expanded="false"
             aria-label="hamburger"
@@ -200,7 +203,6 @@ const Nav = () => {
               ></line>
             </svg>
           </m.button>
-          <Theme theme={theme} setTheme={setTheme} />
         </m.div>
       </Container>
     </m.header>

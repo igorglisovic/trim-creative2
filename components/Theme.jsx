@@ -46,6 +46,7 @@ const Theme = ({ theme, setTheme }) => {
       onClick={handleThemeChange}
       variants={{
         closed: {
+          marginRight: 0,
           transition: {
             type: 'spring',
             stiffness: 300,
@@ -53,7 +54,7 @@ const Theme = ({ theme, setTheme }) => {
           },
         },
         open: {
-          right: '40px',
+          marginRight: '40px',
           transition: {
             type: 'spring',
             stiffness: 300,
@@ -63,7 +64,7 @@ const Theme = ({ theme, setTheme }) => {
       }}
       initial={fixedHeader ? 'open' : 'closed'}
       animate={fixedHeader ? 'open' : 'closed'}
-      className="visible flex absolute sm:right-0 top-1/2 right-1/2 translate-x-1/2 sm:translate-x-0 -translate-y-1/2 z-50 w-[72px] text-white bg-[#D9D9D9] p-1 rounded-full"
+      className="visible flex w-[72px] text-white bg-[#D9D9D9] p-1 rounded-full"
       aria-label="Change Theme Button"
     >
       <div className="w-full h-7 relative">

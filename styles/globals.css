@@ -3,13 +3,7 @@
 @tailwind utilities;
 
 html {
-  /* overflow-x: hidden; */
   overflow-y: scroll;
-  /* scrollbar-width: initial !important; */
-}
-
-.move-header {
-  /* padding-right: 17px; */
 }
 
 .page-transition {
@@ -25,21 +19,6 @@ html {
   background: white;
   overflow-y: scroll !important;
   scrollbar-width: none !important;
-  /* scrollbar-width: 27px; */
-  /* overflow-y: scroll; */
-  /* overflow: hidden; */
-  /* scrollbar-width: none; */
-}
-
-.nav {
-  transform: translateX(-50%) translateY(-50%);
-  left: 50%;
-  top: 50%;
-}
-
-.position-center {
-  transform: translateY(-50%);
-  top: 50%;
 }
 
 .input {
