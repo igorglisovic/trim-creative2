@@ -40,7 +40,7 @@ const Footer = () => {
               {header?.navItems?.map(navItem => (
                 <li key={navItem.title} className="uppercase text-white">
                   <RouteLink
-                    className={`font-medium sm:text-sm lg:text-base text-xs font-secondary`}
+                    className={`font-semibold sm:text-sm lg:text-base text-xs font-secondary`}
                     href={navItem.path}
                     aria-label={navItem.title}
                   >

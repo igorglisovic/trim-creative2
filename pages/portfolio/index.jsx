@@ -7,7 +7,6 @@ import { useRouter } from 'next/router'
 import { usePortfolioContext } from '@/store/portfolio-ctx'
 import Main from '@/components/UI/Main'
 import H1 from '@/components/UI/H1'
-import Container from '@/components/UI/Container'
 
 const portfolio = () => {
   const { updateCurrentFilter } = usePortfolioContext()
@@ -33,7 +32,7 @@ const portfolio = () => {
 
   return (
     <Main path="/portfolio">
-      <div className="pt-6 pb-20">
+      <div className="pt-6 pb-10">
         <H1>Portfolio</H1>
         <PortfolioFilters />
         <PortfolioCards />

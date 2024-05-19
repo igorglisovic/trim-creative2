@@ -5,24 +5,23 @@ import '@/styles/globals.css'
 import { AnimatePresence } from 'framer-motion'
 import Nav from '../components/Header'
 import localFont from 'next/font/local'
-import { Gabarito } from 'next/font/google'
+import { Raleway } from 'next/font/google'
 import { HeaderContextProvider } from '@/store/header-ctx'
 import Head from 'next/head'
 
-const akira = localFont({
+const monument = localFont({
   src: [
     {
-      path: '../public/fonts/Akira-Expanded-Demo.otf',
-      weight: '400',
+      path: '../public/fonts/MonumentExtended-Ultrabold.otf',
     },
   ],
-  variable: '--font-akira',
+  variable: '--font-monument',
 })
 
-const gabarito = Gabarito({
+const raleway = Raleway({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  variable: '--font-gabarito',
+  variable: '--font-raleway',
 })
 
 export default function App({ Component, pageProps, router }) {
@@ -41,7 +40,7 @@ export default function App({ Component, pageProps, router }) {
         <AnimationContextProvider>
           <PortfolioContextProvider>
             <HeaderContextProvider>
-              <div className={`${akira.variable} ${gabarito.variable}`}>
+              <div className={`${monument.variable} ${raleway.variable}`}>
                 <Nav />
                 <AnimatePresence>
                   <Component key={router._key} {...pageProps} />

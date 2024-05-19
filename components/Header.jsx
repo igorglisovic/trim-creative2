@@ -137,7 +137,7 @@ const Nav = () => {
                   }`}
                 >
                   <RouteLink
-                    className={`font-medium text-sm lg:text-base`}
+                    className={`font-semibold text-sm lg:text-base`}
                     href={navItem.path}
                     aria-label={navItem.title}
                   >

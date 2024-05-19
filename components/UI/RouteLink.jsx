@@ -1,8 +1,11 @@
 import { useAnimationContext } from '@/store/animation-ctx'
 import Link from 'next/link'
+// import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 const RouteLink = ({ href, children, className, 'aria-label': ariaLabel }) => {
   const { updateAnimationPosition, animationFinished } = useAnimationContext()
+  const router = useRouter()
 
   const handleClick = e => {
     if (!animationFinished) {
@@ -10,20 +13,21 @@ const RouteLink = ({ href, children, className, 'aria-label': ariaLabel }) => {
       return
     }
 
+    router.push(href, undefined, { scroll: false })
+
     updateAnimationPosition({ x: e.clientX, y: e.clientY })
   }
 
   return (
-    <Link
+    <div
       aria-label={ariaLabel}
       onClick={e => handleClick(e)}
-      className={`${
-        !animationFinished ? 'cursor-default' : 'cursor-pointer'
-      } ${className}`}
+      className={`${!animationFinished ? 'cursor-default' : 'cursor-pointer'} ${className}`}
       href={href}
+      // scroll={false}
     >
       {children}
-    </Link>
+    </div>
   )
 }
 

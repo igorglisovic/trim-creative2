@@ -24,8 +24,8 @@ module.exports = {
         dark: '#ffffff',
       },
       fontFamily: {
-        main: ['var(--font-akira)'],
-        secondary: ['var(--font-gabarito)'],
+        main: ['var(--font-monument)'],
+        secondary: ['var(--font-raleway)'],
       },
     },
   },

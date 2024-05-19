@@ -15,7 +15,7 @@ const HeroSection = ({ content }) => {
             <Circle size={200} rotate={176} position={[-60, -130, 0, 0]} z={20} />
 
             <H1>
-              Odsecite vasu <br /> konkurenciju
+              Odsecite vašu <br /> konkurenciju
             </H1>
           </div>
           <div
