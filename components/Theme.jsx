@@ -5,7 +5,7 @@ import light from '../public/light.png'
 import Image from 'next/image'
 import { themeVariants } from '@/data/animations'
 
-const Theme = ({ theme, setTheme }) => {
+const Theme = ({ theme, setTheme, className }) => {
   const [userTheme, setUserTheme] = useState(null)
   const [systemTheme, setSystemTheme] = useState(null)
 
@@ -64,7 +64,7 @@ const Theme = ({ theme, setTheme }) => {
       }}
       initial={fixedHeader ? 'open' : 'closed'}
       animate={fixedHeader ? 'open' : 'closed'}
-      className="visible flex w-[72px] text-white bg-[#D9D9D9] p-1 rounded-full"
+      className={`sm:visible sm:flex invisible hidden w-[72px] text-white bg-[#D9D9D9] p-1 rounded-full ${className}`}
       aria-label="Change Theme Button"
     >
       <div className="w-full h-7 relative">

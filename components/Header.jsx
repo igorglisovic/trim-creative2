@@ -16,6 +16,7 @@ import { useRouter } from 'next/router'
 const Nav = () => {
   const [expand, setExpand] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const [mobileNavPosition, setMobileNavPosition] = useState({ x: 0, y: 0 })
   const [theme, setTheme] = useState(null)
 
   const ref = useRef(null)
@@ -28,6 +29,8 @@ const Nav = () => {
   const content = locale === 'en' ? en : sr
 
   const { header } = content
+
+  const hamburgerIconRef = useRef()
 
   useEffect(() => {
     const handleScroll = e => {
@@ -49,10 +52,23 @@ const Nav = () => {
     }
   }, [ref])
 
+  useEffect(() => {
+    setMobileNavPosition({
+      x: hamburgerIconRef.current.getBoundingClientRect().x + 20,
+      y: hamburgerIconRef.current.getBoundingClientRect().y + 20,
+    })
+    console.log(hamburgerIconRef.current.getBoundingClientRect().x)
+  }, [hamburgerIconRef])
+
+  // useEffect(() => {
+  //   console.log(mobileNavPosition)
+  //   console.log(hamburgerIconRef.current.getBoundingClientRect().x)
+  // }, [mobileNavPosition])
+
   return (
     <m.header
       className={`font-secondary ${animationFinished ? '' : 'move-header'} ${
-        fixedHeader ? 'pos-fixed z-[100] w-full' : ''
+        fixedHeader ? 'pos-fixed z-[100] w-full !top-0' : ''
       }`}
       ref={ref}
       variants={headerVariants}
@@ -127,7 +143,7 @@ const Nav = () => {
             </RouteLink>
           </m.div>
           {/* Desktop Navigation */}
-          <nav className="hidden invisible sm:visible sm:flex items-center  z-50 ">
+          <nav className="hidden invisible sm:visible sm:flex items-center z-50 ">
             <ul className="flex md:gap-5 gap-3">
               {header.navItems?.map(navItem => (
                 <li
@@ -150,59 +166,102 @@ const Nav = () => {
             </ul>
           </nav>
           <Theme theme={theme} setTheme={setTheme} />
-          {/* Mobile Hamburger Navigation */}
-          <m.button
-            onClick={() => {
-              setIsOpen(!isOpen)
-            }}
-            className={
-              'sm:hidden sm:invisible visible flex button-two w-10 h-10 justify-center items-center'
-            }
-            aria-expanded="false"
-            aria-label="hamburger"
-          >
-            <svg
-              stroke={'#000000'}
-              viewBox="0 0 70 70"
-              xmlns="http://www.w3.org/2000/svg"
-              // width="250"
-              className="w-full"
+          {/* Mobile (Hamburger) Navigation */}
+          <div className="relative w-10 h-10">
+            <m.button
+              onClick={e => {
+                // setMobileNavPosition({ x: e.clientX, y: e.clientY })
+                setIsOpen(!isOpen)
+              }}
+              className="sm:hidden sm:invisible visible flex button-two w-full h-full justify-center items-center stroke-black dark:stroke-dark absolute top-0 left-0 z-50"
+              aria-expanded="false"
+              aria-label="hamburger"
             >
-              <line
-                className={`line top`}
-                x1="0"
-                x2="100"
-                y1="20"
-                y2="20"
-                strokeWidth="5"
-                strokeLinecap="round"
-                strokeDasharray="100"
-                strokeDashoffset="0"
-              ></line>
-              <line
-                className={`line middle`}
-                x1="100"
-                x2="0"
-                y1="35"
-                y2="35"
-                strokeWidth="5"
-                strokeLinecap="round"
-                strokeDasharray="85"
-                strokeDashoffset="0"
-              ></line>
-              <line
-                className={`line bottom`}
-                x1="0"
-                x2="100"
-                y1="50"
-                y2="50"
-                strokeWidth="5"
-                strokeLinecap="round"
-                strokeDasharray="100"
-                strokeDashoffset="0"
-              ></line>
-            </svg>
-          </m.button>
+              <svg
+                viewBox="0 0 70 70"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-full"
+                ref={hamburgerIconRef}
+              >
+                <line
+                  className={`line top`}
+                  x1="0"
+                  x2="100"
+                  y1="20"
+                  y2="20"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  strokeDasharray="100"
+                  strokeDashoffset="0"
+                ></line>
+                <line
+                  className={`line middle`}
+                  x1="100"
+                  x2="0"
+                  y1="35"
+                  y2="35"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  strokeDasharray="85"
+                  strokeDashoffset="0"
+                ></line>
+                <line
+                  className={`line bottom`}
+                  x1="0"
+                  x2="100"
+                  y1="50"
+                  y2="50"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  strokeDasharray="100"
+                  strokeDashoffset="0"
+                ></line>
+              </svg>
+            </m.button>
+          </div>
+        </m.div>
+        <m.div
+          variants={{
+            closed: {
+              clipPath: `circle(0px at ${mobileNavPosition.x}px ${mobileNavPosition.y}px)`,
+              transition: {
+                duration: 0.7,
+                ease: 'circOut',
+              },
+            },
+            open: {
+              clipPath: `circle(240px at ${mobileNavPosition.x + 10}px ${
+                mobileNavPosition.y + 150
+              }px)`,
+              transition: {
+                duration: 0.7,
+                ease: 'circIn',
+              },
+            },
+          }}
+          initial={isOpen ? 'open' : 'closed'}
+          animate={isOpen ? 'open' : 'closed'}
+          className="absolute top-0 left-0 text-white -z-[1] bg-main-gradient w-screen h-screen "
+        >
+          <Container>
+            <ul className="flex gap-5 flex-col items-end h-full mt-24 text-xl">
+              {header.navItems?.map(navItem => (
+                <li key={navItem.title} className="uppercase">
+                  {/* <span onClick={() => setIsOpen(false)} className="relative"> */}
+                  <span className="relative">
+                    <RouteLink
+                      className={`font-semibold text-xl`}
+                      href={navItem.path}
+                      aria-label={navItem.title}
+                    >
+                      {navItem.title}
+                    </RouteLink>
+                  </span>
+                </li>
+              ))}
+              <Theme className="!flex !visible" theme={theme} setTheme={setTheme} />
+            </ul>
+          </Container>
         </m.div>
       </Container>
     </m.header>

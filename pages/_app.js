@@ -40,7 +40,9 @@ export default function App({ Component, pageProps, router }) {
         <AnimationContextProvider>
           <PortfolioContextProvider>
             <HeaderContextProvider>
-              <div className={`${monument.variable} ${raleway.variable} `}>
+              <div
+                className={`${monument.variable} ${raleway.variable} sm:overflow-auto overflow-hidden `}
+              >
                 <Nav />
                 <AnimatePresence>
                   <Component key={router._key} {...pageProps} />
