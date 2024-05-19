@@ -40,7 +40,7 @@ export default function App({ Component, pageProps, router }) {
         <AnimationContextProvider>
           <PortfolioContextProvider>
             <HeaderContextProvider>
-              <div className={`${monument.variable} ${raleway.variable}`}>
+              <div className={`${monument.variable} ${raleway.variable} `}>
                 <Nav />
                 <AnimatePresence>
                   <Component key={router._key} {...pageProps} />

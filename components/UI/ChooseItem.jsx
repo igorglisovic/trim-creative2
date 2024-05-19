@@ -31,7 +31,7 @@ const ChooseItem = ({ label, setState, value, items, radio = true }) => {
   const randomId = Math.random()
 
   return (
-    <div className="flex gap-2 choose-item">
+    <div className="flex flex-wrap gap-2 choose-item">
       <h2 className="dark:text-dark">{label}</h2>
       {items.map(item => (
         <div className="relative" key={item.value}>

@@ -113,7 +113,9 @@ const Main = ({ children, path }) => {
           updateAnimationStarted(false)
           updateBackgroundColor(false)
         }}
-        className={`${animationFinished ? '' : 'page-transition'} font-main pt-[95px] dark:bg-dark`}
+        className={`${
+          animationFinished ? '' : 'page-transition'
+        } font-main pt-[95px] dark:bg-dark overflow-x-hidden`}
       >
         {children}
       </m.main>

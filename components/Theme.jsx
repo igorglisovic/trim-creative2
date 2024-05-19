@@ -12,9 +12,7 @@ const Theme = ({ theme, setTheme }) => {
   const { fixedHeader } = useHeaderContext()
 
   useEffect(() => {
-    const sysTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light'
+    const sysTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 
     setSystemTheme(sysTheme)
     setUserTheme(localStorage.getItem('theme'))
@@ -23,10 +21,7 @@ const Theme = ({ theme, setTheme }) => {
   useEffect(() => {
     if (userTheme === null && systemTheme === null) return
 
-    if (
-      userTheme === 'dark' ||
-      (!userTheme && systemTheme && systemTheme === 'dark')
-    ) {
+    if (userTheme === 'dark' || (!userTheme && systemTheme && systemTheme === 'dark')) {
       setTheme('dark')
       document.documentElement.classList.remove('light')
       document.documentElement.classList.add('dark')
@@ -68,7 +63,7 @@ const Theme = ({ theme, setTheme }) => {
       }}
       initial={fixedHeader ? 'open' : 'closed'}
       animate={fixedHeader ? 'open' : 'closed'}
-      className="hidden invisible sm:visible sm:flex absolute right-0 position-center z-50 w-[72px] text-white bg-[#D9D9D9] p-1 rounded-full"
+      className="visible flex absolute sm:right-0 top-1/2 right-1/2 translate-x-1/2 sm:translate-x-0 -translate-y-1/2 z-50 w-[72px] text-white bg-[#D9D9D9] p-1 rounded-full"
       aria-label="Change Theme Button"
     >
       <div className="w-full h-7 relative">

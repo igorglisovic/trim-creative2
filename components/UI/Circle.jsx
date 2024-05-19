@@ -1,10 +1,5 @@
 import { useAnimationContext } from '@/store/animation-ctx'
-import {
-  useScroll,
-  useTransform,
-  motion as m,
-  useMotionValueEvent,
-} from 'framer-motion'
+import { useScroll, useTransform, motion as m, useMotionValueEvent } from 'framer-motion'
 import { useState } from 'react'
 
 const checkAndMakePositionStr = position => {
@@ -48,7 +43,7 @@ const Circle = ({ size, rotate, position, z: zIndex, className }) => {
         width,
         height,
       }}
-      className={`absolute bg-circle-gradient rounded-full ${className}`}
+      className={`absolute bg-circle-gradient rounded-full sm:block sm:visible hidden invisible ${className}`}
     />
   )
 }
