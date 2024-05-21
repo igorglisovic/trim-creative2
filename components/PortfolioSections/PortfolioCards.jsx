@@ -47,7 +47,7 @@ const PortfolioCards = () => {
 
   return (
     <Container>
-      <div className={`flex flex-wrap gap-x-5 gap-y-10 pb-12 font-secondary`}>
+      <div className={`grid sm:grid-cols-2 grid-cols-1 gap-x-5 gap-y-10 pb-12 font-secondary`}>
         {cards.map(card => (
           <PortfolioCard key={card.title} card={card} />
         ))}

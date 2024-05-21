@@ -16,7 +16,7 @@ const Kontakt = () => {
 
   return (
     <Main path="/contact">
-      <Container className="overflow-y-scroll">
+      <Container>
         <div className="pt-6">
           <H1
             variants={{

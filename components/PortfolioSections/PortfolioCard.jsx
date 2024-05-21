@@ -32,7 +32,7 @@ const PortfolioCard = ({ card, loading = false, setOtherCardsAnimFinished }) => 
         duration: 0.7,
         ease: 'easeOut',
       }}
-      className={`flex flex-col gap-2 flex-1 min-w-[45%]`}
+      className={`flex flex-col gap-2`}
       style={{ ...getRandomTransformOrigin }}
     >
       <RouteLink href={`/portfolio/${card?.slug}`}>
