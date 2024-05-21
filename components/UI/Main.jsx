@@ -93,7 +93,7 @@ const Main = ({ children, path }) => {
         transition={{
           // type: 'ease-out',
           // type: 'tween',
-          duration: 1.5,
+          duration: 1,
           ease: 'circOut',
           // ease: [0.1, 0.67, 0.83, 1.17],
           // mass: 0.5,

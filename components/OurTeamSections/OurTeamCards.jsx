@@ -13,7 +13,18 @@ const OurTeamCards = ({ content }) => {
     <section>
       <Container>
         <div className="relative">
-          <H1>{content.h1}</H1>
+          <H1
+            variants={{
+              closed: {
+                transform: `translateX(20px)`,
+              },
+              open: {
+                transform: 'translateX(0)',
+              },
+            }}
+          >
+            {content.h1}
+          </H1>
           <h2 className={`text-center sm:text-4xl text-3xl mb-12 dark:text-dark`}>{content.h2}</h2>
           <div className="flex flex-col w-full md:flex-row gap-5 min-h-[800px]">
             {content.cardsItems.map(item => (

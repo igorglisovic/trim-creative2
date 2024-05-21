@@ -11,7 +11,18 @@ const UslugeCards = ({ content }) => {
   return (
     <Container>
       <div className="pt-6 pb-20">
-        <H1>{content.h1}</H1>
+        <H1
+          variants={{
+            closed: {
+              transform: `translateX(-20px)`,
+            },
+            open: {
+              transform: 'translateX(0)',
+            },
+          }}
+        >
+          {content.h1}
+        </H1>
         <div className="flex flex-col gap-7 mt-12">
           {cards?.map((card, index) => (
             <UslugeCard

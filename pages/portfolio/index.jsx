@@ -33,7 +33,18 @@ const portfolio = () => {
   return (
     <Main path="/portfolio">
       <div className="pt-6 pb-10">
-        <H1>Portfolio</H1>
+        <H1
+          variants={{
+            closed: {
+              transform: `translateX(-20px)`,
+            },
+            open: {
+              transform: 'translateX(0)',
+            },
+          }}
+        >
+          Portfolio
+        </H1>
         <PortfolioFilters />
         <PortfolioCards />
       </div>

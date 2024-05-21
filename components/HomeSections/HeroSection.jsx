@@ -14,8 +14,20 @@ const HeroSection = ({ content }) => {
           <div className="w-full relative">
             <Circle size={200} rotate={176} position={[-60, -130, 0, 0]} z={20} />
 
-            <H1>
+            <H1
+              variants={{
+                closed: {
+                  transform: `translateX(-20px)`,
+                },
+                open: {
+                  transform: 'translateX(0)',
+                },
+              }}
+            >
               Odsecite vašu <br /> konkurenciju
+              {/* Odsecite <br />
+              vašu
+              <br /> konkurenciju */}
             </H1>
           </div>
           <div

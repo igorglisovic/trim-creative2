@@ -18,7 +18,18 @@ const Kontakt = () => {
     <Main path="/contact">
       <Container className="overflow-y-scroll">
         <div className="pt-6">
-          <H1>{contact.h1}</H1>
+          <H1
+            variants={{
+              closed: {
+                transform: `translateX(-20px)`,
+              },
+              open: {
+                transform: 'translateX(0)',
+              },
+            }}
+          >
+            {contact.h1}
+          </H1>
           <div className="flex flex-row gap-3 mt-8">
             <div className="flex flex-col gap-6 min-w-[50%]">
               <div>

@@ -68,7 +68,7 @@ const Nav = () => {
   return (
     <m.header
       className={`font-secondary ${animationFinished ? '' : 'move-header'} ${
-        fixedHeader ? 'pos-fixed z-[100] w-full !top-0' : ''
+        fixedHeader ? 'pos-fixed z-[100] w-full ' : ''
       }`}
       ref={ref}
       variants={headerVariants}
@@ -167,13 +167,13 @@ const Nav = () => {
           </nav>
           <Theme theme={theme} setTheme={setTheme} />
           {/* Mobile (Hamburger) Navigation */}
-          <div className="relative w-10 h-10">
+          <div className="relative w-10 h-10 sm:hidden sm:invisible visible flex">
             <m.button
               onClick={e => {
                 // setMobileNavPosition({ x: e.clientX, y: e.clientY })
                 setIsOpen(!isOpen)
               }}
-              className="sm:hidden sm:invisible visible flex button-two w-full h-full justify-center items-center stroke-black dark:stroke-dark absolute top-0 left-0 z-50"
+              className=" button-two w-full h-full justify-center items-center stroke-black dark:stroke-dark absolute top-0 left-0 z-50"
               aria-expanded="false"
               aria-label="hamburger"
             >
@@ -241,7 +241,7 @@ const Nav = () => {
           }}
           initial={isOpen ? 'open' : 'closed'}
           animate={isOpen ? 'open' : 'closed'}
-          className="absolute top-0 left-0 text-white -z-[1] bg-main-gradient w-screen h-screen "
+          className="absolute top-0 left-0 text-white z-10 bg-main-gradient w-screen h-screen "
         >
           <Container>
             <ul className="flex gap-5 flex-col items-end h-full mt-24 text-xl">
