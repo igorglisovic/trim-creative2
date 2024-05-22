@@ -124,17 +124,17 @@ p {
 }
 
 .choose-item > div {
-  @apply w-36;
+  @apply h-fit;
 }
 
 .choose-item > div > input {
-  @apply absolute opacity-0;
+  @apply opacity-0 hidden;
 }
 
 .choose-item > div > label {
-  @apply absolute w-full z-10 bg-white border-gray-300 border-2 text-center cursor-pointer rounded-md;
+  @apply min-w-full px-2 py-1 z-10 text-white border-gray-300 border-2 text-center cursor-pointer rounded-full;
 }
 
 .choose-item input:checked + label {
-  @apply bg-blue-600 bg-gray-200;
+  @apply bg-blue-600 bg-white text-black;
 }

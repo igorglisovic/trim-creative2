@@ -31,24 +31,26 @@ const ChooseItem = ({ label, setState, value, items, radio = true }) => {
   const randomId = Math.random()
 
   return (
-    <div className="flex flex-wrap gap-2 choose-item">
-      <h2 className="dark:text-dark">{label}</h2>
-      {items.map(item => (
-        <div className="relative" key={item.value}>
-          <input
-            onChange={e => handleChange(e)}
-            name={label}
-            id={item.value + randomId}
-            type="checkbox"
-            value={item.value}
-            checked={radio ? value === item.value : undefined}
-            defaultChecked={item.defaultChecked}
-          />
-          <label htmlFor={item.value + randomId} className="select-none text-black">
-            {item.label}
-          </label>
-        </div>
-      ))}
+    <div>
+      <h2 className="dark:text-dark text-center mb-2">{label}</h2>
+      <div className="grid grid-cols-2 gap-y-3 justify-items-center choose-item">
+        {items.map(item => (
+          <div className="relative" key={item.value}>
+            <input
+              onChange={e => handleChange(e)}
+              name={label}
+              id={item.value + randomId}
+              type="checkbox"
+              value={item.value}
+              checked={radio ? value === item.value : undefined}
+              defaultChecked={item.defaultChecked}
+            />
+            <label htmlFor={item.value + randomId} className="select-none text-black">
+              {item.label}
+            </label>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

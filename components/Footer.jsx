@@ -30,7 +30,7 @@ const Footer = () => {
           <Form footer={true} />
         </div>
         <div
-          className={`flex flex-col md:flex-row items-center justify-between gap-7 mt-4 md:mt-16`}
+          className={`flex flex-col md:flex-row items-center justify-between sm:gap-7 gap-5 mt-4 md:mt-16`}
         >
           <div className="w-[8rem]">
             <Image priority={true} alt="Trim Creative logo" className="max-w-full" src={Logo} />
