@@ -26,7 +26,7 @@ const OurTeamCards = ({ content }) => {
             {content.h1}
           </H1>
           <h2 className={`text-center sm:text-4xl text-3xl mb-12 dark:text-dark`}>{content.h2}</h2>
-          <div className="flex flex-col w-full md:flex-row gap-5 min-h-[800px]">
+          <div className="flex flex-col w-full lg:flex-row gap-5">
             {content.cardsItems.map(item => (
               <motion.div
                 whileHover={{
@@ -39,7 +39,8 @@ const OurTeamCards = ({ content }) => {
                 onHoverEnd={() => {
                   setIsHovered(null)
                 }}
-                className="md:w-[300px] flex-1 rounded-[37px] overflow-hidden relative"
+                className="lg:w-[300px] lg:min-h-[800px] min-h-[450px] flex-1 rounded-[37px] overflow-hidden relative"
+                key={item.name}
               >
                 <Image
                   className="absolute top-0 left-0 w-full h-full object-cover"
@@ -56,7 +57,10 @@ const OurTeamCards = ({ content }) => {
                   <h2 className="text-4xl text-center">{item.name}</h2>
                   <div className="flex gap-2 font-secondary">
                     {item.titles.map(title => (
-                      <div className="text-white font-normal bg-[#9B81BBCC] px-3 py-1 rounded-[13px]">
+                      <div
+                        key={title}
+                        className="text-white font-normal bg-[#9B81BBCC] px-3 py-1 rounded-[13px]"
+                      >
                         <span>{title}</span>
                       </div>
                     ))}

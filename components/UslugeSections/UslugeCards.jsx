@@ -10,7 +10,7 @@ const UslugeCards = ({ content }) => {
 
   return (
     <Container>
-      <div className="pt-6 pb-20">
+      <div className="pt-6">
         <H1
           variants={{
             closed: {

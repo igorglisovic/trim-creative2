@@ -67,7 +67,7 @@
     "portfolio": { "h2": "Portfolio" }
   },
   "services": {
-    "h1": "NASE USLUGE",
+    "h1": "Naše usluge",
     "cardsItems": [
       {
         "title": "Digitalni marketing",
@@ -98,7 +98,7 @@
   },
   "portfolio": "",
   "ourTeam": {
-    "h1": "NAS TIM",
+    "h1": "Naš tim",
     "cardsItems": [
       {
         "name": "Mihailo",

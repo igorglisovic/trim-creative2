@@ -37,7 +37,7 @@ const PortfolioCard = ({ card, loading = false, setOtherCardsAnimFinished }) => 
     >
       <RouteLink href={`/portfolio/${card?.slug}`}>
         <Image className="rounded-[37px]" alt={card?.title} src={card?.thumbnail} />
-        <h2 className="text-xl dark:text-dark">{card?.title}</h2>
+        <h2 className="text-xl dark:text-dark sm:text-left text-center">{card?.title}</h2>
       </RouteLink>
     </m.article>
   ) : (
@@ -61,7 +61,7 @@ const PortfolioCard = ({ card, loading = false, setOtherCardsAnimFinished }) => 
     >
       <div>
         <Image className="rounded-[37px]" alt={card?.title} src={card?.thumbnail} />
-        <h2 className="text-xl dark:text-dark">{card?.title}</h2>
+        <h2 className="text-xl dark:text-dark sm:text-left text-center">{card?.title}</h2>
       </div>
     </m.article>
   )

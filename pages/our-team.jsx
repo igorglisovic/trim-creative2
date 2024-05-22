@@ -17,10 +17,10 @@ const OurTeam = () => {
 
   return (
     <Main path="/our-team">
-      <div className="pt-6 pb-20">
+      <div className="pt-6">
         <OurTeamCards content={ourTeam} />
         <Container>
-          <p className="mt-5 font-secondary text-lg dark:text-dark">
+          <p className="mt-5 font-secondary dark:text-dark">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure

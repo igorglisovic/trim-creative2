@@ -32,7 +32,7 @@ const portfolio = () => {
 
   return (
     <Main path="/portfolio">
-      <div className="pt-6 pb-10">
+      <div className="pt-6">
         <H1
           variants={{
             closed: {

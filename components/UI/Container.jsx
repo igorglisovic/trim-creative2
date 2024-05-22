@@ -10,11 +10,11 @@ const Container = ({ children, className }) => {
 
   useEffect(() => {
     if (!containerWidth) {
-      updateContainerWidth(ref.current.getBoundingClientRect().width - 96)
+      updateContainerWidth(ref.current.getBoundingClientRect().width)
     }
 
     const calcWidth = () => {
-      updateContainerWidth(ref.current.getBoundingClientRect().width - 96)
+      updateContainerWidth(ref.current.getBoundingClientRect().width)
     }
 
     window.addEventListener('resize', calcWidth)
@@ -24,7 +24,7 @@ const Container = ({ children, className }) => {
   }, [animationFinished])
 
   return (
-    <div ref={ref} className={`max-w-[1700px] m-auto md:px-12 px-[1.2rem]`}>
+    <div ref={ref} className={`max-w-[1700px] m-auto md:px-12 px-[1.2rem] ${className}`}>
       {children}
     </div>
   )

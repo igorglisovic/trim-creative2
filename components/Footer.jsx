@@ -20,7 +20,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-footer-gradient pt-20 pb-14">
+    <footer className="bg-footer-gradient sm:pt-20 pt-14 pb-14 sm:mt-20 mt-12">
       <Container>
         <div className="flex flex-col gap-6 text-white items-center m-auto lg:max-w-[50%] md:max-w-[72%] max-w-full">
           <h2 className={`uppercase sm:text-5xl text-4xl text-center md:whitespace-nowrap`}>
@@ -40,7 +40,7 @@ const Footer = () => {
               {header?.navItems?.map(navItem => (
                 <li key={navItem.title} className="uppercase text-white">
                   <RouteLink
-                    className={`font-semibold sm:text-sm lg:text-base text-xs font-secondary`}
+                    className={`font-semibold sm:text-sm lg:text-base text-[0.8rem] font-secondary`}
                     href={navItem.path}
                     aria-label={navItem.title}
                   >

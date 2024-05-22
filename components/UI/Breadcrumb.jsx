@@ -20,7 +20,7 @@ const Breadcrumb = ({ items }) => {
 
   return (
     <Container>
-      <div className="py-3">
+      <div className="sm:py-3 py-1">
         <span className={`font-secondary text-sm dark:text-dark`}>
           {breadcrumbArr?.map((item, i) => {
             if (item.link) {

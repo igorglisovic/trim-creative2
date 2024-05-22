@@ -7,6 +7,12 @@ html {
   overflow-y: scroll;
 }
 
+/* TEXT */
+
+p {
+  @apply sm:text-lg text-base;
+}
+
 @media (max-width: 640px) {
   header {
     @apply !top-0;

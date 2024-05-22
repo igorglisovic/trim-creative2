@@ -22,34 +22,25 @@ const PortfolioFilters = () => {
 
   return (
     <Container>
-      <div className="pt-6 pb-12">
-        <div className={`flex gap-6 w-full font-secondary`}>
+      <div className="pt-6 sm:pb-12 pb-8">
+        <div
+          className={`grid lg:grid-cols-4 grid-cols-2 md:gap-x-6 md:gap-y-4 gap-x-3 gap-y-3 w-full font-secondary`}
+        >
           {initialFilters.map(filter => (
-            <Button
+            <button
               onClick={() => handleFilterChange(filter)}
-              className={`flex-1 !text-base ${
-                filter.id === currentFilter?.id ? '!font-extrabold' : '!font-medium'
+              className={`sm:text-base text-[15px] px-3 py-3 rounded-full dark:border-dark border-black border text-black dark:text-dark ${
+                filter.id === currentFilter?.id
+                  ? 'font-extrabold bg-main-gradient text-white'
+                  : 'font-medium'
               }`}
               key={filter.id}
               ariaLabel={filter.title}
             >
               {filter.title}
-            </Button>
+            </button>
           ))}
         </div>
-        {/* {currentFilter && (
-          <div className="font-secondary">
-            <button
-              onClick={() => {
-                updateCurrentFilter(null)
-              }}
-              aria-label="Clear filters"
-              className="dark:text-dark"
-            >
-              Clear filters
-            </button>
-          </div>
-        )} */}
       </div>
     </Container>
   )

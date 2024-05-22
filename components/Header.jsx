@@ -34,13 +34,15 @@ const Nav = () => {
 
   useEffect(() => {
     const handleScroll = e => {
+      const headerRect = ref.current.getBoundingClientRect()
+
       if (ref.current && !ref.current.classList.contains('pos-fixed')) {
-        const headerRect = ref.current.getBoundingClientRect()
-        if (headerRect.top <= -95) {
+        if (headerRect.top <= -headerRect.height) {
           updateFixedHeader(true)
         }
       }
-      if (ref.current.classList.contains('pos-fixed') && window.scrollY < 95) {
+      if (ref.current.classList.contains('pos-fixed') && window.scrollY < headerRect.height) {
+        console.log(-headerRect.height)
         updateFixedHeader(false)
       }
     }
@@ -76,8 +78,8 @@ const Nav = () => {
       animate={fixedHeader ? 'open' : 'closed'}
       transition={{
         type: 'spring',
-        stiffness: 200,
-        damping: 25,
+        stiffness: 100,
+        damping: 15,
       }}
     >
       <Container>
@@ -103,7 +105,7 @@ const Nav = () => {
           }}
           initial={fixedHeader ? 'open' : 'closed'}
           animate={fixedHeader ? 'open' : 'closed'}
-          className={`relative min-h-[95px] whitespace-nowrap flex justify-between items-center  ${
+          className={`relative sm:min-h-[95px] min-h-[80px] whitespace-nowrap flex justify-between items-center  ${
             fixedHeader
               ? 'bg-[#ffffffb5] dark:bg-[#231F20B2] dark:border-2 dark:border-[#373737]'
               : ''

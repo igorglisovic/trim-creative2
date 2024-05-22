@@ -25,9 +25,6 @@ const HeroSection = ({ content }) => {
               }}
             >
               Odsecite vašu <br /> konkurenciju
-              {/* Odsecite <br />
-              vašu
-              <br /> konkurenciju */}
             </H1>
           </div>
           <div

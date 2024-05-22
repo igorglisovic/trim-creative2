@@ -19,7 +19,9 @@ const UslugeCard = ({ card, cards, setCards, index }) => {
   return (
     <>
       {card.type ? (
-        <section className={`flex gap-7 font-secondary min-h-[320px]`}>
+        <section
+          className={`flex md:flex-row flex-col xl:gap-7 md:gap-5 gap-4 font-secondary min-h-[320px]`}
+        >
           <motion.div
             variants={cardVariants}
             initial={card.active ? 'open' : 'closed'}
@@ -60,7 +62,9 @@ const UslugeCard = ({ card, cards, setCards, index }) => {
           </motion.div>
         </section>
       ) : (
-        <section className={`flex flex-row-reverse gap-7 min-h-[320px] font-secondary`}>
+        <section
+          className={`flex md:flex-row-reverse flex-col-reverse xl:gap-7 md:gap-5 gap-4 min-h-[320px] font-secondary`}
+        >
           <motion.div
             variants={cardVariants}
             initial={card.active ? 'open' : 'closed'}
