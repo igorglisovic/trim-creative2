@@ -27,29 +27,15 @@ export const cardVariants = {
   closed: {
     opacity: 0,
     visibility: 'hidden',
-    height: 0,
     y: 20,
+    height: 0,
     margin: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 300,
-      damping: 30,
-    },
-    transitionEnd: {
-      display: 'none',
-    },
   },
   open: {
     opacity: 1,
     visibility: 'visible',
     y: 0,
     height: 'fit-content',
-    display: 'flex',
-    transition: {
-      type: 'spring',
-      stiffness: 300,
-      damping: 30,
-    },
   },
 }
 

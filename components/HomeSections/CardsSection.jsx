@@ -74,9 +74,14 @@ const CardsSection = ({ content }) => {
                     </button>
                     <motion.div
                       variants={cardVariants}
-                      initial={cards[i].active ? 'open' : 'closed'}
+                      initial={'closed'}
                       animate={cards[i].active ? 'open' : 'closed'}
-                      className="flex-col"
+                      transition={{
+                        type: 'spring',
+                        stiffness: 200,
+                        damping: 30,
+                      }}
+                      className="flex flex-col"
                     >
                       <p className="font-normal text-sm">{card.description}</p>
                       <Button
