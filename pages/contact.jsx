@@ -17,7 +17,7 @@ const Kontakt = () => {
   return (
     <Main path="/contact">
       <Container>
-        <div className="pt-6">
+        <div className="pt-6 sm:pb-20 pb-12">
           <H1
             variants={{
               closed: {
@@ -30,8 +30,8 @@ const Kontakt = () => {
           >
             {contact.h1}
           </H1>
-          <div className="flex flex-row gap-3 mt-8">
-            <div className="flex flex-col gap-6 min-w-[50%]">
+          <div className="flex lg:flex-row flex-col gap-6 mt-8">
+            <div className="flex flex-col gap-6 lg:flex-1">
               <div>
                 <h2
                   className={`uppercase sm:text-5xl text-4xl text-center md:whitespace-nowrap dark:text-dark`}
@@ -42,7 +42,7 @@ const Kontakt = () => {
               </div>
               <Form className="dark:text-dark !text-black" />
             </div>
-            <div className="flex min-w-[45%] rounded-[37px] overflow-hidden relative">
+            <div className="flex lg:min-h-fit min-h-[500px] lg:flex-1 rounded-[37px] overflow-hidden relative">
               <Image
                 className="absolute top-0 left-0 w-full h-full object-cover"
                 src="https://res.cloudinary.com/dgpxbcu8p/image/upload/v1715457916/2_ypjfaq.png"

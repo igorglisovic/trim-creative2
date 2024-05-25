@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const PortfolioGalleryLeft = ({ images }) => {
   return (
-    <div className="w-full flex gap-6">
+    <div className="w-full flex sm:gap-6 gap-4">
       <div className="flex flex-1 relative pb-[36.55%] min-h-[180px] overflow-hidden w-full shadow-md sm:rounded-[38px] rounded-2xl">
         <Image
           src={images[0]}

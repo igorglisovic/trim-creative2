@@ -18,7 +18,7 @@ const PortfolioGallerySection = ({ project }) => {
 
   return (
     <Container>
-      <section className="flex flex-col sm:pt-12 pt-7 gap-6">
+      <section className="flex flex-col sm:pt-12 pt-7 sm:gap-6 gap-4">
         <div className="flex relative pb-[40.55%] min-h-[180px] overflow-hidden w-full shadow-md sm:rounded-[38px] rounded-2xl">
           {project?.images[0] && (
             <Image

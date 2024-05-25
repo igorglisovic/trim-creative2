@@ -31,6 +31,27 @@ const Nav = () => {
   const { header } = content
 
   const hamburgerIconRef = useRef()
+  const hamburgerRef = useRef()
+
+  const [mediaMatches, setMediaMatches] = useState(false)
+  const [media, setMedia] = useState(false)
+
+  useEffect(() => {
+    setMedia(window.matchMedia('(max-width: 640px)'))
+  }, [])
+
+  const getMediaMatches = () => {
+    if (media.matches) {
+      setMediaMatches(true)
+    } else {
+      setMediaMatches(false)
+    }
+  }
+
+  useEffect(() => {
+    getMediaMatches()
+    window.addEventListener('resize', getMediaMatches)
+  }, [media])
 
   useEffect(() => {
     const handleScroll = e => {
@@ -55,6 +76,27 @@ const Nav = () => {
   }, [ref])
 
   useEffect(() => {
+    const handleDocumentClick = event => {
+      console.log(hamburgerIconRef.current, event.target)
+
+      if (
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(event.target) &&
+        hamburgerIconRef.current &&
+        !hamburgerIconRef.current.contains(event.target)
+      ) {
+        setIsOpen(false)
+      }
+    }
+
+    document.addEventListener('click', handleDocumentClick)
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick)
+    }
+  }, [])
+
+  useEffect(() => {
     setMobileNavPosition({
       x: hamburgerIconRef.current.getBoundingClientRect().x + 20,
       y: hamburgerIconRef.current.getBoundingClientRect().y + 20,
@@ -71,6 +113,10 @@ const Nav = () => {
     <m.header
       className={`font-secondary ${animationFinished ? '' : 'move-header'} ${
         fixedHeader ? 'pos-fixed z-[100] w-full ' : ''
+      } ${
+        fixedHeader && mediaMatches
+          ? '!bg-[#ffffffb5] dark:!bg-[#231F20B2] dark:border-2 dark:border-[#373737]'
+          : ''
       }`}
       ref={ref}
       variants={headerVariants}
@@ -103,10 +149,10 @@ const Nav = () => {
               },
             },
           }}
-          initial={fixedHeader ? 'open' : 'closed'}
-          animate={fixedHeader ? 'open' : 'closed'}
-          className={`relative sm:min-h-[95px] min-h-[80px] whitespace-nowrap flex justify-between items-center  ${
-            fixedHeader
+          initial={!mediaMatches && fixedHeader ? 'open' : 'closed'}
+          animate={!mediaMatches && fixedHeader ? 'open' : 'closed'}
+          className={`relative sm:min-h-[95px] min-h-[80px] whitespace-nowrap flex justify-between items-center ${
+            fixedHeader && !mediaMatches
               ? 'bg-[#ffffffb5] dark:bg-[#231F20B2] dark:border-2 dark:border-[#373737]'
               : ''
           }`}
@@ -115,6 +161,7 @@ const Nav = () => {
             variants={{
               closed: {
                 marginLeft: '0',
+                transform: mediaMatches ? 'translateY(-20px)' : 'translateY(0px)',
                 transition: {
                   type: 'spring',
                   stiffness: 300,
@@ -122,7 +169,8 @@ const Nav = () => {
                 },
               },
               open: {
-                marginLeft: '40px',
+                marginLeft: mediaMatches ? '0' : '40px',
+                transform: 'translateY(0px)',
                 transition: {
                   type: 'spring',
                   stiffness: 300,
@@ -132,6 +180,11 @@ const Nav = () => {
             }}
             initial={fixedHeader ? 'open' : 'closed'}
             animate={fixedHeader ? 'open' : 'closed'}
+            // transition={{
+            //   type: 'spring',
+            //   stiffness: 300,
+            //   damping: 30,
+            // }}
             className="md:w-[8rem] w-[6.3rem]"
           >
             <RouteLink href="/">
@@ -171,8 +224,22 @@ const Nav = () => {
           {/* Mobile (Hamburger) Navigation */}
           <div className="relative w-10 h-10 sm:hidden sm:invisible visible flex">
             <m.button
+              variants={{
+                closed: {
+                  transform: 'translateY(-20px)',
+                },
+                open: {
+                  transform: 'translateY(0px)',
+                },
+              }}
+              initial={fixedHeader ? 'open' : 'closed'}
+              animate={fixedHeader ? 'open' : 'closed'}
+              transition={{
+                type: 'spring',
+                stiffness: 300,
+                damping: 30,
+              }}
               onClick={e => {
-                // setMobileNavPosition({ x: e.clientX, y: e.clientY })
                 setIsOpen(!isOpen)
               }}
               className=" button-two w-full h-full justify-center items-center stroke-black dark:stroke-dark absolute top-0 left-0 z-50"
@@ -223,6 +290,7 @@ const Nav = () => {
           </div>
         </m.div>
         <m.div
+          ref={hamburgerRef}
           variants={{
             closed: {
               clipPath: `circle(0px at ${mobileNavPosition.x}px ${mobileNavPosition.y}px)`,
@@ -261,7 +329,12 @@ const Nav = () => {
                   </span>
                 </li>
               ))}
-              <Theme className="!flex !visible" theme={theme} setTheme={setTheme} />
+              <Theme
+                className="!flex !visible"
+                theme={theme}
+                setTheme={setTheme}
+                animation={false}
+              />
             </ul>
           </Container>
         </m.div>

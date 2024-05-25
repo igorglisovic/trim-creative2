@@ -20,7 +20,7 @@ const UslugeCard = ({ card, cards, setCards, index }) => {
     <>
       {card.type ? (
         <section
-          className={`flex md:flex-row flex-col xl:gap-7 md:gap-5 gap-4 font-secondary min-h-[320px]`}
+          className={`flex md:flex-row flex-col xl:gap-7 md:gap-5 gap-4 font-secondary md:min-h-[320px] min-h-[350px]`}
         >
           <motion.div
             variants={cardVariants}
@@ -28,7 +28,7 @@ const UslugeCard = ({ card, cards, setCards, index }) => {
             animate={card.active ? 'open' : 'closed'}
             className="flex-1 flex flex-col bg-main-gradient rounded-[37px] p-8 text-white"
           >
-            <h2 className="text-4xl font-bold mb-4 w-[50%] uppercase">{card.title}</h2>
+            <h2 className="text-4xl font-bold font-main mb-4 w-[50%] uppercase">{card.title}</h2>
             <p className="mb-5 three-line-ellipsis">{card.description}</p>
             <button
               className="px-[0.9em] border-0 float-right flex rounded-full bg-arrow self-end mt-auto"
@@ -63,7 +63,7 @@ const UslugeCard = ({ card, cards, setCards, index }) => {
         </section>
       ) : (
         <section
-          className={`flex md:flex-row-reverse flex-col-reverse xl:gap-7 md:gap-5 gap-4 min-h-[320px] font-secondary`}
+          className={`flex md:flex-row-reverse flex-col xl:gap-7 md:gap-5 gap-4 md:min-h-[320px] min-h-[350px] font-secondary`}
         >
           <motion.div
             variants={cardVariants}
@@ -72,7 +72,7 @@ const UslugeCard = ({ card, cards, setCards, index }) => {
             className="flex-1 flex flex-col items-end bg-main-gradient rounded-[37px] p-8 text-white"
           >
             <div className="text-right">
-              <h2 className="text-4xl font-bold mb-4 w-[90%] float-right uppercase">
+              <h2 className="text-4xl font-main font-bold mb-4 w-[90%] float-right uppercase">
                 {card.title}
               </h2>
             </div>

@@ -55,6 +55,14 @@ p {
   line-height: 1.7;
 }
 
+@media (max-width: 768px) {
+  .three-line-ellipsis {
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+    line-height: 1.5;
+  }
+}
+
 .button-two .line {
   animation: to-open-icon 1s forwards;
 }

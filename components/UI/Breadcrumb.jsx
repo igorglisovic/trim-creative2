@@ -20,8 +20,8 @@ const Breadcrumb = ({ items }) => {
 
   return (
     <Container>
-      <div className="sm:py-3 py-1">
-        <span className={`font-secondary text-sm dark:text-dark`}>
+      <div className="sm:py-3 py-2">
+        <span className={`font-secondary text-sm dark:text-dark font-medium`}>
           {breadcrumbArr?.map((item, i) => {
             if (item.link) {
               return (
@@ -31,7 +31,7 @@ const Breadcrumb = ({ items }) => {
               )
             } else {
               return (
-                <span className="capitalize" key={i}>
+                <span className="capitalize font-medium" key={i}>
                   {item.title}{' '}
                 </span>
               )

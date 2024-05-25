@@ -174,8 +174,8 @@ const Form = ({ className, footer }) => {
                 style={{ backgroundImage: 'none', color: 'black' }}
                 className={
                   footer
-                    ? '!bg-white !text-black self-end mt-5'
-                    : '!bg-main-gradient !text-white self-start mt-5'
+                    ? '!bg-white !text-black self-center mt-5'
+                    : '!bg-main-gradient !text-white mt-5'
                 }
                 disabled={submitting}
                 ariaLabel="Pošalji email"
