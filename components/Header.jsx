@@ -63,7 +63,6 @@ const Nav = () => {
         }
       }
       if (ref.current.classList.contains('pos-fixed') && window.scrollY < headerRect.height) {
-        console.log(-headerRect.height)
         updateFixedHeader(false)
       }
     }
@@ -77,8 +76,6 @@ const Nav = () => {
 
   useEffect(() => {
     const handleDocumentClick = event => {
-      console.log(hamburgerIconRef.current, event.target)
-
       if (
         hamburgerRef.current &&
         !hamburgerRef.current.contains(event.target) &&
@@ -101,12 +98,9 @@ const Nav = () => {
       x: hamburgerIconRef.current.getBoundingClientRect().x + 20,
       y: hamburgerIconRef.current.getBoundingClientRect().y + 20,
     })
-    console.log(hamburgerIconRef.current.getBoundingClientRect().x)
   }, [hamburgerIconRef])
 
   // useEffect(() => {
-  //   console.log(mobileNavPosition)
-  //   console.log(hamburgerIconRef.current.getBoundingClientRect().x)
   // }, [mobileNavPosition])
 
   return (
@@ -155,7 +149,7 @@ const Nav = () => {
             fixedHeader && !mediaMatches
               ? 'bg-[#ffffffb5] dark:bg-[#231F20B2] dark:border-2 dark:border-[#373737]'
               : ''
-          }`}
+          } `}
         >
           <m.div
             variants={{
@@ -185,7 +179,7 @@ const Nav = () => {
             //   stiffness: 300,
             //   damping: 30,
             // }}
-            className="md:w-[8rem] w-[6.3rem]"
+            className={`md:w-[8rem] w-[6.3rem] ${!fixedHeader && '!translate-y-0'}`}
           >
             <RouteLink href="/">
               <Image
@@ -242,7 +236,9 @@ const Nav = () => {
               onClick={e => {
                 setIsOpen(!isOpen)
               }}
-              className=" button-two w-full h-full justify-center items-center stroke-black dark:stroke-dark absolute top-0 left-0 z-50"
+              className={`button-two w-full h-full justify-center items-center stroke-black dark:stroke-dark absolute top-0 left-0 z-50  ${
+                !fixedHeader && '!translate-y-0'
+              }`}
               aria-expanded="false"
               aria-label="hamburger"
             >
@@ -314,7 +310,7 @@ const Nav = () => {
           className="absolute top-0 left-0 text-white z-10 bg-main-gradient w-screen h-screen "
         >
           <Container>
-            <ul className="flex gap-5 flex-col items-end h-full mt-24 text-xl">
+            <ul className="flex gap-5 flex-col items-end h-full mt-[88px] text-xl">
               {header.navItems?.map(navItem => (
                 <li key={navItem.title} className="uppercase">
                   {/* <span onClick={() => setIsOpen(false)} className="relative"> */}

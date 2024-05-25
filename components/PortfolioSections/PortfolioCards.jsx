@@ -19,7 +19,6 @@ const PortfolioCards = () => {
   const { currentFilter } = usePortfolioContext()
 
   useEffect(() => {
-    console.log(prevFilter, currentFilter)
     setPrevFilter(currentFilter)
     if (!currentFilter) {
       setOtherCards([])

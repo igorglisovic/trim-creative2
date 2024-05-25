@@ -14,8 +14,6 @@ const page = () => {
 
   const { hero, cards, portfolio } = content.home
 
-  console.log(hero, cards, portfolio, content)
-
   return (
     <Main path="/">
       <HeroSection content={hero} />

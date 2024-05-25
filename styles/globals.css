@@ -58,7 +58,7 @@ p {
 @media (max-width: 768px) {
   .three-line-ellipsis {
     -webkit-line-clamp: 2; /* number of lines to show */
-    line-clamp: 2;
+    line-clamp: 3;
     line-height: 1.5;
   }
 }

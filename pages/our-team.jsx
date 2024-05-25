@@ -13,8 +13,6 @@ const OurTeam = () => {
 
   const { ourTeam } = content
 
-  console.log(content)
-
   return (
     <Main path="/our-team">
       <div className="pt-6">

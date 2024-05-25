@@ -6,8 +6,6 @@ import H1 from '../UI/H1'
 const UslugeCards = ({ content }) => {
   const [cards, setCards] = useState(content.cardsItems)
 
-  console.log(content)
-
   return (
     <Container>
       <div className="pt-6">

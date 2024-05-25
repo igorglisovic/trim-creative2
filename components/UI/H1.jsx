@@ -7,11 +7,6 @@ const H1 = ({ children, variants }) => {
   const { containerWidth } = useContainerContext()
   const { animationFinished } = useAnimationContext()
 
-  useEffect(() => {
-    // if()
-    console.log(containerWidth)
-  }, [containerWidth])
-
   return (
     <m.h1
       variants={variants}

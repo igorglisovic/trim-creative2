@@ -71,3 +71,22 @@ export const uslugeCardVariants = {
     },
   },
 }
+
+export const uslugeCardVariantsMobile = {
+  closed: {
+    flexGrow: 0.5,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+      damping: 60,
+    },
+  },
+  open: {
+    flexGrow: 2.5,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+      damping: 30,
+    },
+  },
+}
